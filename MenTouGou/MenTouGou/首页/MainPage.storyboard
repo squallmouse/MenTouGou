@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9t5-uA-lWB">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="VCc-ie-A44">
+            <objects>
+                <navigationController id="9t5-uA-lWB" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AnD-ey-zY1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="wCa-RQ-I2f" kind="relationship" relationship="rootViewController" id="36k-DC-jWX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bno-nP-J1j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1325" y="569"/>
+        </scene>
+        <!--Main PageVC-->
+        <scene sceneID="COW-ON-I8R">
+            <objects>
+                <viewController storyboardIdentifier="MainPageSBID" id="wCa-RQ-I2f" customClass="MainPageVC" customModule="MenTouGou" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vjV-2n-DaF"/>
+                        <viewControllerLayoutGuide type="bottom" id="i2y-Lu-uct"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2VH-Hx-KQ8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIU-95-2uw">
+                                <rect key="frame" x="0.0" y="64" width="375" height="140"/>
+                                <color key="backgroundColor" red="0.19125205592105263" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="p1N-CR-4hC"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="wJX-Rt-29K">
+                                <rect key="frame" x="10" y="204" width="355" height="463"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.98039215686274506" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="wJX-Rt-29K" firstAttribute="top" secondItem="hIU-95-2uw" secondAttribute="bottom" id="6TO-RE-NeK"/>
+                            <constraint firstItem="hIU-95-2uw" firstAttribute="leading" secondItem="2VH-Hx-KQ8" secondAttribute="leading" id="DJj-d6-UUB"/>
+                            <constraint firstAttribute="trailing" secondItem="hIU-95-2uw" secondAttribute="trailing" id="EVe-Uz-NGV"/>
+                            <constraint firstItem="wJX-Rt-29K" firstAttribute="leading" secondItem="2VH-Hx-KQ8" secondAttribute="leading" constant="10" id="HnN-RJ-ard"/>
+                            <constraint firstItem="i2y-Lu-uct" firstAttribute="top" secondItem="wJX-Rt-29K" secondAttribute="bottom" id="JaE-JK-XaV"/>
+                            <constraint firstItem="hIU-95-2uw" firstAttribute="top" secondItem="vjV-2n-DaF" secondAttribute="bottom" id="Td8-3D-ZMX"/>
+                            <constraint firstAttribute="trailing" secondItem="wJX-Rt-29K" secondAttribute="trailing" constant="10" id="gdR-j8-Qpa"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gbb-CO-sZV"/>
+                    <connections>
+                        <outlet property="carSc" destination="hIU-95-2uw" id="Q9R-MY-uGF"/>
+                        <outlet property="mtableView" destination="wJX-Rt-29K" id="ffR-ii-krg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9rZ-5i-Rz6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-721.5" y="568.5"/>
+        </scene>
+    </scenes>
+</document>
