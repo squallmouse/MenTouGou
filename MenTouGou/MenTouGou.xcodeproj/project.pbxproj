@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		6B24F89A3F52C64FB6FC26DE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DEC2ACAD63D7791DDA20509 /* libPods.a */; };
+		EF153B121CB5015200670498 /* MyHeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF153B101CB5015200670498 /* MyHeadCell.swift */; };
+		EF153B131CB5015200670498 /* MyHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF153B111CB5015200670498 /* MyHeadCell.xib */; };
+		EF153B1A1CB5039500670498 /* MyOtherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF153B181CB5039500670498 /* MyOtherCell.swift */; };
+		EF153B1B1CB5039500670498 /* MyOtherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF153B191CB5039500670498 /* MyOtherCell.xib */; };
+		EF153B1D1CB5180B00670498 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF153B1C1CB5180B00670498 /* SettingVC.swift */; };
+		EF153B1F1CB5210400670498 /* SignatureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF153B1E1CB5210400670498 /* SignatureVC.swift */; };
+		EF153B211CB5212100670498 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF153B201CB5212100670498 /* ResetPasswordVC.swift */; };
 		EFC349C21CB4AAFC001FD0B4 /* HeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC349C01CB4AAFC001FD0B4 /* HeadCell.swift */; };
 		EFC349C31CB4AAFC001FD0B4 /* HeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFC349C11CB4AAFC001FD0B4 /* HeadCell.xib */; };
 		EFC349C61CB4B1CE001FD0B4 /* FullImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC349C41CB4B1CE001FD0B4 /* FullImageCell.swift */; };
@@ -56,6 +63,13 @@
 		9DEC2ACAD63D7791DDA20509 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDDBB6B4D935FCEEED713D50 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E6EE6E813722E612DE1814A4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		EF153B101CB5015200670498 /* MyHeadCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHeadCell.swift; sourceTree = "<group>"; };
+		EF153B111CB5015200670498 /* MyHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyHeadCell.xib; sourceTree = "<group>"; };
+		EF153B181CB5039500670498 /* MyOtherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyOtherCell.swift; sourceTree = "<group>"; };
+		EF153B191CB5039500670498 /* MyOtherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOtherCell.xib; sourceTree = "<group>"; };
+		EF153B1C1CB5180B00670498 /* SettingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		EF153B1E1CB5210400670498 /* SignatureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignatureVC.swift; sourceTree = "<group>"; };
+		EF153B201CB5212100670498 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		EFC349C01CB4AAFC001FD0B4 /* HeadCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadCell.swift; sourceTree = "<group>"; };
 		EFC349C11CB4AAFC001FD0B4 /* HeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeadCell.xib; sourceTree = "<group>"; };
 		EFC349C41CB4B1CE001FD0B4 /* FullImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullImageCell.swift; sourceTree = "<group>"; };
@@ -132,6 +146,44 @@
 				E6EE6E813722E612DE1814A4 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		EF153B0C1CB4F22800670498 /* content */ = {
+			isa = PBXGroup;
+			children = (
+				EF153B0D1CB4F22800670498 /* controller */,
+				EF153B0E1CB4F22800670498 /* modle */,
+				EF153B0F1CB4F22800670498 /* view */,
+			);
+			path = content;
+			sourceTree = "<group>";
+		};
+		EF153B0D1CB4F22800670498 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				EF153B1C1CB5180B00670498 /* SettingVC.swift */,
+				EF153B1E1CB5210400670498 /* SignatureVC.swift */,
+				EF153B201CB5212100670498 /* ResetPasswordVC.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		EF153B0E1CB4F22800670498 /* modle */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = modle;
+			sourceTree = "<group>";
+		};
+		EF153B0F1CB4F22800670498 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				EF153B101CB5015200670498 /* MyHeadCell.swift */,
+				EF153B111CB5015200670498 /* MyHeadCell.xib */,
+				EF153B181CB5039500670498 /* MyOtherCell.swift */,
+				EF153B191CB5039500670498 /* MyOtherCell.xib */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		EFC349BC1CB4AA9B001FD0B4 /* content */ = {
@@ -252,6 +304,7 @@
 		EFF5DE1A1CB396BD00EAA108 /* 我 */ = {
 			isa = PBXGroup;
 			children = (
+				EF153B0C1CB4F22800670498 /* content */,
 				EFF5DE1B1CB396BD00EAA108 /* MyHomePage.storyboard */,
 				EFF5DE361CB3B31A00EAA108 /* MyHomePageVC.swift */,
 			);
@@ -413,6 +466,7 @@
 				EFF5DE251CB396BD00EAA108 /* Infomation.storyboard in Resources */,
 				EFF5DDE71CB35AC300EAA108 /* LaunchScreen.storyboard in Resources */,
 				EFF5DDE41CB35AC300EAA108 /* Assets.xcassets in Resources */,
+				EF153B1B1CB5039500670498 /* MyOtherCell.xib in Resources */,
 				EFF5DE221CB396BD00EAA108 /* MainPage.storyboard in Resources */,
 				EFF5DE211CB396BD00EAA108 /* Product.storyboard in Resources */,
 				EFF5DE231CB396BD00EAA108 /* MyHomePage.storyboard in Resources */,
@@ -421,6 +475,7 @@
 				EFF5DE241CB396BD00EAA108 /* Around.storyboard in Resources */,
 				EFF5DDE21CB35AC300EAA108 /* Main.storyboard in Resources */,
 				EFC349C71CB4B1CE001FD0B4 /* FullImageCell.xib in Resources */,
+				EF153B131CB5015200670498 /* MyHeadCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,10 +555,15 @@
 				EFF5DE371CB3B31A00EAA108 /* MyHomePageVC.swift in Sources */,
 				EFF5DE151CB35D5200EAA108 /* YHTabBarVC.swift in Sources */,
 				EFF5DE421CB3B8EB00EAA108 /* Utils.swift in Sources */,
+				EF153B1F1CB5210400670498 /* SignatureVC.swift in Sources */,
+				EF153B1D1CB5180B00670498 /* SettingVC.swift in Sources */,
+				EF153B211CB5212100670498 /* ResetPasswordVC.swift in Sources */,
 				EFF5DE2F1CB3B25700EAA108 /* MainPageVC.swift in Sources */,
+				EF153B121CB5015200670498 /* MyHeadCell.swift in Sources */,
 				EFF5DE351CB3B30A00EAA108 /* AroundVC.swift in Sources */,
 				EFF5DDDD1CB35AC300EAA108 /* AppDelegate.swift in Sources */,
 				EFF5DE311CB3B2ED00EAA108 /* InfomationVC.swift in Sources */,
+				EF153B1A1CB5039500670498 /* MyOtherCell.swift in Sources */,
 				EFC349C21CB4AAFC001FD0B4 /* HeadCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

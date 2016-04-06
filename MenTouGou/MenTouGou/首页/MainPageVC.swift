@@ -11,12 +11,15 @@ import UIKit
 class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
 
     
+  
+    
     @IBOutlet weak var carSc: UIView!
     
     @IBOutlet weak var mtableView: UITableView!
     
     var carVC:NewCarouselVC!;
     
+//    MARK:- ----------------------
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "首页";
@@ -45,20 +48,29 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.section == 0) {
-            var cell = tableView .dequeueReusableCellWithIdentifier("HeadCellIden");
+            var cell:HeadCell? = tableView.dequeueReusableCellWithIdentifier("HeadCellIden")as? HeadCell;
             if (cell == nil) {
                 let tempArr = NSBundle.mainBundle().loadNibNamed("HeadCell", owner: self, options: nil) as NSArray;
-                cell = tempArr.lastObject as! HeadCell;
+                cell = tempArr.lastObject as? HeadCell;
                
             }
                 return cell!;
         }else{
-            var cell = tableView.dequeueReusableCellWithIdentifier("FullImageCellIden");
-            if (cell == nil) {
+            
+            var  cell:FullImageCell? = (tableView.dequeueReusableCellWithIdentifier("FullImageCellIden") as? FullImageCell);
+            if cell == nil {
                 let tempArr = NSBundle.mainBundle().loadNibNamed("FullImageCell", owner: self, options: nil) as NSArray;
-                cell = tempArr.lastObject as! FullImageCell;
+                cell = (tempArr.lastObject as! FullImageCell);
             }
+            cell?.setCell(imgUrl: "11");
             return cell!;
+            
+//            var cell = tableView.dequeueReusableCellWithIdentifier("FullImageCellIden");
+//            if (cell == nil) {
+//                let tempArr = NSBundle.mainBundle().loadNibNamed("FullImageCell", owner: self, options: nil) as NSArray;
+//                cell = tempArr.lastObject as! FullImageCell;
+//            }
+//            return cell!;
         }
 //        return nil;
     }

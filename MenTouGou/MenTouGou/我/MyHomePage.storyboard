@@ -15,14 +15,14 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="cEY-3o-WwV" kind="relationship" relationship="rootViewController" id="JiN-Cy-lGL"/>
+                        <segue destination="cEY-3o-WwV" kind="relationship" relationship="rootViewController" id="NJP-cY-djw"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vlm-22-9j7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-805" y="-871"/>
+            <point key="canvasLocation" x="-1039.5" y="-887.5"/>
         </scene>
-        <!--My Home PageVC-->
+        <!--个人中心-->
         <scene sceneID="szK-Vt-ZoW">
             <objects>
                 <viewController storyboardIdentifier="MyHomePageSBID" id="cEY-3o-WwV" customClass="MyHomePageVC" customModule="MenTouGou" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,13 +33,128 @@
                     <view key="view" contentMode="scaleToFill" id="GjQ-Yt-sSY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xa2-7M-8tj">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xa2-7M-8tj" firstAttribute="top" secondItem="JsS-i4-bx5" secondAttribute="bottom" id="PJL-jp-gdr"/>
+                            <constraint firstItem="6wZ-Y0-572" firstAttribute="top" secondItem="xa2-7M-8tj" secondAttribute="bottom" id="YQu-c5-Has"/>
+                            <constraint firstAttribute="trailing" secondItem="xa2-7M-8tj" secondAttribute="trailing" id="ZR9-iA-wd3"/>
+                            <constraint firstItem="xa2-7M-8tj" firstAttribute="leading" secondItem="GjQ-Yt-sSY" secondAttribute="leading" id="wdF-Y2-QLo"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="cwJ-9y-kfr"/>
+                    <navigationItem key="navigationItem" title="个人中心" id="cwJ-9y-kfr">
+                        <barButtonItem key="rightBarButtonItem" image="ic_settings" style="plain" id="fFD-vR-s7G">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="settingBtnClickDown:" destination="cEY-3o-WwV" id="mra-Kd-qxM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mtableView" destination="xa2-7M-8tj" id="FR1-jc-6Zl"/>
+                        <segue destination="dTB-LY-MTc" kind="push" identifier="GoToSettingVC" id="fmJ-47-bnC"/>
+                        <segue destination="JnE-IV-ecT" kind="push" identifier="GoToSignatureVC" id="T8h-gQ-EhC"/>
+                        <segue destination="tPW-v2-e8R" kind="push" identifier="GoToResetPasswordVC" id="1nU-02-OLs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d7k-yc-GWH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="61" y="-884"/>
+            <point key="canvasLocation" x="-495.5" y="-887.5"/>
+        </scene>
+        <!--修改密码-->
+        <scene sceneID="dEI-AM-ljp">
+            <objects>
+                <viewController id="tPW-v2-e8R" customClass="ResetPasswordVC" customModule="MenTouGou" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oTi-9U-1Mu"/>
+                        <viewControllerLayoutGuide type="bottom" id="ljm-7k-AAX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0KQ-Nr-vsy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="修改密码" id="IX5-Eg-3Sh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ipO-Iw-Yyi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-305.5" y="-12.5"/>
+        </scene>
+        <!--个性签名-->
+        <scene sceneID="tLh-iG-EBI">
+            <objects>
+                <viewController id="JnE-IV-ecT" customClass="SignatureVC" customModule="MenTouGou" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rYG-gf-qGD"/>
+                        <viewControllerLayoutGuide type="bottom" id="InK-JB-Vcc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Tfo-K5-Qf8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zbR-WZ-D6h">
+                                <rect key="frame" x="20" y="124" width="335" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="rWB-DE-7b7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="92j-3x-Z34">
+                                <rect key="frame" x="20" y="204" width="335" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Ixs-MP-c4E"/>
+                                </constraints>
+                                <state key="normal" title="确定">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="92j-3x-Z34" firstAttribute="leading" secondItem="Tfo-K5-Qf8" secondAttribute="leading" constant="20" id="27h-YV-Z4V"/>
+                            <constraint firstItem="zbR-WZ-D6h" firstAttribute="leading" secondItem="Tfo-K5-Qf8" secondAttribute="leading" constant="20" id="89d-cF-9WA"/>
+                            <constraint firstItem="zbR-WZ-D6h" firstAttribute="top" secondItem="rYG-gf-qGD" secondAttribute="bottom" constant="60" id="jj4-Lj-6Z0"/>
+                            <constraint firstItem="92j-3x-Z34" firstAttribute="top" secondItem="zbR-WZ-D6h" secondAttribute="bottom" constant="50" id="jnr-9S-SQx"/>
+                            <constraint firstAttribute="trailing" secondItem="92j-3x-Z34" secondAttribute="trailing" constant="20" id="lg1-xq-Jl9"/>
+                            <constraint firstAttribute="trailing" secondItem="zbR-WZ-D6h" secondAttribute="trailing" constant="20" id="uZV-ob-HQP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="个性签名" id="wmB-9O-sFN"/>
+                    <connections>
+                        <outlet property="mtextField" destination="zbR-WZ-D6h" id="gfO-23-xas"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1NV-gp-Hb0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="174.5" y="-792.5"/>
+        </scene>
+        <!--设置-->
+        <scene sceneID="Pj4-YK-FnK">
+            <objects>
+                <viewController id="dTB-LY-MTc" customClass="SettingVC" customModule="MenTouGou" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FN3-Ft-N9r"/>
+                        <viewControllerLayoutGuide type="bottom" id="s17-hu-LaE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Mk6-Ah-ixt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="设置" id="BLd-kz-sAa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k9X-Po-ZEn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="174.5" y="-1565.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_settings" width="36" height="36"/>
+    </resources>
 </document>

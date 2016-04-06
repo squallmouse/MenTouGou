@@ -36,7 +36,7 @@ class YHTabBarVC: UITabBarController {
             
         }
 //        
-        self.tabBar.barTintColor = UIColor.colorWithHexString("15A230");
+        self.tabBar.barTintColor = UIColor.mainColor();
 
         
         
@@ -49,7 +49,7 @@ class YHTabBarVC: UITabBarController {
             let vc = SBName.instantiateViewControllerWithIdentifier(SBIDarr[i] as! String) ;
             let Nav = UINavigationController.init(rootViewController: vc);
 //            
-            Nav.navigationBar.barTintColor = UIColor.colorWithHexString("15A230");
+            Nav.navigationBar.barTintColor = UIColor.mainColor();
             Nav.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()];
             tempArr.addObject(Nav);
         } 

@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true);
         UIApplication.sharedApplication().statusBarStyle = .LightContent;
         
-        
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor();
         
         return true
     }

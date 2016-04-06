@@ -1,5 +1,5 @@
 //
-//  FullImageCell.swift
+//  MyHeadCell.swift
 //  MenTouGou
 //
 //  Created by 袁昊 on 16/4/6.
@@ -8,17 +8,18 @@
 
 import UIKit
 
-class FullImageCell: UITableViewCell {
+class MyHeadCell: UITableViewCell {
 
+    @IBOutlet weak var headImg: UIImageView!
+    @IBOutlet weak var nameLab: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.headImg.layer.masksToBounds = true;
+        self.headImg.layer.cornerRadius = 30;
     }
 
-    func setCell(imgUrl url:String) -> Void {
-        print(url);
-    }
-    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
