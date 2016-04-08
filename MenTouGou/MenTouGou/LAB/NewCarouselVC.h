@@ -26,5 +26,6 @@ typedef enum : NSUInteger {
 -(void)replaceWithUrlArr:(NSArray*)urlArr WithImgArr:(NSArray*)imgArr;
 -(instancetype)initWithFrame:(CGRect)frame WithPicArr:(NSArray*)picArr andimageType:(imagetype)type;
 -(instancetype)initWithFrame:(CGRect)frame WithPicArr:(NSArray*)picArr withUrlArr:(NSArray*)urlArr;
+
 -(void)setTimeWithSecond:(int)second;
 @end

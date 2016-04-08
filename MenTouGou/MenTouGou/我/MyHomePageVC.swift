@@ -13,6 +13,9 @@ class MyHomePageVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
     let titleArr = ["","登陆邮箱","个性签名","性别","年龄","所在地","修改密码"] ;
     var contentArr:NSMutableArray! ;
     
+    var nextPageTitle:String!;//个性签名 和 所在地
+    var nextPageTag:String!;//下一页的标签
+    
     @IBOutlet weak var mtableView: UITableView!;
     
     override func viewDidLoad() {
@@ -25,6 +28,17 @@ class MyHomePageVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
         for _ in 0 ..< 10 {
             self.contentArr.addObject("haohaohao");
         }
+        
+//        AFHTTPSessionManager().GET("http://mtg.ritontech.com/api/Mtg/GetBannerList", parameters: nil, success: { (task, res) in
+//            print("TASK = \(task)");
+//            print("---------------")
+//            print("123 = \(res)");
+//            let dic:NSArray! = res as! NSArray;
+//            print("---------------")
+//            print(dic);
+//        }) { (task, error) in
+//            
+//        };
         
         
         
@@ -71,6 +85,9 @@ class MyHomePageVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
         case 2:
 //      个性签名
             print("个性签名");
+            nextPageTitle = "个性签名";
+            self.performSegueWithIdentifier("GoToSignatureVC", sender: self);
+            
         case 3:
 //      性别
             print("性别");
@@ -81,6 +98,8 @@ class MyHomePageVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
         case 5:
 //      所在地
             print("所在地");
+            nextPageTitle = "所在地";
+            self.performSegueWithIdentifier("GoToSignatureVC", sender: self);
         case 6:
 //      修改密码"
             print("修改密码");
@@ -117,15 +136,38 @@ class MyHomePageVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
     }
     
     
-//   MARK:- 设置页面
+
+//      MARK: - 界面变化
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "GoToSettingVC") {
-            let setvc:SettingVC! = segue.destinationViewController as! SettingVC;
-            setvc.title = "我屮艸芔茻";
+         if(segue.identifier == "GoToSignatureVC"){
+            let signature:SignatureVC! = segue.destinationViewController as! SignatureVC;
+            
+            signature.title = nextPageTitle;
+            if nextPageTitle == "个性签名" {
+                signature.titleLabStr = "请输入个性签名";
+            }else{
+                signature.titleLabStr = "请输入所在地";
+            }
+            
+            
+            signature.myBlock = {[weak self](str) in
+                if str == nil {
+                    return;
+                }
+                if self!.nextPageTitle == "个性签名" {
+                  self!.contentArr.replaceObjectAtIndex(2, withObject: str!);
+                }else if( self!.nextPageTitle == "所在地"){
+                    self!.contentArr.replaceObjectAtIndex(5, withObject: str!);
+                }
+                self!.mtableView.reloadData();
+            }
+            
         }
+        
     }
     
+ //   MARK:- 设置页面
     @IBAction func settingBtnClickDown(sender: AnyObject) {
         
 //        跳转设置页面
@@ -156,7 +198,8 @@ class MyHomePageVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
     }
     
  //  MARK:-  年龄
-    //  MARK:-  所在地
+    
+//  MARK:-  所在地
 
     
     

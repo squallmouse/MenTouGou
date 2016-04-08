@@ -45,10 +45,12 @@
 -(instancetype)initWithFrame:(CGRect)frame WithPicArr:(NSArray*)picArr withUrlArr:(NSArray*)urlArr {
     self = [super init];
     if (self) {
+        self.type = imageurl;
         self.rect = frame;
         self.arr = [[NSArray alloc]initWithArray:picArr];
         self.view.frame = self.rect;
         _urlArr = [[NSArray alloc]initWithArray:urlArr];
+        
     }
     return self;
 }
@@ -67,7 +69,7 @@
 -(void)replaceWithUrlArr:(NSArray*)urlArr WithImgArr:(NSArray*)imgArr{
     self.arr = imgArr;
     _urlArr = urlArr;
-
+//[self setPageWithScroll:self.sc];
 }
 -(void)setTimeWithSecond:(int)second{
     
@@ -115,9 +117,9 @@
  
 //    
     _img3 = [[UIImageView alloc]initWithFrame:CGRectMake(self.sc.frame.size.width*2, 0, self.sc.frame.size.width, self.sc.frame.size.height)];
-//    _img1.contentMode = UIViewContentModeScaleAspectFit;
-//    _img2.contentMode = UIViewContentModeScaleAspectFit;
-//    _img3.contentMode = UIViewContentModeScaleAspectFit;
+    _img1.contentMode = UIViewContentModeScaleAspectFill;
+    _img2.contentMode = UIViewContentModeScaleAspectFill;
+    _img3.contentMode = UIViewContentModeScaleAspectFill;
     
     
     _img1.backgroundColor = [UIColor orangeColor];
@@ -210,16 +212,16 @@
 
 
 -(void)setPageWithScroll:(UIScrollView*)scrollView{
-    NSInteger imgnum1 = 0;
-    NSInteger imgnum3 = 0;
+    
     if (scrollView.contentOffset.x == self.rect.size.width) {
         return;
     }
-//    NSLog(@"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-//    NSLog(@"x = %f",scrollView.contentOffset.x);
-//    NSLog(@"w = %f",scrollView.contentSize.width/2);
+    
+    NSInteger imgnum1 = 0;
+    NSInteger imgnum3 = 0;
     if (scrollView.contentOffset.x > scrollView.contentSize.width/2) {
-//        NSLog(@"+++");
+//
+        
         _page++;
         imgnum1 = _page-1;
         imgnum3 = _page+1;

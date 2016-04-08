@@ -8,16 +8,65 @@
 
 import UIKit
 
-class SignatureVC: UIViewController {
+typealias contentChangeBlock = (String?)->Void;
+
+class SignatureVC: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var mtextField: UITextField!
     
+    @IBOutlet weak var confirmBtn: UIButton!
+    
+    @IBOutlet weak var TitleLab: UILabel!
+    
+    var myBlock = contentChangeBlock?();
+    var titleLabStr:String!;
+//
+    
+     deinit{
+        print("123321");
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true);
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+//        设置按钮样式
+        self.confirmBtn.layer.masksToBounds = true;
+        self.confirmBtn.layer.cornerRadius = 5;
+        self.confirmBtn.backgroundColor = UIColor.mainColor();
+        
+        self.mtextField.placeholder = titleLabStr;
+        self.TitleLab.text = titleLabStr.substringFromIndex(titleLabStr.startIndex.advancedBy(3));
+        
     }
+    
+// 点击确定按钮
+    @IBAction func confirmBtnClickDown(sender: AnyObject) {
+//        上传数据，完成后退出
+        var content:String!;
+        if self.title == "个性签名" {
+            content = "?name=" + self.mtextField.text! as String;
+        }else{
+            content = "?location=" + self.mtextField.text! as String;
+        }
+        
+        let temp = MTG + UPDATEUSER + Utils.getOwnID() + content;
+       
+        let url = YHAFManager.urlStrConversion(urlStr: temp);
+        YHAFManager.yhGet(urlStr: url, parameters: nil, success: { (res) in
+            print(res);
+            }) { (failedRes) in
+                
+        }
+        
 
+        self.myBlock?(self.mtextField.text);
+        
+    }
+    
+//    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

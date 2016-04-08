@@ -10,13 +10,17 @@ import UIKit
 
 class FullImageCell: UITableViewCell {
 
+    @IBOutlet weak var Img: UIImageView! ;
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
     func setCell(imgUrl url:String) -> Void {
-        print(url);
+//        print(url);
+        Img.sd_setImageWithURL(NSURL.init(string: url), placeholderImage: nil)
+        
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

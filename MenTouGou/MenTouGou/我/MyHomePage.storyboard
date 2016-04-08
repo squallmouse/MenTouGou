@@ -97,7 +97,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zbR-WZ-D6h">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入个性签名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zbR-WZ-D6h">
                                 <rect key="frame" x="20" y="124" width="335" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="rWB-DE-7b7"/>
@@ -107,26 +107,40 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="92j-3x-Z34">
                                 <rect key="frame" x="20" y="204" width="335" height="45"/>
+                                <color key="backgroundColor" red="0.74863290855734488" green="1" blue="0.81389025013370575" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Ixs-MP-c4E"/>
                                 </constraints>
                                 <state key="normal" title="确定">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="confirmBtnClickDown:" destination="JnE-IV-ecT" eventType="touchUpInside" id="lgN-gR-22D"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个性签名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3DX-F0-fzA">
+                                <rect key="frame" x="20" y="96" width="60" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="92j-3x-Z34" firstAttribute="leading" secondItem="Tfo-K5-Qf8" secondAttribute="leading" constant="20" id="27h-YV-Z4V"/>
                             <constraint firstItem="zbR-WZ-D6h" firstAttribute="leading" secondItem="Tfo-K5-Qf8" secondAttribute="leading" constant="20" id="89d-cF-9WA"/>
+                            <constraint firstItem="zbR-WZ-D6h" firstAttribute="top" secondItem="3DX-F0-fzA" secondAttribute="bottom" constant="10" id="E6f-Gs-caE"/>
                             <constraint firstItem="zbR-WZ-D6h" firstAttribute="top" secondItem="rYG-gf-qGD" secondAttribute="bottom" constant="60" id="jj4-Lj-6Z0"/>
                             <constraint firstItem="92j-3x-Z34" firstAttribute="top" secondItem="zbR-WZ-D6h" secondAttribute="bottom" constant="50" id="jnr-9S-SQx"/>
                             <constraint firstAttribute="trailing" secondItem="92j-3x-Z34" secondAttribute="trailing" constant="20" id="lg1-xq-Jl9"/>
+                            <constraint firstItem="3DX-F0-fzA" firstAttribute="leading" secondItem="zbR-WZ-D6h" secondAttribute="leading" id="nKG-Zu-Y2I"/>
                             <constraint firstAttribute="trailing" secondItem="zbR-WZ-D6h" secondAttribute="trailing" constant="20" id="uZV-ob-HQP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="个性签名" id="wmB-9O-sFN"/>
                     <connections>
+                        <outlet property="TitleLab" destination="3DX-F0-fzA" id="Ozt-z2-ZFi"/>
+                        <outlet property="confirmBtn" destination="92j-3x-Z34" id="y8K-0E-2ab"/>
                         <outlet property="mtextField" destination="zbR-WZ-D6h" id="gfO-23-xas"/>
                     </connections>
                 </viewController>

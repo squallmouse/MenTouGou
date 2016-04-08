@@ -25,6 +25,9 @@
                     <constraint firstAttribute="bottom" secondItem="MT0-eu-gtz" secondAttribute="bottom" id="poh-zB-wwN"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="Img" destination="MT0-eu-gtz" id="e7I-ZN-Bn1"/>
+            </connections>
             <point key="canvasLocation" x="240" y="326.5"/>
         </tableViewCell>
     </objects>
