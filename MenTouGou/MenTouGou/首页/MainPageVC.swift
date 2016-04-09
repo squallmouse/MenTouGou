@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 
+
 class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
 //
     @IBOutlet weak var carSc: UIView!
@@ -61,9 +62,8 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         self.view.backgroundColor = UIColor.whiteColor();
         self.automaticallyAdjustsScrollViewInsets = false;
 //        test
-       Alamofire.request(.GET, MTG + GETADVERTLIST).responseJSON { (respon) in
-        print("222222 = \(respon.description)");
-        }
+        
+        
         
 //        test
 //焦点图下方
