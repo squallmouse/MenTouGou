@@ -39,5 +39,10 @@ class Utils: NSObject {
         }
         
     }
-    
+//  MARK:-  NSDate 转换成时间串
+   class func dateConversionToString(date:NSDate?) -> String {
+        let da1 = NSDateFormatter();
+        da1.dateFormat = "yyyy-MM-dd";
+        return da1.stringFromDate(date!);
+    }
 }

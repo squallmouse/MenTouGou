@@ -22,7 +22,7 @@
             </objects>
             <point key="canvasLocation" x="-805" y="-871"/>
         </scene>
-        <!--InfomationVC-->
+        <!--资讯-->
         <scene sceneID="6dv-wq-Ufv">
             <objects>
                 <viewController storyboardIdentifier="InfomationSBID" id="AEY-zJ-Fn1" customClass="InfomationVC" customModule="MenTouGou" customModuleProvider="target" sceneMemberID="viewController">
@@ -35,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.81535259046052633" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="oYe-Fl-1o0"/>
+                    <navigationItem key="navigationItem" title="资讯" id="oYe-Fl-1o0"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fiv-Wj-gAg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

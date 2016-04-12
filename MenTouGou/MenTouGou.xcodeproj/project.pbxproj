@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5168D46D36B6A07A1DD20115 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65FD86BFA184D9E41F89A424 /* Pods.framework */; };
+		EF0333411CB9042E00739884 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0333401CB9042E00739884 /* LoginVC.swift */; };
+		EF0333431CB9046D00739884 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0333421CB9046D00739884 /* RegisterVC.swift */; };
 		EF153B121CB5015200670498 /* MyHeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF153B101CB5015200670498 /* MyHeadCell.swift */; };
 		EF153B131CB5015200670498 /* MyHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF153B111CB5015200670498 /* MyHeadCell.xib */; };
 		EF153B1A1CB5039500670498 /* MyOtherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF153B181CB5039500670498 /* MyOtherCell.swift */; };
@@ -19,6 +21,11 @@
 		EFC349C31CB4AAFC001FD0B4 /* HeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFC349C11CB4AAFC001FD0B4 /* HeadCell.xib */; };
 		EFC349C61CB4B1CE001FD0B4 /* FullImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC349C41CB4B1CE001FD0B4 /* FullImageCell.swift */; };
 		EFC349C71CB4B1CE001FD0B4 /* FullImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFC349C51CB4B1CE001FD0B4 /* FullImageCell.xib */; };
+		EFC3CE651CBB775200716FFA /* LMComBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC3CE641CBB775200716FFA /* LMComBoxView.m */; };
+		EFC3CE6C1CBB812500716FFA /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC3CE6A1CBB812500716FFA /* InfoCell.swift */; };
+		EFC3CE6D1CBB812500716FFA /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFC3CE6B1CBB812500716FFA /* InfoCell.xib */; };
+		EFC3CEAE1CBB84E200716FFA /* BaseTableViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC3CEAD1CBB84E200716FFA /* BaseTableViewVC.swift */; };
+		EFC3CEB01CBB9E9900716FFA /* InfoCellModle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC3CEAF1CBB9E9900716FFA /* InfoCellModle.swift */; };
 		EFCBF4FE1CB74F3E0068F466 /* YHAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBF4FD1CB74F3E0068F466 /* YHAPI.swift */; };
 		EFCBF5021CB7BACE0068F466 /* YHAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBF5011CB7BACE0068F466 /* YHAlamofire.swift */; };
 		EFF028551CB65C8300AEFD03 /* YHAFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF028541CB65C8300AEFD03 /* YHAFManager.swift */; };
@@ -66,6 +73,8 @@
 		65FD86BFA184D9E41F89A424 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDDBB6B4D935FCEEED713D50 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E6EE6E813722E612DE1814A4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		EF0333401CB9042E00739884 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		EF0333421CB9046D00739884 /* RegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		EF153B101CB5015200670498 /* MyHeadCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHeadCell.swift; sourceTree = "<group>"; };
 		EF153B111CB5015200670498 /* MyHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyHeadCell.xib; sourceTree = "<group>"; };
 		EF153B181CB5039500670498 /* MyOtherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyOtherCell.swift; sourceTree = "<group>"; };
@@ -77,6 +86,12 @@
 		EFC349C11CB4AAFC001FD0B4 /* HeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeadCell.xib; sourceTree = "<group>"; };
 		EFC349C41CB4B1CE001FD0B4 /* FullImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullImageCell.swift; sourceTree = "<group>"; };
 		EFC349C51CB4B1CE001FD0B4 /* FullImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FullImageCell.xib; sourceTree = "<group>"; };
+		EFC3CE631CBB775200716FFA /* LMComBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMComBoxView.h; sourceTree = "<group>"; };
+		EFC3CE641CBB775200716FFA /* LMComBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMComBoxView.m; sourceTree = "<group>"; };
+		EFC3CE6A1CBB812500716FFA /* InfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		EFC3CE6B1CBB812500716FFA /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
+		EFC3CEAD1CBB84E200716FFA /* BaseTableViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewVC.swift; sourceTree = "<group>"; };
+		EFC3CEAF1CBB9E9900716FFA /* InfoCellModle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCellModle.swift; sourceTree = "<group>"; };
 		EFCBF4FD1CB74F3E0068F466 /* YHAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YHAPI.swift; sourceTree = "<group>"; };
 		EFCBF5011CB7BACE0068F466 /* YHAlamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YHAlamofire.swift; sourceTree = "<group>"; };
 		EFF028541CB65C8300AEFD03 /* YHAFManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YHAFManager.swift; sourceTree = "<group>"; };
@@ -227,6 +242,49 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		EFC3CE661CBB80EE00716FFA /* content */ = {
+			isa = PBXGroup;
+			children = (
+				EFC3CE671CBB80EE00716FFA /* controller */,
+				EFC3CE681CBB80EE00716FFA /* modle */,
+				EFC3CE691CBB80EE00716FFA /* view */,
+			);
+			path = content;
+			sourceTree = "<group>";
+		};
+		EFC3CE671CBB80EE00716FFA /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		EFC3CE681CBB80EE00716FFA /* modle */ = {
+			isa = PBXGroup;
+			children = (
+				EFC3CEAF1CBB9E9900716FFA /* InfoCellModle.swift */,
+			);
+			path = modle;
+			sourceTree = "<group>";
+		};
+		EFC3CE691CBB80EE00716FFA /* view */ = {
+			isa = PBXGroup;
+			children = (
+				EFC3CE6A1CBB812500716FFA /* InfoCell.swift */,
+				EFC3CE6B1CBB812500716FFA /* InfoCell.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		EFC3CEAA1CBB843400716FFA /* 下拉列表 */ = {
+			isa = PBXGroup;
+			children = (
+				EFC3CE631CBB775200716FFA /* LMComBoxView.h */,
+				EFC3CE641CBB775200716FFA /* LMComBoxView.m */,
+			);
+			name = "下拉列表";
+			sourceTree = "<group>";
+		};
 		EFF5DDD01CB35AC300EAA108 = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +313,8 @@
 				EFF5DE431CB3C22400EAA108 /* 1.jpg */,
 				EFF5DDDC1CB35AC300EAA108 /* AppDelegate.swift */,
 				EFF5DE141CB35D5200EAA108 /* YHTabBarVC.swift */,
+				EF0333401CB9042E00739884 /* LoginVC.swift */,
+				EF0333421CB9046D00739884 /* RegisterVC.swift */,
 				EFF5DDE01CB35AC300EAA108 /* Main.storyboard */,
 				EFF5DE181CB396BD00EAA108 /* 首页 */,
 				EFF5DE1E1CB396BD00EAA108 /* 资讯 */,
@@ -329,6 +389,7 @@
 		EFF5DE1E1CB396BD00EAA108 /* 资讯 */ = {
 			isa = PBXGroup;
 			children = (
+				EFC3CE661CBB80EE00716FFA /* content */,
 				EFF5DE1F1CB396BD00EAA108 /* Infomation.storyboard */,
 				EFF5DE301CB3B2ED00EAA108 /* InfomationVC.swift */,
 			);
@@ -343,6 +404,7 @@
 				EFF028541CB65C8300AEFD03 /* YHAFManager.swift */,
 				EFCBF4FD1CB74F3E0068F466 /* YHAPI.swift */,
 				EFCBF5011CB7BACE0068F466 /* YHAlamofire.swift */,
+				EFC3CEAD1CBB84E200716FFA /* BaseTableViewVC.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -351,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				EFF5DE391CB3B41200EAA108 /* MenTouGou-Bridging-Header.h */,
+				EFC3CEAA1CBB843400716FFA /* 下拉列表 */,
 				EFF5DE401CB3B57900EAA108 /* 轮播图 */,
 			);
 			path = LAB;
@@ -473,6 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFF5DE251CB396BD00EAA108 /* Infomation.storyboard in Resources */,
+				EFC3CE6D1CBB812500716FFA /* InfoCell.xib in Resources */,
 				EFF5DDE71CB35AC300EAA108 /* LaunchScreen.storyboard in Resources */,
 				EFF5DDE41CB35AC300EAA108 /* Assets.xcassets in Resources */,
 				EF153B1B1CB5039500670498 /* MyOtherCell.xib in Resources */,
@@ -559,11 +623,16 @@
 			files = (
 				EFC349C61CB4B1CE001FD0B4 /* FullImageCell.swift in Sources */,
 				EFF5DE331CB3B2FC00EAA108 /* ProductVC.swift in Sources */,
+				EFC3CEAE1CBB84E200716FFA /* BaseTableViewVC.swift in Sources */,
+				EFC3CEB01CBB9E9900716FFA /* InfoCellModle.swift in Sources */,
+				EF0333411CB9042E00739884 /* LoginVC.swift in Sources */,
 				EFF5DE3F1CB3B57100EAA108 /* NewCarouselVC.m in Sources */,
 				EFF5DE2B1CB398F800EAA108 /* UIColor+Utils.swift in Sources */,
+				EFC3CE6C1CBB812500716FFA /* InfoCell.swift in Sources */,
 				EFF5DE371CB3B31A00EAA108 /* MyHomePageVC.swift in Sources */,
 				EFF5DE151CB35D5200EAA108 /* YHTabBarVC.swift in Sources */,
 				EFF5DE421CB3B8EB00EAA108 /* Utils.swift in Sources */,
+				EFC3CE651CBB775200716FFA /* LMComBoxView.m in Sources */,
 				EFF028551CB65C8300AEFD03 /* YHAFManager.swift in Sources */,
 				EF153B1F1CB5210400670498 /* SignatureVC.swift in Sources */,
 				EF153B1D1CB5180B00670498 /* SettingVC.swift in Sources */,
@@ -571,6 +640,7 @@
 				EFF5DE2F1CB3B25700EAA108 /* MainPageVC.swift in Sources */,
 				EF153B121CB5015200670498 /* MyHeadCell.swift in Sources */,
 				EFCBF5021CB7BACE0068F466 /* YHAlamofire.swift in Sources */,
+				EF0333431CB9046D00739884 /* RegisterVC.swift in Sources */,
 				EFCBF4FE1CB74F3E0068F466 /* YHAPI.swift in Sources */,
 				EFF5DE351CB3B30A00EAA108 /* AroundVC.swift in Sources */,
 				EFF5DDDD1CB35AC300EAA108 /* AppDelegate.swift in Sources */,

@@ -7,3 +7,4 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MBProgressHUD.h>
 #import <MJRefresh.h>
+#import "LMComBoxView.h"

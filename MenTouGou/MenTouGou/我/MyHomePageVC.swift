@@ -18,6 +18,16 @@ class MyHomePageVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
     
     @IBOutlet weak var mtableView: UITableView!;
     
+    
+    override func viewWillAppear(animated: Bool) {
+        if Utils.getOwnID() == "0" {
+            let SB = UIStoryboard.init(name: "Main", bundle: nil);
+            let vc:LoginVC = (SB.instantiateViewControllerWithIdentifier("LoginVC") as? LoginVC)! ;
+            
+            self.navigationController?.pushViewController(vc, animated: false);
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor();
@@ -29,18 +39,7 @@ class MyHomePageVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
             self.contentArr.addObject("haohaohao");
         }
         
-//        AFHTTPSessionManager().GET("http://mtg.ritontech.com/api/Mtg/GetBannerList", parameters: nil, success: { (task, res) in
-//            print("TASK = \(task)");
-//            print("---------------")
-//            print("123 = \(res)");
-//            let dic:NSArray! = res as! NSArray;
-//            print("---------------")
-//            print(dic);
-//        }) { (task, error) in
-//            
-//        };
-        
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MyHomePageVC.refreshSelf), name: "refreshUser", object: nil);
         
         self.mtableView.dataSource = self;
         self.mtableView.delegate = self;
@@ -48,7 +47,12 @@ class MyHomePageVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
       
     }
 
-    
+//  MARK:-  通知
+    func refreshSelf() -> Void {
+//        
+        print("refreshSelf");
+    }
+//  MARK:-  tableView delegate
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.section == 0) {
             var cell:MyHeadCell? = tableView.dequeueReusableCellWithIdentifier("MyHeadCellIden")as? MyHeadCell;
@@ -94,7 +98,7 @@ class MyHomePageVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
             self.chooseSex();
         case 4:
 //      年龄
-            print("年龄");
+            print("年龄 用pickview");
         case 5:
 //      所在地
             print("所在地");
@@ -103,6 +107,7 @@ class MyHomePageVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
         case 6:
 //      修改密码"
             print("修改密码");
+            self.performSegueWithIdentifier("GoToResetPasswordVC", sender: self);
         default:
             break;
         }

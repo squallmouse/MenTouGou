@@ -62,14 +62,24 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         self.view.backgroundColor = UIColor.whiteColor();
         self.automaticallyAdjustsScrollViewInsets = false;
 //        test
-        
-        
+//        let st1 = "http://mtg.ritontech.com/api/Mtg/NewsList/0?timeOrder=Desc&pvOrder=Desc&pageIndex=1&pageSize=10";
+//        let st2 = "http://mtg.ritontech.com/api/Mtg/NewsList/0?timeOrder=Dsec&pvOrder=Dsec&pageIndex=1&pageSize=10";
+//        if st1 == st2
+//        {
+//            print("uu");
+//        }
         
 //        test
 //焦点图下方
        self.adverlistArr = NSArray();
         
         let advertlistUrl = MTG + GETADVERTLIST;
+//        YHAlamofire.Get(urlStr: advertlistUrl, paramters: nil, success: { (res) in
+//            print("1111 = \(res)")
+//            }) { (res) in
+//                
+//        }
+        
         
         YHAFManager.yhGet(urlStr: advertlistUrl, parameters: nil, success: { (res) in
             

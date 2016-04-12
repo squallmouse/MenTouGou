@@ -10,12 +10,75 @@ import UIKit
 
 class ResetPasswordVC: UIViewController {
 
+    
+    @IBOutlet weak var userNameTextField: UITextField!
+    
+    @IBOutlet weak var eMailTextField: UITextField!
+    
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBOutlet weak var AGPasswordTextField: UITextField!
+    
+    
+    @IBOutlet weak var updateBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.updateBtn.layer.masksToBounds = true;
+        self.updateBtn.layer.cornerRadius = 5;
+        self.updateBtn.backgroundColor = UIColor.mainColor();
+        
     }
-
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        self.view.endEditing(true);
+        
+    }
+    
+//  MARK:-  111
+    
+    @IBAction func updateBtnClickDown(sender: AnyObject) {
+        
+        if(
+            self.userNameTextField.text?.characters.count == 0
+            || self.eMailTextField.text?.characters.count == 0
+            || self.passwordTextField.text?.characters.count == 0
+            ) {
+            let hud:MBProgressHUD = Utils.creatHUD();
+            hud.labelText = "请完整填写信息";
+            hud.hide(true, afterDelay: 1);
+            return;
+        }
+        
+        if (self.passwordTextField.text != self.AGPasswordTextField.text) {
+            let hud:MBProgressHUD = Utils.creatHUD();
+            hud.labelText = "两次密码填写不一样";
+            hud.hide(true, afterDelay: 1);
+            return;
+        }
+        let paramters = [
+            "UserName" : self.userNameTextField.text!,
+            "Email" : self.eMailTextField.text!,
+            "NewPassword":self.passwordTextField.text!
+            
+        ];
+        
+        YHAlamofire.Post(urlStr: MTG + FORGETPASSWORD, paramters: paramters, success: { (res) in
+            print("密码找回成功 = \(res)");
+            let hud:MBProgressHUD = Utils.creatHUD();
+            hud.labelText = "密码找回成功";
+            hud.hide(true, afterDelay: 1);
+            self.navigationController?.popViewControllerAnimated(true);
+            }) { (error) in
+                
+        }
+        
+        
+    }
+    
+    
+//  MARK:-  other
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
