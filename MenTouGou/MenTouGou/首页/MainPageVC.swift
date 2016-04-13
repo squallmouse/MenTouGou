@@ -24,37 +24,7 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
 //    MARK:- ----------------------
     
-    func change(parmeters:AnyObject?) -> String? {
-        //        为空就返回
-        if (parmeters == nil) {
-            return "";
-        }
-        //
-        var returnStr:String = "?";
-        
-        if (parmeters is String) {
-            
-            return parmeters as? String;
-            
-        }else if (parmeters is NSDictionary){
-            
-            let dic = parmeters as! NSDictionary;
-            
-            for i in 0 ..< dic.allKeys.count {
-                returnStr = returnStr + (dic.allKeys[i] as! String)  + "=" + (dic.objectForKey(dic.allKeys[i] as! String) as? String)!
-                if (i != dic.allKeys.count - 1)  {
-                    returnStr += "&";
-                }
-            }
-            return returnStr;
-        }
-        
-        
-        return "";
-        
-        
-        
-    }
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,12 +32,8 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         self.view.backgroundColor = UIColor.whiteColor();
         self.automaticallyAdjustsScrollViewInsets = false;
 //        test
-//        let st1 = "http://mtg.ritontech.com/api/Mtg/NewsList/0?timeOrder=Desc&pvOrder=Desc&pageIndex=1&pageSize=10";
-//        let st2 = "http://mtg.ritontech.com/api/Mtg/NewsList/0?timeOrder=Dsec&pvOrder=Dsec&pageIndex=1&pageSize=10";
-//        if st1 == st2
-//        {
-//            print("uu");
-//        }
+        
+       
         
 //        test
 //焦点图下方
@@ -167,6 +133,17 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
             return;
         }else{
             print("section did selected = \(indexPath.section)");
+           let dic = self.adverlistArr[indexPath.section - 1] as! NSDictionary;
+            let LinkUrl = dic["LinkUrl"] as! NSString;
+            if LinkUrl.hasPrefix("http://") {
+//                网页
+                let web = WebViewVC.init(url: dic["LinkUrl"] as! String);
+                web.hidesBottomBarWhenPushed = true;
+                self.navigationController?.pushViewController(web, animated: true);
+            }else{
+//                详情页
+            }
+            
         }
     }
     

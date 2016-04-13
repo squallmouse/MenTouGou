@@ -12,7 +12,7 @@ class MyHomePageVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
 
     let titleArr = ["","登陆邮箱","个性签名","性别","年龄","所在地","修改密码"] ;
     var contentArr:NSMutableArray! ;
-    
+    var dataDic:NSDictionary!;
     var nextPageTitle:String!;//个性签名 和 所在地
     var nextPageTag:String!;//下一页的标签
     
@@ -22,9 +22,11 @@ class MyHomePageVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
     override func viewWillAppear(animated: Bool) {
         if Utils.getOwnID() == "0" {
             let SB = UIStoryboard.init(name: "Main", bundle: nil);
-            let vc:LoginVC = (SB.instantiateViewControllerWithIdentifier("LoginVC") as? LoginVC)! ;
-            
+            let vc:LoginVC = (SB.instantiateViewControllerWithIdentifier("LoginVC") as? LoginVC)!;
+            vc.navigationItem.setHidesBackButton(true, animated: false);
+//            vc.navigationController?.navigationBar.
             self.navigationController?.pushViewController(vc, animated: false);
+
         }
     }
     
@@ -36,7 +38,7 @@ class MyHomePageVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
         self.contentArr = NSMutableArray(capacity: 0);
         
         for _ in 0 ..< 10 {
-            self.contentArr.addObject("haohaohao");
+            self.contentArr.addObject("");
         }
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MyHomePageVC.refreshSelf), name: "refreshUser", object: nil);
@@ -44,14 +46,47 @@ class MyHomePageVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
         self.mtableView.dataSource = self;
         self.mtableView.delegate = self;
         self.mtableView.separatorStyle = .None;
-      
+        
+        if Utils.getOwnID() != "0" {
+            self.refreshSelf();
+        }
     }
 
 //  MARK:-  通知
     func refreshSelf() -> Void {
 //        
         print("refreshSelf");
+        
+        YHAlamofire.Get(urlStr: MTG + USERINFO + Utils.getOwnID(), paramters: nil, success: { (res) in
+            print(res);
+            self.dataDic = res as? NSDictionary;
+            self.paraserWithDic(self.dataDic);
+            self.mtableView.reloadData();
+            }) { (failedRes) in
+                
+        }
+        
     }
+    func paraserWithDic(dic:NSDictionary) -> Void {
+        self.contentArr.removeAllObjects();
+//        用户名
+    self.contentArr.addObject(Utils.changeNullToEnptyStr(self.dataDic["UserName"]));
+//        邮箱
+    self.contentArr.addObject(Utils.changeNullToEnptyStr(self.dataDic["Email"]));
+//        个性签名
+    self.contentArr.addObject(Utils.changeNullToEnptyStr(self.dataDic["Name"]));
+//        性别
+    self.contentArr.addObject(Utils.changeNullToEnptyStr(self.dataDic["Subject"]));
+//        个性签名
+    self.contentArr.addObject(Utils.changeNullToEnptyStr(self.dataDic["Grade"]));
+//        所在地
+    self.contentArr.addObject(Utils.changeNullToEnptyStr(self.dataDic["Professional"]));
+//        修改密码
+        self.contentArr.addObject("");
+
+
+    }
+    
 //  MARK:-  tableView delegate
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.section == 0) {
@@ -60,6 +95,7 @@ class MyHomePageVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
                 let tempArr = NSBundle.mainBundle().loadNibNamed("MyHeadCell", owner: self, options: nil) as NSArray;
                 cell = tempArr.lastObject as? MyHeadCell;
             }
+            cell?.nameLab.text = contentArr[indexPath.section] as? String
             return cell!;
             
         }else{
@@ -71,9 +107,9 @@ class MyHomePageVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
             }
             if (indexPath.section == 1) {
                 cell?.selectionStyle = .None;
-                cell?.setCell(title: titleArr[indexPath.section], andContent:contentArr[indexPath.section] as! String, ImgHidden: true);
+                cell?.setCell(title: titleArr[indexPath.section], andContent:contentArr[indexPath.section] as? String, ImgHidden: true);
             }else{
-                cell?.setCell(title: titleArr[indexPath.section], andContent:contentArr[indexPath.section] as! String, ImgHidden: false);
+                cell?.setCell(title: titleArr[indexPath.section], andContent:(contentArr[indexPath.section] as! String), ImgHidden: false);
             }
             
             
@@ -195,7 +231,21 @@ class MyHomePageVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
             sex = "男"
         }else if(buttonIndex == 2){
             sex = "女";
+        }else{
+            return;
         }
+        
+       let content = ["sex" : sex];
+       
+    let temp = MTG + UPDATEUSER + Utils.getOwnID() ;
+    
+    YHAlamofire.Get(urlStr: temp, paramters: content, success: { (res) in
+    print(res);
+    
+    }) { (failedRes) in
+    print(failedRes);
+    
+    }
         self.contentArr.replaceObjectAtIndex(3, withObject: sex);
         self.mtableView.reloadData();
 //        数据上传

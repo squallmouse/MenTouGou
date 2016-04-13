@@ -28,7 +28,7 @@ class MyOtherCell: UITableViewCell {
     }
 
 //    设置cell
-    func setCell(title title:String, andContent content:String, ImgHidden hidden:Bool) -> Void {
+    func setCell(title title:String?, andContent content:String?, ImgHidden hidden:Bool) -> Void {
         
         self.titleLab.text = title;
         self.contentLab.text = content;

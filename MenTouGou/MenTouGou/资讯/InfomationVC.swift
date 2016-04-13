@@ -54,7 +54,7 @@ class InfomationVC: BaseTableViewVC,LMComBoxViewDelegate {
         self.httpData(self.page);
         
     }
-
+//  MARK:-  解析数据
 //解析数据
     
     override func parserResult(res: AnyObject?) {
@@ -91,8 +91,10 @@ class InfomationVC: BaseTableViewVC,LMComBoxViewDelegate {
     
     super.tableView(tableView, didSelectRowAtIndexPath: indexPath);
 //    跳转
+    let mo = self.dataArr[indexPath.row]as! InfoCellModle ;
     
     }
+    
 //    MARK:- 下拉列表初始化 和 选择
     func setUpBGScrollView() -> Void {
         let keys = ["option1","option2","option3"];

@@ -45,4 +45,48 @@ class Utils: NSObject {
         da1.dateFormat = "yyyy-MM-dd";
         return da1.stringFromDate(date!);
     }
+//    把null换成""
+    class func changeNullToEnptyStr(value:AnyObject?)->String
+    {
+        if value is NSNull {
+            return ""
+        }else{
+            return value as! String;
+        }
+        
+    }
+    
+    
+    func change(parmeters:AnyObject?) -> String? {
+        //        为空就返回
+        if (parmeters == nil) {
+            return "";
+        }
+        //
+        var returnStr:String = "?";
+        
+        if (parmeters is String) {
+            
+            return parmeters as? String;
+            
+        }else if (parmeters is NSDictionary){
+            
+            let dic = parmeters as! NSDictionary;
+            
+            for i in 0 ..< dic.allKeys.count {
+                returnStr = returnStr + (dic.allKeys[i] as! String)  + "=" + (dic.objectForKey(dic.allKeys[i] as! String) as? String)!
+                if (i != dic.allKeys.count - 1)  {
+                    returnStr += "&";
+                }
+            }
+            return returnStr;
+        }
+        
+        
+        return "";
+        
+        
+        
+    }
+    
 }

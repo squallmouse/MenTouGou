@@ -28,6 +28,9 @@ class ResetPasswordVC: UIViewController {
         self.updateBtn.layer.cornerRadius = 5;
         self.updateBtn.backgroundColor = UIColor.mainColor();
         
+        self.passwordTextField.secureTextEntry = true;
+        self.AGPasswordTextField.secureTextEntry = true;
+        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -64,14 +67,15 @@ class ResetPasswordVC: UIViewController {
             
         ];
         
-        YHAlamofire.Post(urlStr: MTG + FORGETPASSWORD, paramters: paramters, success: { (res) in
+        YHAlamofire.PostJson(urlStr: MTG + FORGETPASSWORD, paramters: paramters, success: { (res) in
             print("密码找回成功 = \(res)");
+            
             let hud:MBProgressHUD = Utils.creatHUD();
             hud.labelText = "密码找回成功";
             hud.hide(true, afterDelay: 1);
             self.navigationController?.popViewControllerAnimated(true);
             }) { (error) in
-                
+              self.navigationController?.popViewControllerAnimated(true);
         }
         
         

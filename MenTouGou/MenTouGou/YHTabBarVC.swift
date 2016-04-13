@@ -12,7 +12,7 @@ class YHTabBarVC: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        
         
         
 //       init Five VC
@@ -38,9 +38,14 @@ class YHTabBarVC: UITabBarController {
 //        
         self.tabBar.barTintColor = UIColor.mainColor();
 
-        
-        
+//    通知 selected
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(YHTabBarVC.changePage), name: "tabbarSelected", object: nil);
     }
+//  MARK:-  通知selected
+    func changePage() -> Void {
+        self.selectedIndex = 0;
+    }
+    
 //  MARK : - 初始化5个VC
     func childViewControllerInit(sbNameArr:NSArray, SBIDARR SBIDarr:NSArray) -> NSArray {
         let tempArr = NSMutableArray(capacity: 5);

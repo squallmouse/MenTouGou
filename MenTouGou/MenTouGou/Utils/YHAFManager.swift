@@ -102,7 +102,10 @@ class YHAFManager: NSObject {
 */
     
   class  func urlStrConversion(urlStr urlStr:String!) -> String {
-        return urlStr.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!
+//    NSData(
+   let data = urlStr.dataUsingEncoding(NSUTF8StringEncoding)
+    return String(data: data!, encoding: NSUTF8StringEncoding)!;
+//        return urlStr.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLPathAllowedCharacterSet())!
     }
    
 }

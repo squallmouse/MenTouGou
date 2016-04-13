@@ -17,6 +17,7 @@
 		EF153B1D1CB5180B00670498 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF153B1C1CB5180B00670498 /* SettingVC.swift */; };
 		EF153B1F1CB5210400670498 /* SignatureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF153B1E1CB5210400670498 /* SignatureVC.swift */; };
 		EF153B211CB5212100670498 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF153B201CB5212100670498 /* ResetPasswordVC.swift */; };
+		EF8CD3EF1CBDF968009A9C53 /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8CD3EE1CBDF968009A9C53 /* WebViewVC.swift */; };
 		EFC349C21CB4AAFC001FD0B4 /* HeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC349C01CB4AAFC001FD0B4 /* HeadCell.swift */; };
 		EFC349C31CB4AAFC001FD0B4 /* HeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFC349C11CB4AAFC001FD0B4 /* HeadCell.xib */; };
 		EFC349C61CB4B1CE001FD0B4 /* FullImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC349C41CB4B1CE001FD0B4 /* FullImageCell.swift */; };
@@ -82,6 +83,7 @@
 		EF153B1C1CB5180B00670498 /* SettingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		EF153B1E1CB5210400670498 /* SignatureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignatureVC.swift; sourceTree = "<group>"; };
 		EF153B201CB5212100670498 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		EF8CD3EE1CBDF968009A9C53 /* WebViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
 		EFC349C01CB4AAFC001FD0B4 /* HeadCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadCell.swift; sourceTree = "<group>"; };
 		EFC349C11CB4AAFC001FD0B4 /* HeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeadCell.xib; sourceTree = "<group>"; };
 		EFC349C41CB4B1CE001FD0B4 /* FullImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullImageCell.swift; sourceTree = "<group>"; };
@@ -207,6 +209,14 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		EF8CD3ED1CBDF944009A9C53 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				EF8CD3EE1CBDF968009A9C53 /* WebViewVC.swift */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
 		EFC349BC1CB4AA9B001FD0B4 /* content */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +320,7 @@
 		EFF5DDDB1CB35AC300EAA108 /* MenTouGou */ = {
 			isa = PBXGroup;
 			children = (
+				EF8CD3ED1CBDF944009A9C53 /* New Group */,
 				EFF5DE431CB3C22400EAA108 /* 1.jpg */,
 				EFF5DDDC1CB35AC300EAA108 /* AppDelegate.swift */,
 				EFF5DE141CB35D5200EAA108 /* YHTabBarVC.swift */,
@@ -623,6 +634,7 @@
 			files = (
 				EFC349C61CB4B1CE001FD0B4 /* FullImageCell.swift in Sources */,
 				EFF5DE331CB3B2FC00EAA108 /* ProductVC.swift in Sources */,
+				EF8CD3EF1CBDF968009A9C53 /* WebViewVC.swift in Sources */,
 				EFC3CEAE1CBB84E200716FFA /* BaseTableViewVC.swift in Sources */,
 				EFC3CEB01CBB9E9900716FFA /* InfoCellModle.swift in Sources */,
 				EF0333411CB9042E00739884 /* LoginVC.swift in Sources */,

@@ -31,6 +31,7 @@ class LoginVC: UIViewController {
 //  MARK:-  按钮们
 //    登录按钮
     @IBAction func loginBtClickDown(sender: AnyObject) {
+        
     }
 //   忘记密码
     @IBAction func forgetPasswordBtnClickDown(sender: AnyObject) {

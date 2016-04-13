@@ -45,22 +45,29 @@ class SignatureVC: UIViewController,UITextFieldDelegate {
 // 点击确定按钮
     @IBAction func confirmBtnClickDown(sender: AnyObject) {
 //        上传数据，完成后退出
-        var content:String!;
+//        let paramters = [
+//            "Email": self.eMailTextField.text!,
+//            "Password": self.passwordTextField.text!,
+//            "PhoneNumber": "",
+//            "UserName": self.userNameTextField.text!
+//            
+//            ] as [String:AnyObject];
+        var content:[String:AnyObject]!;
         if self.title == "个性签名" {
-            content = "?name=" + self.mtextField.text! as String;
+            content = ["name" : self.mtextField.text! as String];
         }else{
-            content = "?location=" + self.mtextField.text! as String;
+            content = ["location" : self.mtextField.text! as String];
         }
         
-        let temp = MTG + UPDATEUSER + Utils.getOwnID() + content;
-       
-        let url = YHAFManager.urlStrConversion(urlStr: temp);
-        YHAFManager.yhGet(urlStr: url, parameters: nil, success: { (res) in
+        let temp = MTG + UPDATEUSER + Utils.getOwnID() ;
+
+        YHAlamofire.Get(urlStr: temp, paramters: content, success: { (res) in
             print(res);
+            self.navigationController?.popViewControllerAnimated(true);
             }) { (failedRes) in
-                
+             print(failedRes);
+            self.navigationController?.popViewControllerAnimated(true);
         }
-        
 
         self.myBlock?(self.mtextField.text);
         

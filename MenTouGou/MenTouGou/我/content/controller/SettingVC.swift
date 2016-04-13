@@ -64,6 +64,16 @@ class SettingVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBAction func outBtnClickDown(sender: AnyObject) {
         
         print("退出按钮按下");
+        let user = NSUserDefaults.standardUserDefaults();
+        user.setValue("0", forKey: "userID");
+        user.synchronize();
+//        刷新首页
+        NSNotificationCenter.defaultCenter().postNotification(NSNotification.init(name: "refreshUser", object: nil));
+//        
+        NSNotificationCenter.defaultCenter().postNotification(NSNotification.init(name: "tabbarSelected", object: nil));
+//        
+        self.navigationController?.popToRootViewControllerAnimated(false);
+        
     }
     
     

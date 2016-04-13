@@ -26,7 +26,7 @@ class BaseTableViewVC: UIViewController,UITableViewDelegate,UITableViewDataSourc
         self.dataArr = NSMutableArray(capacity: 0);
         page = 1;
         
-        self.mtableView = UITableView(frame: CGRectMake(0, 64 + 30 + 10, s_width, s_height - 64 - 30 - 10));
+        self.mtableView = UITableView(frame: CGRectMake(0, 64 + 30 + 10, s_width, s_height - 64 - 30 - 10 - 49));
         self.view.addSubview(self.mtableView);
         self.mtableView.delegate = self;
         self.mtableView.dataSource = self;
