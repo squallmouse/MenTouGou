@@ -92,7 +92,7 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
             self.addChildViewController(self.carVC);
             self.carSc.frame = CGRectMake(0, 64, s_width, 140);
             self.carSc.addSubview(self.carVC.view);
-            self.carVC.setTimeWithSecond(4);
+//            self.carVC.setTimeWithSecond(4);
             })
         { (failedRes) in
             
@@ -142,6 +142,10 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
                 self.navigationController?.pushViewController(web, animated: true);
             }else{
 //                详情页
+                let webDetail = WebDetailVC.init(withProductID: dic["LinkUrl"] as! String);
+                webDetail.hidesBottomBarWhenPushed = true;
+                self.navigationController?.pushViewController(webDetail, animated: true);
+            
             }
             
         }

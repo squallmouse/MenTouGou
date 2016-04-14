@@ -47,7 +47,9 @@ class YHAlamofire: NSObject {
     
         Alamofire.request(.POST, url, parameters: parameters).response { (request, response, data, error) in
             do{
-                let res:AnyObject = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableLeaves) ;
+                let str = String(data: data!, encoding: NSUTF8StringEncoding);
+                let  data1 = str?.dataUsingEncoding(NSUTF8StringEncoding);
+                let res:AnyObject = try NSJSONSerialization.JSONObjectWithData(data1!, options: .MutableLeaves) ;
                 success(res);
             }catch{
                 failed(error as? AnyObject);
@@ -63,8 +65,9 @@ class YHAlamofire: NSObject {
         
         Alamofire.request(.POST, url, parameters: parameters, encoding:.JSON).response { (request, response, data, error) in
             do{
-                
-                let res:AnyObject = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableLeaves) ;
+                let str = String(data: data!, encoding: NSUTF8StringEncoding);
+                let  data1 = str?.dataUsingEncoding(NSUTF8StringEncoding);
+                let res:AnyObject = try NSJSONSerialization.JSONObjectWithData(data1!, options: .MutableLeaves) ;
                 success(res);
             }catch{
                 if data != nil{

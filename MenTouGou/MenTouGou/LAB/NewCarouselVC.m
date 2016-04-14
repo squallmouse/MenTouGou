@@ -106,7 +106,7 @@
     self.sc.bounces = NO;
     
     self.sc.pagingEnabled = true;
-    self.sc.backgroundColor = [UIColor redColor];
+//    self.sc.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.sc];
     self.sc.delegate = self;
     
@@ -122,9 +122,9 @@
     _img3.contentMode = UIViewContentModeScaleAspectFill;
     
     
-    _img1.backgroundColor = [UIColor orangeColor];
-    _img2.backgroundColor = [UIColor purpleColor];
-    _img3.backgroundColor = [UIColor blueColor];
+//    _img1.backgroundColor = [UIColor orangeColor];
+//    _img2.backgroundColor = [UIColor purpleColor];
+//    _img3.backgroundColor = [UIColor blueColor];
     switch (self.type) {
         case imagename:
         {

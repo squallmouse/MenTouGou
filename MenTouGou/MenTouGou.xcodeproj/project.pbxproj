@@ -17,7 +17,14 @@
 		EF153B1D1CB5180B00670498 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF153B1C1CB5180B00670498 /* SettingVC.swift */; };
 		EF153B1F1CB5210400670498 /* SignatureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF153B1E1CB5210400670498 /* SignatureVC.swift */; };
 		EF153B211CB5212100670498 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF153B201CB5212100670498 /* ResetPasswordVC.swift */; };
+		EF2EA2F31CBFD0C50068731F /* article.html in Resources */ = {isa = PBXBuildFile; fileRef = EF2EA2F21CBFD0C50068731F /* article.html */; };
+		EF2EA2F51CBFD1480068731F /* base.mustache in Resources */ = {isa = PBXBuildFile; fileRef = EF2EA2F41CBFD1480068731F /* base.mustache */; };
 		EF8CD3EF1CBDF968009A9C53 /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8CD3EE1CBDF968009A9C53 /* WebViewVC.swift */; };
+		EF8CD3F11CBE0D72009A9C53 /* WebDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8CD3F01CBE0D72009A9C53 /* WebDetailVC.swift */; };
+		EF8CD3F31CBE1876009A9C53 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8CD3F21CBE1876009A9C53 /* DetailView.swift */; };
+		EF8CD3F51CBE1887009A9C53 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF8CD3F41CBE1887009A9C53 /* DetailView.xib */; };
+		EF8CD3F91CBE25A8009A9C53 /* YHStartMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF8CD3F81CBE25A8009A9C53 /* YHStartMarkView.m */; };
+		EF8CD3FB1CBE31B5009A9C53 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8CD3FA1CBE31B5009A9C53 /* test.swift */; };
 		EFC349C21CB4AAFC001FD0B4 /* HeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC349C01CB4AAFC001FD0B4 /* HeadCell.swift */; };
 		EFC349C31CB4AAFC001FD0B4 /* HeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFC349C11CB4AAFC001FD0B4 /* HeadCell.xib */; };
 		EFC349C61CB4B1CE001FD0B4 /* FullImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC349C41CB4B1CE001FD0B4 /* FullImageCell.swift */; };
@@ -83,7 +90,15 @@
 		EF153B1C1CB5180B00670498 /* SettingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		EF153B1E1CB5210400670498 /* SignatureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignatureVC.swift; sourceTree = "<group>"; };
 		EF153B201CB5212100670498 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		EF2EA2F21CBFD0C50068731F /* article.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = article.html; sourceTree = "<group>"; };
+		EF2EA2F41CBFD1480068731F /* base.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = base.mustache; sourceTree = "<group>"; };
 		EF8CD3EE1CBDF968009A9C53 /* WebViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
+		EF8CD3F01CBE0D72009A9C53 /* WebDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebDetailVC.swift; sourceTree = "<group>"; };
+		EF8CD3F21CBE1876009A9C53 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		EF8CD3F41CBE1887009A9C53 /* DetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
+		EF8CD3F71CBE25A8009A9C53 /* YHStartMarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHStartMarkView.h; sourceTree = "<group>"; };
+		EF8CD3F81CBE25A8009A9C53 /* YHStartMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHStartMarkView.m; sourceTree = "<group>"; };
+		EF8CD3FA1CBE31B5009A9C53 /* test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		EFC349C01CB4AAFC001FD0B4 /* HeadCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadCell.swift; sourceTree = "<group>"; };
 		EFC349C11CB4AAFC001FD0B4 /* HeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeadCell.xib; sourceTree = "<group>"; };
 		EFC349C41CB4B1CE001FD0B4 /* FullImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullImageCell.swift; sourceTree = "<group>"; };
@@ -213,8 +228,21 @@
 			isa = PBXGroup;
 			children = (
 				EF8CD3EE1CBDF968009A9C53 /* WebViewVC.swift */,
+				EF8CD3F01CBE0D72009A9C53 /* WebDetailVC.swift */,
+				EF8CD3F21CBE1876009A9C53 /* DetailView.swift */,
+				EF8CD3F41CBE1887009A9C53 /* DetailView.xib */,
+				EF8CD3FA1CBE31B5009A9C53 /* test.swift */,
 			);
 			name = "New Group";
+			sourceTree = "<group>";
+		};
+		EF8CD3F61CBE25A0009A9C53 /* 小星星 */ = {
+			isa = PBXGroup;
+			children = (
+				EF8CD3F71CBE25A8009A9C53 /* YHStartMarkView.h */,
+				EF8CD3F81CBE25A8009A9C53 /* YHStartMarkView.m */,
+			);
+			path = "小星星";
 			sourceTree = "<group>";
 		};
 		EFC349BC1CB4AA9B001FD0B4 /* content */ = {
@@ -410,6 +438,8 @@
 		EFF5DE201CB396BD00EAA108 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EF2EA2F21CBFD0C50068731F /* article.html */,
+				EF2EA2F41CBFD1480068731F /* base.mustache */,
 				EFF5DE2A1CB398F800EAA108 /* UIColor+Utils.swift */,
 				EFF5DE411CB3B8EB00EAA108 /* Utils.swift */,
 				EFF028541CB65C8300AEFD03 /* YHAFManager.swift */,
@@ -424,6 +454,7 @@
 			isa = PBXGroup;
 			children = (
 				EFF5DE391CB3B41200EAA108 /* MenTouGou-Bridging-Header.h */,
+				EF8CD3F61CBE25A0009A9C53 /* 小星星 */,
 				EFC3CEAA1CBB843400716FFA /* 下拉列表 */,
 				EFF5DE401CB3B57900EAA108 /* 轮播图 */,
 			);
@@ -549,13 +580,16 @@
 				EFF5DE251CB396BD00EAA108 /* Infomation.storyboard in Resources */,
 				EFC3CE6D1CBB812500716FFA /* InfoCell.xib in Resources */,
 				EFF5DDE71CB35AC300EAA108 /* LaunchScreen.storyboard in Resources */,
+				EF2EA2F31CBFD0C50068731F /* article.html in Resources */,
 				EFF5DDE41CB35AC300EAA108 /* Assets.xcassets in Resources */,
 				EF153B1B1CB5039500670498 /* MyOtherCell.xib in Resources */,
 				EFF5DE221CB396BD00EAA108 /* MainPage.storyboard in Resources */,
 				EFF5DE211CB396BD00EAA108 /* Product.storyboard in Resources */,
 				EFF5DE231CB396BD00EAA108 /* MyHomePage.storyboard in Resources */,
 				EFF5DE441CB3C22400EAA108 /* 1.jpg in Resources */,
+				EF8CD3F51CBE1887009A9C53 /* DetailView.xib in Resources */,
 				EFC349C31CB4AAFC001FD0B4 /* HeadCell.xib in Resources */,
+				EF2EA2F51CBFD1480068731F /* base.mustache in Resources */,
 				EFF5DE241CB396BD00EAA108 /* Around.storyboard in Resources */,
 				EFF5DDE21CB35AC300EAA108 /* Main.storyboard in Resources */,
 				EFC349C71CB4B1CE001FD0B4 /* FullImageCell.xib in Resources */,
@@ -635,18 +669,21 @@
 				EFC349C61CB4B1CE001FD0B4 /* FullImageCell.swift in Sources */,
 				EFF5DE331CB3B2FC00EAA108 /* ProductVC.swift in Sources */,
 				EF8CD3EF1CBDF968009A9C53 /* WebViewVC.swift in Sources */,
+				EF8CD3FB1CBE31B5009A9C53 /* test.swift in Sources */,
 				EFC3CEAE1CBB84E200716FFA /* BaseTableViewVC.swift in Sources */,
 				EFC3CEB01CBB9E9900716FFA /* InfoCellModle.swift in Sources */,
 				EF0333411CB9042E00739884 /* LoginVC.swift in Sources */,
 				EFF5DE3F1CB3B57100EAA108 /* NewCarouselVC.m in Sources */,
 				EFF5DE2B1CB398F800EAA108 /* UIColor+Utils.swift in Sources */,
 				EFC3CE6C1CBB812500716FFA /* InfoCell.swift in Sources */,
+				EF8CD3F91CBE25A8009A9C53 /* YHStartMarkView.m in Sources */,
 				EFF5DE371CB3B31A00EAA108 /* MyHomePageVC.swift in Sources */,
 				EFF5DE151CB35D5200EAA108 /* YHTabBarVC.swift in Sources */,
 				EFF5DE421CB3B8EB00EAA108 /* Utils.swift in Sources */,
 				EFC3CE651CBB775200716FFA /* LMComBoxView.m in Sources */,
 				EFF028551CB65C8300AEFD03 /* YHAFManager.swift in Sources */,
 				EF153B1F1CB5210400670498 /* SignatureVC.swift in Sources */,
+				EF8CD3F31CBE1876009A9C53 /* DetailView.swift in Sources */,
 				EF153B1D1CB5180B00670498 /* SettingVC.swift in Sources */,
 				EF153B211CB5212100670498 /* ResetPasswordVC.swift in Sources */,
 				EFF5DE2F1CB3B25700EAA108 /* MainPageVC.swift in Sources */,
@@ -654,6 +691,7 @@
 				EFCBF5021CB7BACE0068F466 /* YHAlamofire.swift in Sources */,
 				EF0333431CB9046D00739884 /* RegisterVC.swift in Sources */,
 				EFCBF4FE1CB74F3E0068F466 /* YHAPI.swift in Sources */,
+				EF8CD3F11CBE0D72009A9C53 /* WebDetailVC.swift in Sources */,
 				EFF5DE351CB3B30A00EAA108 /* AroundVC.swift in Sources */,
 				EFF5DDDD1CB35AC300EAA108 /* AppDelegate.swift in Sources */,
 				EFF5DE311CB3B2ED00EAA108 /* InfomationVC.swift in Sources */,

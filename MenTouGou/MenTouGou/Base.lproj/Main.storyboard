@@ -6,6 +6,25 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="wNI-Vo-R9G">
+            <objects>
+                <viewController id="0Cj-Tx-bcm" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ON5-bD-Bxh"/>
+                        <viewControllerLayoutGuide type="bottom" id="dgd-P9-IyE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BUs-Yc-va0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xnE-DI-vhO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2910" y="-789"/>
+        </scene>
         <!--Tab BarVC-->
         <scene sceneID="xt9-rF-r0Z">
             <objects>

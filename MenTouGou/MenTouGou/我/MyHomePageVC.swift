@@ -70,17 +70,17 @@ class MyHomePageVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
     func paraserWithDic(dic:NSDictionary) -> Void {
         self.contentArr.removeAllObjects();
 //        用户名
-    self.contentArr.addObject(Utils.changeNullToEnptyStr(self.dataDic["UserName"]));
+    self.contentArr.addObject(Utils.changeNullToEmptyStr(self.dataDic["UserName"]));
 //        邮箱
-    self.contentArr.addObject(Utils.changeNullToEnptyStr(self.dataDic["Email"]));
+    self.contentArr.addObject(Utils.changeNullToEmptyStr(self.dataDic["Email"]));
 //        个性签名
-    self.contentArr.addObject(Utils.changeNullToEnptyStr(self.dataDic["Name"]));
+    self.contentArr.addObject(Utils.changeNullToEmptyStr(self.dataDic["Name"]));
 //        性别
-    self.contentArr.addObject(Utils.changeNullToEnptyStr(self.dataDic["Subject"]));
+    self.contentArr.addObject(Utils.changeNullToEmptyStr(self.dataDic["Subject"]));
 //        个性签名
-    self.contentArr.addObject(Utils.changeNullToEnptyStr(self.dataDic["Grade"]));
+    self.contentArr.addObject(Utils.changeNullToEmptyStr(self.dataDic["Grade"]));
 //        所在地
-    self.contentArr.addObject(Utils.changeNullToEnptyStr(self.dataDic["Professional"]));
+    self.contentArr.addObject(Utils.changeNullToEmptyStr(self.dataDic["Professional"]));
 //        修改密码
         self.contentArr.addObject("");
 

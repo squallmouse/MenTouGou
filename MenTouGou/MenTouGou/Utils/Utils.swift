@@ -45,8 +45,9 @@ class Utils: NSObject {
         da1.dateFormat = "yyyy-MM-dd";
         return da1.stringFromDate(date!);
     }
-//    把null换成""
-    class func changeNullToEnptyStr(value:AnyObject?)->String
+//  MARK:-  把null换成""
+//
+    class func changeNullToEmptyStr(value:AnyObject?)->String
     {
         if value is NSNull {
             return ""
@@ -84,9 +85,19 @@ class Utils: NSObject {
         
         
         return "";
-        
-        
+   
+    }
+//  MARK:-  中文转码
+//
+    class  func urlStrConversion(urlStr urlStr:String!) -> String {
+
+//   let data = urlStr.dataUsingEncoding(NSUTF8StringEncoding)
+//    return String(data: data!, encoding: NSUTF8StringEncoding)!;
+        print("中文转码");
+//
+        return urlStr.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!;
         
     }
+    
     
 }

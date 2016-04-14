@@ -101,11 +101,6 @@ class YHAFManager: NSObject {
      把含有中文的链接转转码
 */
     
-  class  func urlStrConversion(urlStr urlStr:String!) -> String {
-//    NSData(
-   let data = urlStr.dataUsingEncoding(NSUTF8StringEncoding)
-    return String(data: data!, encoding: NSUTF8StringEncoding)!;
-//        return urlStr.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLPathAllowedCharacterSet())!
-    }
+ 
    
 }

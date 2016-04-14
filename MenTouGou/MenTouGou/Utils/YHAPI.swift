@@ -26,4 +26,5 @@ let USERINFO = "/api/Account/UserInfo/"//获取用户信息 GET
 
 
 let NEWLIST = "/api/Mtg/NewsList/"//获取资讯
+let LEISURE = "/api/Leisure/Leisure/"//获取详情
 
