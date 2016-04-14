@@ -9,6 +9,7 @@
 #import "NewCarouselVC.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
+
 @interface NewCarouselVC ()<UIScrollViewDelegate>
 {
     NSTimer *_timer;
@@ -34,6 +35,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     NSLog(@"car WillDisappear");
+    
 }
 
 -(void)dealloc{

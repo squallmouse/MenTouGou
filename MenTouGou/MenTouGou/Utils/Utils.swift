@@ -98,6 +98,32 @@ class Utils: NSObject {
         return urlStr.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!;
         
     }
+//  MARK:-  html 
+    class func HTMLWithDic(dic:NSDictionary, useingTemplate templateName:String)->NSString{
+        let templatePath = NSBundle.mainBundle().pathForResource(templateName, ofType: "html", inDirectory: "html");
+        do{
+            let template = try NSString.init(contentsOfFile: templatePath!, encoding: NSUTF8StringEncoding);
+            
+        
+            GRMustache
+            return "";
+        }catch{
+            print("html失败了！！！！！！")
+            return "";
+        }
+        
+    }
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
     
 }
