@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.whiteColor();
         
 //  Umeng 消息推送
-        UMessage.startWithAppkey("56976da967e58e6412001760", launchOptions: launchOptions );
+        UMessage.startWithAppkey("56976da967e58e6412001760", launchOptions: launchOptions);
     
         let action1 = UIMutableUserNotificationAction();
         action1.identifier = "action1_identifier";

@@ -23,7 +23,7 @@ class YHTabBarVC: UITabBarController {
         self.viewControllers = self.childViewControllerInit(SBNameArr, SBIDARR: SBIDArr) as? [UIViewController] ;
   
 //        tabbar.items
-        let titles = ["首页", "资讯", "农场品", "周边", "我"];
+        let titles = ["首页", "市场", "农场品", "周边", "我"];
         let images = ["ic_home_def","ic_information_def","ic_farm_produce_def","ic_perimeter_def","ic_my_def"];
         let selimages = ["ic_home_sel","ic_information_sel","ic_farm_produce_sel","ic_perimeter_sel","ic_my_sel"];
         ((self.tabBar.items)!as NSArray).enumerateObjectsUsingBlock { (item, index, stop) in

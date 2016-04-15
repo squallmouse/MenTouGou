@@ -27,8 +27,6 @@
 		EF8CD3FB1CBE31B5009A9C53 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8CD3FA1CBE31B5009A9C53 /* test.swift */; };
 		EF98E9EB1CBFDF5B00BFFEA2 /* HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = EF98E9EA1CBFDF5B00BFFEA2 /* HTML.m */; };
 		EF98E9EE1CBFE26900BFFEA2 /* html in Resources */ = {isa = PBXBuildFile; fileRef = EF98E9ED1CBFE26900BFFEA2 /* html */; };
-		EFA255721CC14A4800CDD182 /* libUMessage_Sdk_1.2.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA255701CC14A4800CDD182 /* libUMessage_Sdk_1.2.6.a */; };
-		EFA255741CC14A8A00CDD182 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA255731CC14A8A00CDD182 /* libz.tbd */; };
 		EFC349C21CB4AAFC001FD0B4 /* HeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC349C01CB4AAFC001FD0B4 /* HeadCell.swift */; };
 		EFC349C31CB4AAFC001FD0B4 /* HeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFC349C11CB4AAFC001FD0B4 /* HeadCell.xib */; };
 		EFC349C61CB4B1CE001FD0B4 /* FullImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC349C41CB4B1CE001FD0B4 /* FullImageCell.swift */; };
@@ -40,6 +38,7 @@
 		EFC3CEB01CBB9E9900716FFA /* InfoCellModle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC3CEAF1CBB9E9900716FFA /* InfoCellModle.swift */; };
 		EFCBF4FE1CB74F3E0068F466 /* YHAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBF4FD1CB74F3E0068F466 /* YHAPI.swift */; };
 		EFCBF5021CB7BACE0068F466 /* YHAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBF5011CB7BACE0068F466 /* YHAlamofire.swift */; };
+		EFD0E7571CC14EDD0027E406 /* libUMessage_Sdk_1.2.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD0E7551CC14EDD0027E406 /* libUMessage_Sdk_1.2.6.a */; };
 		EFF028551CB65C8300AEFD03 /* YHAFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF028541CB65C8300AEFD03 /* YHAFManager.swift */; };
 		EFF5DDDD1CB35AC300EAA108 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5DDDC1CB35AC300EAA108 /* AppDelegate.swift */; };
 		EFF5DDE21CB35AC300EAA108 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFF5DDE01CB35AC300EAA108 /* Main.storyboard */; };
@@ -105,9 +104,6 @@
 		EF98E9EA1CBFDF5B00BFFEA2 /* HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTML.m; sourceTree = "<group>"; };
 		EF98E9ED1CBFE26900BFFEA2 /* html */ = {isa = PBXFileReference; lastKnownFileType = folder; path = html; sourceTree = "<group>"; };
 		EFA255691CC1425E00CDD182 /* MenTouGou-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MenTouGou-Bridging-Header.h"; sourceTree = "<group>"; };
-		EFA255701CC14A4800CDD182 /* libUMessage_Sdk_1.2.6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.2.6.a; sourceTree = "<group>"; };
-		EFA255711CC14A4800CDD182 /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
-		EFA255731CC14A8A00CDD182 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		EFC349C01CB4AAFC001FD0B4 /* HeadCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadCell.swift; sourceTree = "<group>"; };
 		EFC349C11CB4AAFC001FD0B4 /* HeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeadCell.xib; sourceTree = "<group>"; };
 		EFC349C41CB4B1CE001FD0B4 /* FullImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullImageCell.swift; sourceTree = "<group>"; };
@@ -120,6 +116,8 @@
 		EFC3CEAF1CBB9E9900716FFA /* InfoCellModle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCellModle.swift; sourceTree = "<group>"; };
 		EFCBF4FD1CB74F3E0068F466 /* YHAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YHAPI.swift; sourceTree = "<group>"; };
 		EFCBF5011CB7BACE0068F466 /* YHAlamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YHAlamofire.swift; sourceTree = "<group>"; };
+		EFD0E7551CC14EDD0027E406 /* libUMessage_Sdk_1.2.6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.2.6.a; sourceTree = "<group>"; };
+		EFD0E7561CC14EDD0027E406 /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
 		EFF028541CB65C8300AEFD03 /* YHAFManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YHAFManager.swift; sourceTree = "<group>"; };
 		EFF5DDD91CB35AC300EAA108 /* MenTouGou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenTouGou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFF5DDDC1CB35AC300EAA108 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,8 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFA255741CC14A8A00CDD182 /* libz.tbd in Frameworks */,
-				EFA255721CC14A4800CDD182 /* libUMessage_Sdk_1.2.6.a in Frameworks */,
+				EFD0E7571CC14EDD0027E406 /* libUMessage_Sdk_1.2.6.a in Frameworks */,
 				5168D46D36B6A07A1DD20115 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,7 +181,6 @@
 		9C3527203B9C5229758B052B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EFA255731CC14A8A00CDD182 /* libz.tbd */,
 				65FD86BFA184D9E41F89A424 /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -266,15 +262,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		EFA2556F1CC14A4800CDD182 /* UMessage_Sdk_1.2.6 */ = {
-			isa = PBXGroup;
-			children = (
-				EFA255701CC14A4800CDD182 /* libUMessage_Sdk_1.2.6.a */,
-				EFA255711CC14A4800CDD182 /* UMessage.h */,
-			);
-			path = UMessage_Sdk_1.2.6;
-			sourceTree = "<group>";
-		};
 		EFC349BC1CB4AA9B001FD0B4 /* content */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,10 +340,19 @@
 			name = "下拉列表";
 			sourceTree = "<group>";
 		};
+		EFD0E7541CC14EDD0027E406 /* UMessage_Sdk_1.2.6 */ = {
+			isa = PBXGroup;
+			children = (
+				EFD0E7551CC14EDD0027E406 /* libUMessage_Sdk_1.2.6.a */,
+				EFD0E7561CC14EDD0027E406 /* UMessage.h */,
+			);
+			path = UMessage_Sdk_1.2.6;
+			sourceTree = "<group>";
+		};
 		EFDF920C1CC0B7B20066C03D /* ThirdLab */ = {
 			isa = PBXGroup;
 			children = (
-				EFA2556F1CC14A4800CDD182 /* UMessage_Sdk_1.2.6 */,
+				EFD0E7541CC14EDD0027E406 /* UMessage_Sdk_1.2.6 */,
 			);
 			path = ThirdLab;
 			sourceTree = "<group>";
