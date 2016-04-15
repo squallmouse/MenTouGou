@@ -52,18 +52,26 @@ class WebDetailVC: UIViewController,WKNavigationDelegate {
                 let dic = res as! NSDictionary;
                 print(dic)
                 self.title = dic["Title"]as? String;
-                self.detailView = DetailView.init(frame: CGRectMake(0, -360, s_width, 350), withDic: dic);
+//                self.detailView = DetailView.init(frame: CGRectMake(0, -360, s_width, 350), withDic: dic);
+                self.detailView = DetailView.init(frame: CGRectMake(0, 0, s_width, 350), withDic: dic);
                 self.web.scrollView.addSubview(self.detailView);
 //
-                self.web.scrollView.contentInset = UIEdgeInsetsMake(360, 0, -330, 0);
+//                self.web.scrollView.contentInset = UIEdgeInsetsMake(360, 0, -330, 0);
 //                self.web.scrollView.contentInset = UIEdgeInsetsMake(360, 0, 0, 0);
 //                self.web.loadRequest(NSURLRequest(URL: NSURL.init(string: "https://www.baidu.com")!));
                 self.web.navigationDelegate = self;
                 let st = dic["Detail"]as! String;
-                self.web.loadHTMLString(st + st + st + st + st , baseURL: nil);
+                
+                let temphtml:NSDictionary = [
+                    "content":st + st + st
+                ];
+//                var  htmlstr =
+                let html =  HTML.HTMLWithData(temphtml as [NSObject : AnyObject], usingTemplate: "article");
+                self.web.loadHTMLString(html as String , baseURL: NSBundle.mainBundle().resourceURL);
+//                self.web.loadHTMLString(st + st + st + st + st , baseURL: nil);
                 
 //                self.web.loadHTMLString(st , baseURL: nil);
-                self.web.scrollView.bounces = false;
+//                self.web.scrollView.bounces = false;
                 print("---------");
             print(self.web.scrollView.contentSize.height);
                 print("1111111");

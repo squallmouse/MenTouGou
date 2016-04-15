@@ -99,21 +99,21 @@ class Utils: NSObject {
         
     }
 //  MARK:-  html 
-    class func HTMLWithDic(dic:NSDictionary, useingTemplate templateName:String)->NSString{
-        let templatePath = NSBundle.mainBundle().pathForResource(templateName, ofType: "html", inDirectory: "html");
-        do{
-            let template = try NSString.init(contentsOfFile: templatePath!, encoding: NSUTF8StringEncoding);
-            
-        
-            GRMustache
-            return "";
-        }catch{
-            print("html失败了！！！！！！")
-            return "";
-        }
-        
-    }
-    
+//    class func HTMLWithDic(dic:NSDictionary, useingTemplate templateName:String)->NSString{
+//        let templatePath = NSBundle.mainBundle().pathForResource(templateName, ofType: "html", inDirectory: "html");
+//        do{
+//            let template = try NSString.init(contentsOfFile: templatePath!, encoding: NSUTF8StringEncoding);
+//            
+//        
+////            GRMustache
+//            return "";
+//        }catch{
+//            print("html失败了！！！！！！")
+//            return "";
+//        }
+//        
+//    }
+//    
     
     
     

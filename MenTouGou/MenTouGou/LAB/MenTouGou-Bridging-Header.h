@@ -3,12 +3,14 @@
 //MenTouGou-Bridging-Header
 
 #import "NewCarouselVC.h"
-#import <AFNetworking.h>
+#import "AFNetworking.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import <MBProgressHUD.h>
-#import <MJRefresh.h>
+#import "MBProgressHUD.h"
+#import "MJRefresh.h"
 #import "LMComBoxView.h"
 #import "YHStartMarkView.h"
+#import "HTML.h"
+#import "UMessage.h"
 
 #import <GRMustache/GRMustache.h>
 #import <JRSwizzle/JRSwizzle.h>
