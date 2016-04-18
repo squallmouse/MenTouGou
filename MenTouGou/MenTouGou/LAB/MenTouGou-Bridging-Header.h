@@ -10,7 +10,9 @@
 #import "LMComBoxView.h"
 #import "YHStartMarkView.h"
 #import "HTML.h"
+//Umeng
 #import "UMessage.h"
+#import "MobClick.h"
 
 #import <GRMustache/GRMustache.h>
 #import <JRSwizzle/JRSwizzle.h>

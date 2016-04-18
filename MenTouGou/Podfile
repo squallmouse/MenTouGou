@@ -8,5 +8,6 @@ pod 'MBProgressHUD'
 pod 'MJRefresh'
 pod 'Alamofire'
 pod 'GRMustache'
+pod 'BaiduMapKit' 
 
 link_with 'MenTouGou', 'MenTouGouTests', 'MenTouGouUITests'

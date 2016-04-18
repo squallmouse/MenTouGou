@@ -23,7 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().statusBarStyle = .LightContent;
         
         UINavigationBar.appearance().tintColor = UIColor.whiteColor();
-        
+//        统计
+        let dic = NSBundle.mainBundle().infoDictionary;
+        let version =  dic!["CFBundleShortVersionString"];
+        print("version = \(version)");
+        MobClick.startWithAppkey("56976da967e58e6412001760", reportPolicy: BATCH, channelId: "");
+// 百度地图 UPf08I1n60jaiZhmmKZUeFzAvV5WA5Nl      
 //  Umeng 消息推送
         UMessage.startWithAppkey("56976da967e58e6412001760", launchOptions: launchOptions);
     
@@ -43,11 +48,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         categorys.identifier = "category1";
         categorys.setActions([action1,action2], forContext: .Default);
         
-        let userSettings = UIUserNotificationSettings(forTypes: [.Badge,.Sound,.Alert], categories: NSSet(object: categorys) as! Set<UIUserNotificationCategory>);
+        let userSettings = UIUserNotificationSettings(forTypes: [.Badge,.Sound,.Alert], categories: NSSet(object: categorys) as? Set<UIUserNotificationCategory>);
         UMessage.registerRemoteNotificationAndUserNotificationSettings(userSettings);
         UMessage.setLogEnabled(true);
         
-//
+
+        
+
 //        关闭推送
 //        UMessage.unregisterForRemoteNotifications();
         return true
