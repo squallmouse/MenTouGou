@@ -11,33 +11,33 @@ import WebKit
 
 class WebDetailVC: UIViewController,WKNavigationDelegate {
 
-    var web:WKWebView!;
+//    var web:WKWebView!;
+    var web:UIWebView!
+    
     var detailView:DetailView!;
     
     var productID : String!;
+    var dataDic:NSDictionary!;
     
     init(withProductID ID:String){
         super.init(nibName: nil, bundle: nil);
         self.productID = ID ;
-        self.web = WKWebView(frame: CGRectMake(0, 64, s_width, s_height - 64));
+//        self.web = WKWebView(frame: CGRectMake(0, 64, s_width, s_height - 64));
+        self.web = UIWebView(frame: CGRectMake(0, 64, s_width, s_height - 64));
         self.view.addSubview(self.web);
     }
     
+    init(withDataDic Dic:NSDictionary){
+        super.init(nibName: nil, bundle: nil);
+        self.dataDic = Dic;
+//        self.web = WKWebView(frame: CGRectMake(0, 64, s_width, s_height - 64));
+        self.web = UIWebView(frame: CGRectMake(0, 64, s_width, s_height - 64));
+        self.view.addSubview(self.web);
+    }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-//    test
-    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
-        print("hhhhhhhhhhh");
-        print("ffff = \(s_height)");
-        print(self.web.scrollView.contentSize.height);
-    }
-    func webView(webView: WKWebView, didCommitNavigation navigation: WKNavigation!) {
-        print("---------------");
-        print(self.web.scrollView.contentSize.height);
-    }
-    
-//    test
+
     
     
     override func viewDidLoad() {
@@ -45,40 +45,20 @@ class WebDetailVC: UIViewController,WKNavigationDelegate {
         self.automaticallyAdjustsScrollViewInsets = false;
 
 //        let
-        
-        YHAlamofire.Get(urlStr: MTG + LEISURE + self.productID , paramters: nil,
+        if self.dataDic == nil {
+
+            YHAlamofire.Get(urlStr: MTG + LEISURE + self.productID , paramters: nil,
             success: { (res) in
                
                 let dic = res as! NSDictionary;
                 print(dic)
-                self.title = dic["Title"]as? String;
-//                self.detailView = DetailView.init(frame: CGRectMake(0, -360, s_width, 350), withDic: dic);
-                self.detailView = DetailView.init(frame: CGRectMake(0, 0, s_width, 350), withDic: dic);
-                self.web.scrollView.addSubview(self.detailView);
-//
-//                self.web.scrollView.contentInset = UIEdgeInsetsMake(360, 0, -330, 0);
-//                self.web.scrollView.contentInset = UIEdgeInsetsMake(360, 0, 0, 0);
-//                self.web.loadRequest(NSURLRequest(URL: NSURL.init(string: "https://www.baidu.com")!));
-                self.web.navigationDelegate = self;
-                let st = dic["Detail"]as! String;
-                
-                let temphtml:NSDictionary = [
-                    "content":st + st + st
-                ];
-//                var  htmlstr =
-                let html =  HTML.HTMLWithData(temphtml as [NSObject : AnyObject], usingTemplate: "article");
-                self.web.loadHTMLString(html as String , baseURL: NSBundle.mainBundle().resourceURL);
-//                self.web.loadHTMLString(st + st + st + st + st , baseURL: nil);
-                
-//                self.web.loadHTMLString(st , baseURL: nil);
-//                self.web.scrollView.bounces = false;
-                print("---------");
-            print(self.web.scrollView.contentSize.height);
-                print("1111111");
-                
+                self.parserWithDic(dic);
             }) { (failedRes) in
                 self.navigationController?.popViewControllerAnimated(true);
                 
+            }
+        }else{
+            self.parserWithDic(self.dataDic);
         }
         
         
@@ -87,7 +67,24 @@ class WebDetailVC: UIViewController,WKNavigationDelegate {
 //  MARK:-  数据解析
     func parserWithDic(dic:NSDictionary){
         
+        self.title = dic["Title"]as? String;
         
+        self.detailView = DetailView.init(frame: CGRectMake(0, 0, s_width, 350), withDic: dic);
+        self.web.scrollView.addSubview(self.detailView);
+        
+//        self.web.navigationDelegate = self;
+        let st = dic["Detail"]as! String;
+        print("scale = \(UIScreen.mainScreen().scale)")
+//        6 920
+        let temphtml:NSDictionary = [
+            "content":st,
+            "tophight":(350)
+        ];
+        //                var  htmlstr =
+        let html =  HTML.HTMLWithData(temphtml as [NSObject : AnyObject], usingTemplate: "article");
+        self.web.loadHTMLString(html as String , baseURL: NSBundle.mainBundle().resourceURL);
+        
+
         
     }
     

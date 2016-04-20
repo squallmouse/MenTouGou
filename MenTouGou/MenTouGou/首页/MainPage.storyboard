@@ -22,6 +22,24 @@
             </objects>
             <point key="canvasLocation" x="-1325" y="569"/>
         </scene>
+        <!--DetailVC-->
+        <scene sceneID="7NF-D7-o15">
+            <objects>
+                <viewController id="tsI-kq-94L" customClass="DetailVC" customModule="MenTouGou" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YbM-Ju-Mwc"/>
+                        <viewControllerLayoutGuide type="bottom" id="CZU-Me-ZCZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="paF-3s-YQG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LQc-SE-bPr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-267.5" y="-56.5"/>
+        </scene>
         <!--Main PageVC-->
         <scene sceneID="COW-ON-I8R">
             <objects>
@@ -34,33 +52,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIU-95-2uw">
-                                <rect key="frame" x="0.0" y="64" width="375" height="140"/>
-                                <color key="backgroundColor" red="0.19125205592105263" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="140" id="p1N-CR-4hC"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="wJX-Rt-29K">
-                                <rect key="frame" x="10" y="204" width="355" height="463"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <rect key="frame" x="10" y="64" width="355" height="603"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.98039215686274506" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="wJX-Rt-29K" firstAttribute="top" secondItem="hIU-95-2uw" secondAttribute="bottom" id="6TO-RE-NeK"/>
-                            <constraint firstItem="hIU-95-2uw" firstAttribute="leading" secondItem="2VH-Hx-KQ8" secondAttribute="leading" id="DJj-d6-UUB"/>
-                            <constraint firstAttribute="trailing" secondItem="hIU-95-2uw" secondAttribute="trailing" id="EVe-Uz-NGV"/>
-                            <constraint firstItem="wJX-Rt-29K" firstAttribute="leading" secondItem="2VH-Hx-KQ8" secondAttribute="leading" constant="10" id="HnN-RJ-ard"/>
-                            <constraint firstItem="i2y-Lu-uct" firstAttribute="top" secondItem="wJX-Rt-29K" secondAttribute="bottom" id="JaE-JK-XaV"/>
-                            <constraint firstItem="hIU-95-2uw" firstAttribute="top" secondItem="vjV-2n-DaF" secondAttribute="bottom" id="Td8-3D-ZMX"/>
-                            <constraint firstAttribute="trailing" secondItem="wJX-Rt-29K" secondAttribute="trailing" constant="10" id="gdR-j8-Qpa"/>
+                            <constraint firstAttribute="trailing" secondItem="wJX-Rt-29K" secondAttribute="trailing" constant="10" id="3xA-km-bsQ"/>
+                            <constraint firstItem="i2y-Lu-uct" firstAttribute="top" secondItem="wJX-Rt-29K" secondAttribute="bottom" id="J15-nE-0wf"/>
+                            <constraint firstItem="wJX-Rt-29K" firstAttribute="top" secondItem="vjV-2n-DaF" secondAttribute="bottom" id="sMc-gb-Ybu"/>
+                            <constraint firstItem="wJX-Rt-29K" firstAttribute="leading" secondItem="2VH-Hx-KQ8" secondAttribute="leading" constant="10" id="x79-tm-dsn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gbb-CO-sZV"/>
                     <connections>
-                        <outlet property="carSc" destination="hIU-95-2uw" id="Q9R-MY-uGF"/>
                         <outlet property="mtableView" destination="wJX-Rt-29K" id="ffR-ii-krg"/>
+                        <segue destination="tsI-kq-94L" kind="show" identifier="GoToDetailVC" id="ElD-GI-sU7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9rZ-5i-Rz6" userLabel="First Responder" sceneMemberID="firstResponder"/>

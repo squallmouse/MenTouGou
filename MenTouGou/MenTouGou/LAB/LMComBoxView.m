@@ -197,7 +197,7 @@
     [self tapAction];
     if([_delegate respondsToSelector:@selector(selectAtIndex:inCombox:)])
     {
-        [_delegate selectAtIndex:indexPath.row inCombox:self];
+        [_delegate selectAtIndex:(int)indexPath.row inCombox:self];
     }
     [self performSelector:@selector(deSelectedRow) withObject:nil afterDelay:0.2];
 }

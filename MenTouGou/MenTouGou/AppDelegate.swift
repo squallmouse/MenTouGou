@@ -10,10 +10,16 @@ import UIKit
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate,BMKLocationServiceDelegate {
 
+//    坐标
+    var userLocation : BMKUserLocation?;
+    var latitude :CLLocationDegrees?
+    var longitude :CLLocationDegrees?
+    
     var window: UIWindow?
-
+    var _mapManager: BMKMapManager?
+    var locservice:BMKLocationService!;
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -23,12 +29,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().statusBarStyle = .LightContent;
         
         UINavigationBar.appearance().tintColor = UIColor.whiteColor();
+//        百度地图
+        _mapManager = BMKMapManager()
+        let ret = _mapManager?.start("UPf08I1n60jaiZhmmKZUeFzAvV5WA5Nl", generalDelegate: self);
+        if ret == false {
+
+            print("manager start failed!")
+        }
+//      定位
+        locservice = BMKLocationService();
+        locservice.delegate = self;
+        locservice.startUserLocationService();
+        
 //        统计
-        let dic = NSBundle.mainBundle().infoDictionary;
-        let version =  dic!["CFBundleShortVersionString"];
-        print("version = \(version)");
+//        let dic = NSBundle.mainBundle().infoDictionary;
+//        let version =  dic!["CFBundleShortVersionString"];
+//        print("version = \(version)");
         MobClick.startWithAppkey("56976da967e58e6412001760", reportPolicy: BATCH, channelId: "");
-// 百度地图 UPf08I1n60jaiZhmmKZUeFzAvV5WA5Nl      
+// 百度地图
 //  Umeng 消息推送
         UMessage.startWithAppkey("56976da967e58e6412001760", launchOptions: launchOptions);
     
@@ -60,6 +78,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    func didUpdateBMKUserLocation(userLocation: BMKUserLocation!) {
+        print("userLocation = \(userLocation)");
+          latitude = userLocation.location.coordinate.latitude
+          longitude = userLocation.location.coordinate.longitude
+        self.userLocation = userLocation;
+        print("latitude =\(latitude) \n longitude = \(longitude)");
+    }
+    
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         print("deviceToken = \(deviceToken)");
         UMessage.registerDeviceToken(deviceToken);

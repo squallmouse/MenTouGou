@@ -8,8 +8,12 @@
 
 import UIKit
 
+typealias cellBtnClick = (tag:Int)->Void
+
 class HeadCell: UITableViewCell {
 
+    
+    var btnClickDown : cellBtnClick?;
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,7 +25,8 @@ class HeadCell: UITableViewCell {
     @IBAction func HeadCellBtnClickDown(sender: AnyObject) {
         
         let btn = sender as! UIButton;
-        print("btntag = \(btn.tag)");
+//        print("btntag = \(btn.tag)");
+        self.btnClickDown?(tag: btn.tag);
     }
     
     

@@ -12,8 +12,8 @@ import Alamofire
 
 class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
 //
-    @IBOutlet weak var carSc: UIView!
-    
+
+    var carSc:UIView!; //tableview headview
     @IBOutlet weak var mtableView: UITableView!
     
     var carVC:NewCarouselVC!;
@@ -24,29 +24,18 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
 //    MARK:- ----------------------
     
-   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "首页";
         self.view.backgroundColor = UIColor.whiteColor();
         self.automaticallyAdjustsScrollViewInsets = false;
-//        test
-        
-       
-        
-//        test
+
 //焦点图下方
        self.adverlistArr = NSArray();
         
         let advertlistUrl = MTG + GETADVERTLIST;
-//        YHAlamofire.Get(urlStr: advertlistUrl, paramters: nil, success: { (res) in
-//            print("1111 = \(res)")
-//            }) { (res) in
-//                
-//        }
-        
-        
+
         YHAFManager.yhGet(urlStr: advertlistUrl, parameters: nil, success: { (res) in
             
             self.adverlistArr = res as! NSArray;
@@ -58,17 +47,18 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
                 
         };
 
-        
-//        print(Utils.getOwnID())
-        
-        
 //        tableView
         self.mtableView.delegate = self;
         self.mtableView.dataSource = self;
         self.mtableView.backgroundColor = UIColor.whiteColor();
         self.mtableView.separatorStyle = .None;
         self.mtableView.showsVerticalScrollIndicator = false;
-       
+        
+        self.carSc = UIView(frame: CGRectMake(0, 0, s_width, 140));
+        self.carSc.backgroundColor = UIColor.redColor();
+        self.mtableView.tableHeaderView = self.carSc;
+        self.mtableView.tableHeaderView?.clipsToBounds = false;
+        self.mtableView.clipsToBounds = false;
 //   轮播图
 
 //
@@ -86,13 +76,31 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
                 urlArr.addObject((tempArr[i] as! NSDictionary)["LinkUrl"] as! String );
                 imgArr.addObject((tempArr[i] as! NSDictionary)["ImageUrl"] as! String );
             }
-            self.carVC = NewCarouselVC.init(frame: CGRectMake(0, 0, s_width, 140), withPicArr: imgArr as [AnyObject], withUrlArr: urlArr as [AnyObject]);
-            self.carVC.type = imageurl;
+            self.carVC = NewCarouselVC.init(frame: CGRectMake(-10, 0, s_width + 10, 140), withPicArr: imgArr as [AnyObject], withUrlArr: urlArr as [AnyObject]);
+//            self.carVC = NewCarouselVC.init(frame: CGRectMake(-10, 0, s_width + 10 , 140), withPicArr: ["1.jpg","1.jpg"], andimageType: imagename);
             
+            self.carVC.type = imageurl;
+            self.carVC.picClickDown = {[weak self](url)->Void in
+                print(url);
+                
+                let LinkUrl = url as NSString;
+                if LinkUrl.hasPrefix("http://") {
+                    //                网页
+                    let web = WebViewVC.init(url: url as String);
+                    web.hidesBottomBarWhenPushed = true;
+                    self!.navigationController?.pushViewController(web, animated: true);
+                }else{
+                    //                详情页
+                    let webDetail = WebDetailVC.init(withProductID: url as String);
+                    webDetail.hidesBottomBarWhenPushed = true;
+                    self!.navigationController?.pushViewController(webDetail, animated: true);
+                    
+                }
+            };
             self.addChildViewController(self.carVC);
-            self.carSc.frame = CGRectMake(0, 64, s_width, 140);
+
             self.carSc.addSubview(self.carVC.view);
-//            self.carVC.setTimeWithSecond(4);
+            self.carVC.setTimeWithSecond(4);
             })
         { (failedRes) in
             
@@ -112,9 +120,16 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
                 cell = tempArr.lastObject as? HeadCell;
                
             }
+            cell?.btnClickDown = {[weak self](tag)->Void in
+                print("btn.tag = \(tag)");
+                let vc = DetailVC();
+                vc.chop1 = NSString(format: "%d", (tag - 1700 + 1)) as String;
+                vc.hidesBottomBarWhenPushed = true;
+                self!.navigationController?.pushViewController(vc, animated: true);
+            };
                 return cell!;
         }else{
-//        全图
+//        全图cell
             var  cell:FullImageCell? = (tableView.dequeueReusableCellWithIdentifier("FullImageCellIden") as? FullImageCell);
             if cell == nil {
                 let tempArr = NSBundle.mainBundle().loadNibNamed("FullImageCell", owner: self, options: nil) as NSArray;

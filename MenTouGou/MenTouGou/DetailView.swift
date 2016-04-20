@@ -67,18 +67,13 @@ class DetailView: UIView {
             for i in 0 ..< tempArr.count {
                 if (tempArr[i]as! String).characters.count > 2 {
                     
-                    
-                    var utfStr = (tempArr[i]as! String).stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet());
-                    
-                    if(!(utfStr! as NSString).hasPrefix("/")){
-                        utfStr = "/" + utfStr! ;
-                    }
+                  let utfStr =  Utils.SBImgChange(tempArr[i]as? String)
                     
                    picArr.addObject(MTG + utfStr!);
                 }
           }
             self.carSC = NewCarouselVC(frame: CGRectMake(0, 0, s_width, 180), withPicArr: picArr as [AnyObject], andimageType: imageurl);
-            self.carView.addSubview(self.carSC.view);
+            self.addSubview(self.carSC.view);
         }
 //        Title
         self.titleLab.text = dic["Title"]as? String;
@@ -87,9 +82,13 @@ class DetailView: UIView {
         var str:String = Utils.changeNullToEmptyStr(dic["ServiceType"]);
         self.serviceTypeLab.text = "服务类型: " + str;
 //    服务级别图片
+//        ServiceLevel int
 //        self.serviceLevelImg
 //    星星评分
 //        self.starsView
+        let starsNum = (dic["CreditRank"]as? NSNumber)!.floatValue / 5.0;
+        self.starsView.setScore(starsNum, withAnimation: false, completion: nil);
+
 //   特色宣传
         str = Utils.changeNullToEmptyStr(dic["Slogan"]);
         self.characteristicLab.text = "特色宣传: " + str;

@@ -24,7 +24,7 @@ class InfomationVC: BaseTableViewVC,LMComBoxViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false;
-
+        self.view.backgroundColor = UIColor.whiteColor();
         self.chooseOptionDict = NSMutableDictionary.init(objects: [option1,option2,option3], forKeys: ["option1","option2","option3"]);
         print(self.chooseOptionDict);
         chop1 = "0";
@@ -43,7 +43,7 @@ class InfomationVC: BaseTableViewVC,LMComBoxViewDelegate {
                 "timeOrder":"Desc",
                 "pvOrder":"Desc",
                 "pageIndex":String(self!.page),
-                "pageSize":"10"
+                "pageSize":PAGESIZE
                     ];
           
             
@@ -92,6 +92,10 @@ class InfomationVC: BaseTableViewVC,LMComBoxViewDelegate {
     super.tableView(tableView, didSelectRowAtIndexPath: indexPath);
 //    跳转
     let mo = self.dataArr[indexPath.row]as! InfoCellModle ;
+    let ID = NSString(format: "%@", mo.Id!) as String;
+    let vc = InfoWebVC(withID: ID);
+    vc.hidesBottomBarWhenPushed = true;
+    self.navigationController?.pushViewController(vc, animated: true);
     
     }
     
@@ -100,7 +104,7 @@ class InfomationVC: BaseTableViewVC,LMComBoxViewDelegate {
         let keys = ["option1","option2","option3"];
         for i in 0 ..< keys.count {
             let comBox = LMComBoxView(frame: CGRectMake(s_width/3 * CGFloat(i),64,s_width/3,30));
-            comBox.backgroundColor = UIColor.redColor();
+//            comBox.backgroundColor = UIColor.redColor();
             comBox.arrowImgName = "down_dark0.png";
             let temparr = self.chooseOptionDict[keys[i]] ;
             comBox.titlesList = temparr as! NSMutableArray;
@@ -136,6 +140,7 @@ class InfomationVC: BaseTableViewVC,LMComBoxViewDelegate {
         }
         
         print("selected is \(chop1),\(chop2),\(chop3)");
+        self.page = 1;
         self.httpData(self.page);
     }
     

@@ -114,10 +114,51 @@ class Utils: NSObject {
 //        
 //    }
 //    
+
+//  MARK:-  图片链接转换
+    class func SBImgChange(imgstr:String?)->String!{
+        if imgstr == nil {
+            return ""
+        }else{
+            var utfStr = imgstr!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet());
+            
+            if(!(utfStr! as NSString).hasPrefix("/")){
+                utfStr = "/" + utfStr! ;
+            }
+            return utfStr;
+        }
+    }
     
+//  MARK:-  距离转换
     
+   class func distanceConversion(distanceStr:String!) -> String! {
+        let Coordinate = distanceStr.componentsSeparatedByString(",") as NSArray;
+        let lati = Coordinate[1].doubleValue;
+        let long = Coordinate[0].doubleValue;
+        
+        let coordinate1 = CLLocationCoordinate2D(latitude: lati, longitude: long )
+        
+        let userLocation =   ((UIApplication.sharedApplication().delegate)as! AppDelegate).userLocation;
     
+        if userLocation != nil {
+            let latitude = NSString(format: "%f", (userLocation?.location.coordinate.latitude)!);
+            
+            let longitude = NSString(format: "%f", (userLocation?.location.coordinate.longitude)!);
+            let coordinate2 = CLLocationCoordinate2D(latitude:Double(latitude as String)!, longitude: Double(longitude as String)! );
+            let  point1:BMKMapPoint = BMKMapPointForCoordinate(coordinate1);
+            let  point2:BMKMapPoint = BMKMapPointForCoordinate(coordinate2);
+            
+            let distance = BMKMetersBetweenMapPoints(point1,point2);
+            let juli = distance / 1000.0;
+            let zuihou = NSString(format: "%.1fKM", juli) as String;
+            
+            return zuihou;
+            
+        }else{
+            return "";
+        }
     
+    }
     
     
     

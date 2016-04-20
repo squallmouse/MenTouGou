@@ -99,16 +99,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    
-//    self.view.backgroundColor = [UIColor greenColor];
+
+    self.view.backgroundColor = [UIColor greenColor];
     self.automaticallyAdjustsScrollViewInsets = false;
-    
+    self.view.frame = self.rect;
     self.sc = [[UIScrollView alloc]initWithFrame:self.rect];
     self.sc.contentSize = CGSizeMake(self.sc.frame.size.width*3, self.sc.frame.size.height);
     self.sc.bounces = NO;
     
     self.sc.pagingEnabled = true;
-//    self.sc.backgroundColor = [UIColor redColor];
+    self.sc.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.sc];
     self.sc.delegate = self;
     
@@ -123,6 +123,9 @@
     _img2.contentMode = UIViewContentModeScaleAspectFill;
     _img3.contentMode = UIViewContentModeScaleAspectFill;
     
+    _img1.clipsToBounds = false;
+    _img2.clipsToBounds = false;
+    _img3.clipsToBounds = false;
     
 //    _img1.backgroundColor = [UIColor orangeColor];
 //    _img2.backgroundColor = [UIColor purpleColor];
@@ -177,14 +180,15 @@
     self.sc.showsHorizontalScrollIndicator = NO;
     
     self.pagec = [[UIPageControl alloc]initWithFrame:CGRectMake(0, self.rect.size.height-15, self.sc.frame.size.width, 15)];
-//    self.pagec.center = CGPointMake(self.rect.size.width/2, self.rect.size.height-30);
-    [self.view addSubview:self.pagec];
+    
+//    [self.view addSubview:self.pagec];
     self.pagec.alpha = 1;
     self.pagec.currentPageIndicatorTintColor = [UIColor whiteColor];
     self.pagec.pageIndicatorTintColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.4];
     self.pagec.numberOfPages = self.arr.count;
     self.pagec.currentPage = _page;
-    
+     [self.view addSubview:self.pagec];
+    self.pagec.center = CGPointMake(self.sc.frame.size.width/2, self.sc.frame.size.height-8);
 
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back)];
     tap.numberOfTapsRequired = 1;

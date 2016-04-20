@@ -27,15 +27,20 @@ class InfoCell: UITableViewCell {
 
     func setCellWithModle(mo:InfoCellModle) -> Void {
         
-        self.img.sd_setImageWithURL(NSURL.init(string: MTG + mo.Thumbnail!), placeholderImage: UIImage(named: DEFAULTPIC));
+        let utfStr =  Utils.SBImgChange(mo.Thumbnail);
+        
+        let  imgUlr = MTG + utfStr! ;
+        
+        self.img.sd_setImageWithURL(NSURL.init(string: imgUlr), placeholderImage: UIImage(named: DEFAULTPIC));
         self.titleLab.text = mo.Title;
         self.contentLab.text = mo.Description;
+        
         if (mo.CreatorTime?.characters.count > 10){
             self.timeLab.text = mo.CreatorTime?.substringToIndex(mo.CreatorTime!.startIndex.advancedBy(10));
         }else{
             self.timeLab.text = "";
         }
-//            Utils.dateConversionToString(mo.CreatorTime);
+
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
