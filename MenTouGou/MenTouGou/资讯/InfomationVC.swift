@@ -103,7 +103,7 @@ class InfomationVC: BaseTableViewVC,LMComBoxViewDelegate {
     func setUpBGScrollView() -> Void {
         let keys = ["option1","option2","option3"];
         for i in 0 ..< keys.count {
-            let comBox = LMComBoxView(frame: CGRectMake(s_width/3 * CGFloat(i),64,s_width/3,30));
+            let comBox = LMComBoxView(frame: CGRectMake(s_width/3 * CGFloat(i),64,s_width/3,40));
 //            comBox.backgroundColor = UIColor.redColor();
             comBox.arrowImgName = "down_dark0.png";
             let temparr = self.chooseOptionDict[keys[i]] ;

@@ -11,7 +11,7 @@ import UIKit
 class SettingVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var mtableView: UITableView!
-    
+    var switchBtn:UISwitch!;
     var cacheLab:UILabel!;
     
     @IBOutlet weak var outBtn: UIButton!
@@ -30,11 +30,32 @@ class SettingVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         self.mtableView.bounces = false;
         self.mtableView.rowHeight = 50;
         self.mtableView.separatorStyle = .SingleLineEtched;
-        
+// 缓存
         cacheLab = UILabel();
-        cacheLab.text = "3.3MB";
         cacheLab.textAlignment = .Right;
+        dispatch_async(dispatch_get_main_queue()) { 
+//            获取缓存
+            self.cacheLab.text = Utils.getCacheSize();
+            
+        };
         
+//
+        self.switchBtn = UISwitch();
+        self.switchBtn.addTarget(self, action: #selector(SettingVC.switchBtnChange), forControlEvents: .ValueChanged);
+        self.switchBtn.on = Utils.isRegiestNoti();
+//        
+        
+    }
+//    MARK: - SWITCH BTN
+    func switchBtnChange() -> Void {
+        if switchBtn.on {
+        UMessage.registerForRemoteNotificationTypes([ .Badge, .Sound, .Alert ]);
+          
+            print("ononon");
+        }else{
+            print("closeclose");
+            UMessage.unregisterForRemoteNotifications();
+        }
     }
 //  MARK:-  tableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,16 +70,27 @@ class SettingVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         cell.textLabel?.text = titleArr[row];
         
         if row == 0 {
-            cacheLab.frame = CGRectMake(s_width - 100, 0, 90, 50);
+            cacheLab.frame = CGRectMake(s_width - 100, 0, 85, 50);
             cell.addSubview(cacheLab);
         }else if row == 2{
-            
+                self.switchBtn.frame = CGRectMake(s_width - 60, 0, 60, 50);
+            cell.addSubview(self.switchBtn);
         }else{
             cell.accessoryType = .DisclosureIndicator;
         }
         
         return cell;
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true);
+        if indexPath.row == 0 {
+//清理缓存  
+            Utils.clearCache();
+            self.cacheLab.text = "0.0M";
+        }
+    }
+    
 //  MARK:-  other
     
     @IBAction func outBtnClickDown(sender: AnyObject) {
@@ -75,6 +107,8 @@ class SettingVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         self.navigationController?.popToRootViewControllerAnimated(false);
         
     }
+    
+    
     
     
     override func didReceiveMemoryWarning() {

@@ -31,6 +31,61 @@ class LoginVC: UIViewController {
 //  MARK:-  按钮们
 //    登录按钮
     @IBAction func loginBtClickDown(sender: AnyObject) {
+        if (self.userNameTextField.text?.characters.count < 4
+            || self.userNameTextField.text?.characters.count > 16 ) {
+            let hud:MBProgressHUD = Utils.creatHUD();
+            hud.labelText = "用户名长度不符";
+            hud.hide(true, afterDelay: 1);
+            return;
+        }
+        
+        if (self.passwordTextfield.text?.characters.count < 4
+            || self.passwordTextfield.text?.characters.count > 16 ) {
+            let hud:MBProgressHUD = Utils.creatHUD();
+            hud.labelText = "密码长度不符";
+            hud.hide(true, afterDelay: 1);
+            return;
+        }
+        
+        if( self.userNameTextField.text?.characters.count == 0
+            || self.passwordTextfield.text?.characters.count == 0
+            ){
+            let hud:MBProgressHUD = Utils.creatHUD();
+            hud.labelText = "请完整填写信息";
+            hud.hide(true, afterDelay: 1);
+            return;
+        }
+        
+        let hud = Utils.creatHUD();
+        hud.labelText = "登陆中";
+        
+        let name = self.userNameTextField.text! as String;
+        let passWD = self.passwordTextfield.text! as String;
+        let urlStr = MTG + LOGIN +  name + "/" + passWD ;
+        YHAlamofire.Get(urlStr: urlStr, paramters: nil, success: { (res) in
+            
+            let dic = res as! NSDictionary;
+            if (dic["ErrCode"]as? String != "1"){
+                let user = NSUserDefaults.standardUserDefaults();
+                user.setValue(dic["Id"], forKey: "userID");
+                user.setValue(dic["UserName"], forKey: "UserName");
+                user.synchronize();
+            
+            NSNotificationCenter.defaultCenter().postNotification(NSNotification.init(name: "refreshUser", object: nil));
+                hud.hide(true);
+            self.navigationController?.popToRootViewControllerAnimated(true);
+                
+            }else{
+                
+                hud.labelText = dic["ErrMsg"]as? String;
+                hud.hide(true, afterDelay: 1);
+            }
+            
+            }) { (failedRes) in
+                
+        }
+        
+        
         
     }
 //   忘记密码

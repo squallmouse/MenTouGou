@@ -72,6 +72,8 @@ class RegisterVC: UIViewController {
 
         print(MTG+REGIEST);
         
+        let hud:MBProgressHUD = Utils.creatHUD();
+        
         YHAlamofire.PostJson(urlStr: MTG + REGIEST , paramters: paramters, success: { (res) in
             let dic = res as! NSDictionary;
             print(dic);
@@ -83,10 +85,11 @@ class RegisterVC: UIViewController {
                 user.synchronize();
                 
                 NSNotificationCenter.defaultCenter().postNotification(NSNotification.init(name: "refreshUser", object: nil));
-                
+                hud.labelText =  "注册成功";
+                hud.hide(true, afterDelay: 1);
                 self.navigationController?.popToRootViewControllerAnimated(false);
             }else{
-                let hud:MBProgressHUD = Utils.creatHUD();
+               
                 hud.labelText = dic["ErrMsg"]as? String;
                 hud.hide(true, afterDelay: 1);
             }

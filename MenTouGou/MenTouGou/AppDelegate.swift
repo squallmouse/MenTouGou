@@ -71,9 +71,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate,BMKLoc
         UMessage.setLogEnabled(true);
         
 
-        
-
+//        开启推送
+//UMessage.registerForRemoteNotificationTypes([ .Badge, .Sound, .Alert ]);
 //        关闭推送
+        
 //        UMessage.unregisterForRemoteNotifications();
         return true
     }

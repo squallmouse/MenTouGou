@@ -59,6 +59,7 @@
 		EFCBF5021CB7BACE0068F466 /* YHAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBF5011CB7BACE0068F466 /* YHAlamofire.swift */; };
 		EFD0E7571CC14EDD0027E406 /* libUMessage_Sdk_1.2.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD0E7551CC14EDD0027E406 /* libUMessage_Sdk_1.2.6.a */; };
 		EFF028551CB65C8300AEFD03 /* YHAFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF028541CB65C8300AEFD03 /* YHAFManager.swift */; };
+		EFF0FA201CC880C700FCC5FB /* FirstInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF0FA1F1CC880C700FCC5FB /* FirstInVC.swift */; };
 		EFF5DDDD1CB35AC300EAA108 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5DDDC1CB35AC300EAA108 /* AppDelegate.swift */; };
 		EFF5DDE21CB35AC300EAA108 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFF5DDE01CB35AC300EAA108 /* Main.storyboard */; };
 		EFF5DDE71CB35AC300EAA108 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFF5DDE51CB35AC300EAA108 /* LaunchScreen.storyboard */; };
@@ -156,6 +157,7 @@
 		EFD0E7551CC14EDD0027E406 /* libUMessage_Sdk_1.2.6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.2.6.a; sourceTree = "<group>"; };
 		EFD0E7561CC14EDD0027E406 /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
 		EFF028541CB65C8300AEFD03 /* YHAFManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YHAFManager.swift; sourceTree = "<group>"; };
+		EFF0FA1F1CC880C700FCC5FB /* FirstInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstInVC.swift; sourceTree = "<group>"; };
 		EFF5DDD91CB35AC300EAA108 /* MenTouGou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenTouGou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFF5DDDC1CB35AC300EAA108 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFF5DDE11CB35AC300EAA108 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				EF8CD3F21CBE1876009A9C53 /* DetailView.swift */,
 				EF8CD3F41CBE1887009A9C53 /* DetailView.xib */,
 				EF8CD3FA1CBE31B5009A9C53 /* test.swift */,
+				EFF0FA1F1CC880C700FCC5FB /* FirstInVC.swift */,
 			);
 			name = "New Group";
 			sourceTree = "<group>";
@@ -904,6 +907,7 @@
 				EF153B1D1CB5180B00670498 /* SettingVC.swift in Sources */,
 				EF8FA4A41CC62C6800E9D963 /* YHBMKPointAnnotation.swift in Sources */,
 				EF63093F1CC5100800D57532 /* DetailVC.swift in Sources */,
+				EFF0FA201CC880C700FCC5FB /* FirstInVC.swift in Sources */,
 				EF153B211CB5212100670498 /* ResetPasswordVC.swift in Sources */,
 				EF6309421CC5183800D57532 /* DetailListCell.swift in Sources */,
 				EF6309471CC5DD7C00D57532 /* InfomationDetailView.swift in Sources */,

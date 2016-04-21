@@ -95,6 +95,7 @@ class MyHomePageVC: UIViewController,UITableViewDelegate,UITableViewDataSource,U
                 let tempArr = NSBundle.mainBundle().loadNibNamed("MyHeadCell", owner: self, options: nil) as NSArray;
                 cell = tempArr.lastObject as? MyHeadCell;
             }
+            cell?.selectionStyle = .None;
             cell?.nameLab.text = contentArr[indexPath.section] as? String
             return cell!;
             

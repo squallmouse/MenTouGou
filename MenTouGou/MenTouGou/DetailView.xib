@@ -88,13 +88,17 @@
                         <constraint firstAttribute="height" constant="2" id="8Wd-FS-Bpx"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VdO-yf-BI6">
+                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VdO-yf-BI6">
                     <rect key="frame" x="331" y="309" width="55" height="39"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="55" id="mna-Id-d6g"/>
                         <constraint firstAttribute="height" constant="39" id="zj6-kR-V4A"/>
                     </constraints>
-                    <state key="normal" title="Button"/>
+                    <state key="normal" image="ic_indication_arrowup"/>
+                    <state key="selected" image="ic_indication_arrow"/>
+                    <connections>
+                        <action selector="contentBtnClickDown:" destination="-1" eventType="touchUpInside" id="D0d-YU-pUI"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="信用等级:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVs-2a-dGG">
                     <rect key="frame" x="10" y="240" width="47.5" height="13.5"/>
@@ -161,5 +165,7 @@
     </objects>
     <resources>
         <image name="V3" width="20" height="7"/>
+        <image name="ic_indication_arrow" width="20" height="20"/>
+        <image name="ic_indication_arrowup" width="20" height="20"/>
     </resources>
 </document>

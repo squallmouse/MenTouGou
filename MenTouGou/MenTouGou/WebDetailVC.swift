@@ -68,25 +68,32 @@ class WebDetailVC: UIViewController,WKNavigationDelegate {
     func parserWithDic(dic:NSDictionary){
         
         self.title = dic["Title"]as? String;
-        
+        let st = dic["Detail"]as! String;
         self.detailView = DetailView.init(frame: CGRectMake(0, 0, s_width, 350), withDic: dic);
         self.web.scrollView.addSubview(self.detailView);
         
-//        self.web.navigationDelegate = self;
-        let st = dic["Detail"]as! String;
-        print("scale = \(UIScreen.mainScreen().scale)")
-//        6 920
+        self.detailView.DVbtnClickDownBlock = {[weak self](show) in
+            self!.webShowDetail(show, st: st);
+        };
+        
+        self.webShowDetail(true, st: st);
+        
+
+        
+    }
+//    是否显示代码
+    func webShowDetail(show:Bool,st:String) -> Void {
+        
+        
         let temphtml:NSDictionary = [
-            "content":st,
+            "content":show ? st : " " ,
             "tophight":(350)
         ];
         //                var  htmlstr =
         let html =  HTML.HTMLWithData(temphtml as [NSObject : AnyObject], usingTemplate: "article");
         self.web.loadHTMLString(html as String , baseURL: NSBundle.mainBundle().resourceURL);
-        
-
-        
     }
+    
     
 //  MARK:-  other
     override func didReceiveMemoryWarning() {

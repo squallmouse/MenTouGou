@@ -24,9 +24,7 @@ class YHAlamofire: NSObject {
             do{
 //                
                 let str = String(data: data!, encoding: NSUTF8StringEncoding);
-              let  data1 = str?.dataUsingEncoding(NSUTF8StringEncoding);
-//                
-                
+              let  data1 = str?.dataUsingEncoding(NSUTF8StringEncoding);                
                 let res:AnyObject = try NSJSONSerialization.JSONObjectWithData(data1!, options: .MutableLeaves) ;
                 success(res);
             }catch{

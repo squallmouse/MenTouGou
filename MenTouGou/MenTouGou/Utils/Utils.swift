@@ -160,11 +160,65 @@ class Utils: NSObject {
     
     }
     
+//  MARK:-  获取缓存的大小
+  
+    class func getCacheSize() -> String{
+        // 取出cache文件夹路径
+        let cachePath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true).first
+        // 打印路径,需要测试的可以往这个路径下放东西
+        print(cachePath)
+        // 取出文件夹下所有文件数组
+        let files = NSFileManager.defaultManager().subpathsAtPath(cachePath!)
+        // 用于统计文件夹内所有文件大小
+        var big = Int();
+        
+        // 快速枚举取出所有文件名
+        for p in files!{
+            // 把文件名拼接到路径中
+            let path = cachePath!.stringByAppendingFormat("/\(p)")
+            // 取出文件属性
+            let floder = try! NSFileManager.defaultManager().attributesOfItemAtPath(path)
+            // 用元组取出文件大小属性
+            for (abc,bcd) in floder {
+                // 只去出文件大小进行拼接
+                if abc == NSFileSize{
+                    big += bcd.integerValue
+                }
+            }
+        }
+        let message = NSString(format: "%.2fM", Float(big) / Float(1024*1024));
+        return message as String;
+        
+    }
     
+//  MARK:-  清理缓存
     
-    
-    
-    
-
+    class func clearCache(){
+        let cachePath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true).first
+        // 打印路径,需要测试的可以往这个路径下放东西
+        print(cachePath)
+        // 取出文件夹下所有文件数组
+        let files = NSFileManager.defaultManager().subpathsAtPath(cachePath!)
+        
+        for p in files!{
+            // 拼接路径
+            let path = cachePath!.stringByAppendingFormat("/\(p)")
+            // 判断是否可以删除
+            if(NSFileManager.defaultManager().fileExistsAtPath(path)){
+                // 删除
+                try! NSFileManager.defaultManager().removeItemAtPath(path)
+            }
+        }
+    }
+//  MARK:-  用户是否开启了推送
+    class func isRegiestNoti()->Bool{
+        let setting = UIApplication.sharedApplication().currentUserNotificationSettings();
+        if setting?.types != .None {
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
     
 }

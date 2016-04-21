@@ -19,15 +19,34 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     var carVC:NewCarouselVC!;
     
     var adverlistArr:NSArray!;//焦点图
-    
+    var headHight :CGFloat = 140;
     
     
 //    MARK:- ----------------------
     
+/*
+     
+*/
+
+    override func viewWillAppear(animated: Bool) {
+
+    }
+    func isUserFirstIn() -> Void {
+        let user =  NSUserDefaults();
+        let showVC = user.valueForKey("firstIn");
+        if showVC == nil {
+            let firstInVC = FirstInVC();
+            self.presentViewController(firstInVC, animated: false, completion: nil);
+        }
+        user.setObject("false", forKey: "firstIn");
+        user.synchronize();
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "首页";
+
+        self.isUserFirstIn();
         self.view.backgroundColor = UIColor.whiteColor();
         self.automaticallyAdjustsScrollViewInsets = false;
 
@@ -53,8 +72,9 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         self.mtableView.backgroundColor = UIColor.whiteColor();
         self.mtableView.separatorStyle = .None;
         self.mtableView.showsVerticalScrollIndicator = false;
-        
-        self.carSc = UIView(frame: CGRectMake(0, 0, s_width, 140));
+
+        self.headHight = s_width * CGFloat(140) / CGFloat(375);
+        self.carSc = UIView(frame: CGRectMake(0, 0, s_width, self.headHight));
         self.carSc.backgroundColor = UIColor.redColor();
         self.mtableView.tableHeaderView = self.carSc;
         self.mtableView.tableHeaderView?.clipsToBounds = false;
@@ -76,9 +96,8 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
                 urlArr.addObject((tempArr[i] as! NSDictionary)["LinkUrl"] as! String );
                 imgArr.addObject((tempArr[i] as! NSDictionary)["ImageUrl"] as! String );
             }
-            self.carVC = NewCarouselVC.init(frame: CGRectMake(-10, 0, s_width + 10, 140), withPicArr: imgArr as [AnyObject], withUrlArr: urlArr as [AnyObject]);
-//            self.carVC = NewCarouselVC.init(frame: CGRectMake(-10, 0, s_width + 10 , 140), withPicArr: ["1.jpg","1.jpg"], andimageType: imagename);
-            
+            self.carVC = NewCarouselVC.init(frame: CGRectMake(-5, 0, s_width + 10, self.headHight), withPicArr: imgArr as [AnyObject], withUrlArr: urlArr as [AnyObject]);
+    
             self.carVC.type = imageurl;
             self.carVC.picClickDown = {[weak self](url)->Void in
                 print(url);
@@ -180,7 +199,8 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         return self.adverlistArr.count + 1;
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 150;
+//        return 150;
+        return (s_width * CGFloat(15) / CGFloat(32));
     }
     
 //    MARK: - other

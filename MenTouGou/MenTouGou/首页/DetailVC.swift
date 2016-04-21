@@ -90,11 +90,9 @@ class DetailVC: BaseTableViewVC,LMComBoxViewDelegate {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         super.tableView(tableView, didSelectRowAtIndexPath: indexPath);
-        //    跳转
-//        let mo = self.dataArr[indexPath.row]as! DetailListModle ;
+
         let webDetail = WebDetailVC.init(withDataDic: self.resArr[indexPath.row]as! NSDictionary);
-//        webDetail.dataDic = self.resArr[indexPath.row]as! NSDictionary;
-//        webDetail.hidesBottomBarWhenPushed = true;
+
         self.navigationController?.pushViewController(webDetail, animated: true);
         
     }
@@ -103,7 +101,7 @@ class DetailVC: BaseTableViewVC,LMComBoxViewDelegate {
     func setUpBGScrollView() -> Void {
         let keys = ["option1","option2","option3","option4"];
         for i in 0 ..< keys.count {
-            let comBox = LMComBoxView(frame: CGRectMake(s_width/4 * CGFloat(i),64,s_width/4,30));
+            let comBox = LMComBoxView(frame: CGRectMake(s_width/4 * CGFloat(i),64,s_width/4,40));
             //            comBox.backgroundColor = UIColor.redColor();
             comBox.arrowImgName = "down_dark0.png";
             let temparr = self.chooseOptionDict[keys[i]] ;

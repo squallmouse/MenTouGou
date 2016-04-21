@@ -26,7 +26,7 @@ class BaseTableViewVC: UIViewController,UITableViewDelegate,UITableViewDataSourc
         self.dataArr = NSMutableArray(capacity: 0);
         page = 1;
         
-        self.mtableView = UITableView(frame: CGRectMake(0, 64 + 30 , s_width, s_height - 64 - 30 - 49));
+        self.mtableView = UITableView(frame: CGRectMake(0, 64 + 40 , s_width, s_height - 64 - 40 - 49));
         self.view.addSubview(self.mtableView);
         self.mtableView.delegate = self;
         self.mtableView.dataSource = self;
@@ -34,12 +34,15 @@ class BaseTableViewVC: UIViewController,UITableViewDelegate,UITableViewDataSourc
         
         self.mtableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             self.page = 1;
+            self.mtableView.mj_footer.hidden = false;
             self.httpData(self.page);
         })
         self.mtableView.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: { 
             self.page = self.page + 1;
             self.httpData(self.page);
         })
+        
+        
     }
     
     
@@ -56,7 +59,9 @@ class BaseTableViewVC: UIViewController,UITableViewDelegate,UITableViewDataSourc
             }
             
             self.parserResult(res);
-            
+            if(res?.count == 0){
+            self.mtableView.mj_footer.hidden = true;
+            }
             self.mtableView.reloadData();
             }) { (failedRes) in
                 self.stopRefresh();

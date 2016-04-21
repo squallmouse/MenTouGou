@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+typealias DVbtnBlock = (show:Bool) -> Void ;
+
 class DetailView: UIView {
 
     @IBOutlet var contentView: UIView!
@@ -32,6 +34,8 @@ class DetailView: UIView {
 //    地址
     @IBOutlet weak var addressLab: UILabel!
     
+    
+    var DVbtnClickDownBlock:DVbtnBlock? ;
     
 //    override init(frame: CGRect) {
 //        super.init(frame: frame);
@@ -104,7 +108,12 @@ class DetailView: UIView {
         
         
     }
-    
+   
+    @IBAction func contentBtnClickDown(sender: AnyObject) {
+        let btn = sender as! UIButton;
+        btn.selected = !btn.selected;
+        self.DVbtnClickDownBlock?(show:btn.selected);
+    }
     
 //
 
