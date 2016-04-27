@@ -8,17 +8,30 @@
 
 import UIKit
 
-class ProductVC: BaseTableViewVC {
+class ProductVC: BaseTableViewVC,UISearchBarDelegate {
+
+    var msearch:UISearchBar!;
+
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated);
+        self.msearch.resignFirstResponder();
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "农产品";
+        self.msearch = UISearchBar();
+        self.msearch.frame = CGRectMake(100, 20, s_width-200, 44);
+        self.navigationItem.titleView = self.msearch;
+
+        self.msearch.delegate = self;
+        self.msearch.placeholder = "搜索农产品";
         self.automaticallyAdjustsScrollViewInsets = false;
         self.view.backgroundColor = UIColor.whiteColor();
         self.mtableView.frame = CGRectMake(0, 64, s_width, s_height - 64 - 49);
-        
+//        self.mtableView.delegate = sel
         self.getUrl = {[weak self](page) in
-            let strUrl = MTG + PRODUCTLIST + "?";
+            let strUrl = MTG + PRODUCTLIST ;
             
             let paramaters = [
                 
@@ -31,6 +44,23 @@ class ProductVC: BaseTableViewVC {
         
         self.httpData(self.page);
     }
+
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+
+        if (searchBar.text?.characters.count  == 0) {
+            return;
+        }else{
+            self.msearch.resignFirstResponder();
+            let vc =  SearchResultVC(withSearchKeyWord: searchBar.text);
+            self.navigationController?.pushViewController(vc, animated: true);
+        }
+    }
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        self.msearch.resignFirstResponder();
+    }
+//    func scrollViewDidScroll(scrollView: UIScrollView) {
+//
+//    }
 
 //  MARK:-  数据解析
     override func parserResult(res: AnyObject?) {
@@ -54,6 +84,11 @@ class ProductVC: BaseTableViewVC {
         var cell:ProductMainCell? = tableView.dequeueReusableCellWithIdentifier("ProductMainCellIden") as? ProductMainCell;
         if cell == nil {
             cell = (NSBundle.mainBundle().loadNibNamed("ProductMainCell", owner: self, options: nil)as NSArray).lastObject as? ProductMainCell;
+        }
+        cell?.shopCarBlock = {[weak self]() in
+            let alert = Utils.openWechat();
+            self!.presentViewController(alert, animated: true, completion: nil);
+
         }
         cell?.setCellWithModle(self.dataArr[indexPath.row]as! ProductModle );
         return cell!;

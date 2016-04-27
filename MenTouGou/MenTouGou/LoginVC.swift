@@ -21,7 +21,7 @@ class LoginVC: UIViewController {
         self.title = "登录";
         self.loginBtn.layer.masksToBounds = true;
         self.loginBtn.layer.cornerRadius = 5;
-        
+        self.passwordTextfield.secureTextEntry = true;
         
     }
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

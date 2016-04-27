@@ -66,7 +66,10 @@ class FirstInVC: UIViewController {
     func tapDown() {
 
         print("第三章图片被点击");
-        self.dismissViewControllerAnimated(false, completion: nil);
+        let rootSB = UIStoryboard.init(name: "Main", bundle: nil);
+        let vc = rootSB.instantiateViewControllerWithIdentifier("YHTabBarVCSB");
+
+        UIApplication.sharedApplication().delegate?.window!?.rootViewController = vc;
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -8,6 +8,8 @@
 
 import UIKit
 
+typealias cellShopCarBlock = ()->Void;
+
 class ProductMainCell: UITableViewCell {
 
     @IBOutlet weak var img: UIImageView!
@@ -15,10 +17,19 @@ class ProductMainCell: UITableViewCell {
     @IBOutlet weak var titleLab: UILabel!
     
     @IBOutlet weak var priceLab: UILabel!
-//    
+
+    @IBOutlet weak var shopCarBtn: UIButton!
+
+    var shopCarBlock:cellShopCarBlock?;
+//
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+
+    @IBAction func shopCarBtnClickDown(sender: AnyObject) {
+
+        self.shopCarBlock?();
     }
 
     func setCellWithModle(mo:ProductModle)->Void{

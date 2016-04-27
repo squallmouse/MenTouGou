@@ -8,6 +8,7 @@
 
 #import "HTML.h"
 #import "GRMustache.h"
+#import <UIKit/UIKit.h>
 
 @implementation HTML
 
@@ -22,5 +23,22 @@
     
     return [GRMustacheTemplate renderObject:mutableData fromString:template error:nil];
 }
+
+
+//+ (UIImage *)imageWithColor:(UIColor *)color withImage:(UIImage*)image
+//{
+//    UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
+//    CGContextRefcontext = UIGraphicsGetCurrentContext();
+//    CGContextTranslateCTM(context, 0, self.size.height);
+//    CGContextScaleCTM(context, 1.0, -1.0);
+//    CGContextSetBlendMode(context, kCGBlendModeNormal);
+//    CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
+//    CGContextClipToMask(context, rect, self.CGImage);
+//    [color setFill];
+//    CGContextFillRect(context, rect);
+//    UIImage*newImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    return newImage;
+//}
 
 @end

@@ -76,8 +76,11 @@ class DetailView: UIView {
                    picArr.addObject(MTG + utfStr!);
                 }
           }
-            self.carSC = NewCarouselVC(frame: CGRectMake(0, 0, s_width, 180), withPicArr: picArr as [AnyObject], andimageType: imageurl);
+            self.carSC = NewCarouselVC(frame: CGRectMake(0, 0, s_width, 230), withPicArr: picArr as [AnyObject], andimageType: imageurl);
             self.addSubview(self.carSC.view);
+            self.carSC.img1.contentMode = .ScaleToFill;
+            self.carSC.img2.contentMode = .ScaleToFill;
+            self.carSC.img3.contentMode = .ScaleToFill;
         }
 //        Title
         self.titleLab.text = dic["Title"]as? String;
@@ -101,7 +104,7 @@ class DetailView: UIView {
         self.theContactLab.text = "联系人: " + str;
 //  联系电话
          str = Utils.changeNullToEmptyStr(dic["Tel"]);
-        self.theContactPhoneLab.text = "联系电话" + str;
+        self.theContactPhoneLab.text = "联系电话: " + str;
 //    地址
         str = Utils.changeNullToEmptyStr(dic["Address"]);
         self.addressLab.text = "地址: " + str;

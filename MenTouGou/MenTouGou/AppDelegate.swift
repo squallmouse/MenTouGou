@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate,BMKLoc
     var _mapManager: BMKMapManager?
     var locservice:BMKLocationService!;
 
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         
@@ -46,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate,BMKLoc
 //        let version =  dic!["CFBundleShortVersionString"];
 //        print("version = \(version)");
         MobClick.startWithAppkey("56976da967e58e6412001760", reportPolicy: BATCH, channelId: "");
-// 百度地图
+
 //  Umeng 消息推送
         UMessage.startWithAppkey("56976da967e58e6412001760", launchOptions: launchOptions);
     
@@ -76,17 +77,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate,BMKLoc
 //        关闭推送
         
 //        UMessage.unregisterForRemoteNotifications();
+
+        self.window = UIWindow(frame:UIScreen.mainScreen().bounds);
+        self.window?.backgroundColor = UIColor.whiteColor();
+
+        let user =  NSUserDefaults();
+        let showVC = user.valueForKey("firstInff");
+        if showVC == nil {
+            let firstInVC = FirstInVC();
+            self.window?.rootViewController = firstInVC;
+            user.setObject("1", forKey: "firstInff");
+
+        }else{
+            let rootSB = UIStoryboard.init(name: "Main", bundle: nil);
+            let vc = rootSB.instantiateViewControllerWithIdentifier("YHTabBarVCSB");
+            self.window?.rootViewController = vc;
+        }
+        user.synchronize();
+
+        self.window?.makeKeyAndVisible();
+
+
+
+
         return true
     }
 
+//定位成功
     func didUpdateBMKUserLocation(userLocation: BMKUserLocation!) {
-        print("userLocation = \(userLocation)");
+//        print("userLocation = \(userLocation)");
           latitude = userLocation.location.coordinate.latitude
           longitude = userLocation.location.coordinate.longitude
         self.userLocation = userLocation;
         print("latitude =\(latitude) \n longitude = \(longitude)");
     }
-    
+
+//定位失败
+    func didFailToLocateUserWithError(error: NSError!) {
+        print("error = \(error)");
+//        self.userLocation = BMKUserLocation();
+//        self.userLocation?.location.coordinate.latitude = 39.00;
+    }
+
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         print("deviceToken = \(deviceToken)");
         UMessage.registerDeviceToken(deviceToken);

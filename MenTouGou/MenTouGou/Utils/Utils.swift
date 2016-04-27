@@ -22,6 +22,7 @@ class Utils: NSObject {
         let hud = MBProgressHUD.init(window: window);
         hud.detailsLabelFont = UIFont.systemFontOfSize(16);
         window.addSubview(hud);
+        hud.userInteractionEnabled = false;
         hud.show(true);
         hud.removeFromSuperViewOnHide = true;
         return hud;
@@ -150,7 +151,7 @@ class Utils: NSObject {
             
             let distance = BMKMetersBetweenMapPoints(point1,point2);
             let juli = distance / 1000.0;
-            let zuihou = NSString(format: "%.1fKM", juli) as String;
+            let zuihou = NSString(format: "%.1f", juli) as String;
             
             return zuihou;
             
@@ -164,6 +165,7 @@ class Utils: NSObject {
   
     class func getCacheSize() -> String{
         // 取出cache文件夹路径
+
         let cachePath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true).first
         // 打印路径,需要测试的可以往这个路径下放东西
         print(cachePath)
@@ -206,7 +208,11 @@ class Utils: NSObject {
             // 判断是否可以删除
             if(NSFileManager.defaultManager().fileExistsAtPath(path)){
                 // 删除
-                try! NSFileManager.defaultManager().removeItemAtPath(path)
+                do{
+                    try NSFileManager.defaultManager().removeItemAtPath(path)
+                }catch{
+
+                }
             }
         }
     }
@@ -220,5 +226,32 @@ class Utils: NSObject {
         }
         
     }
-    
+
+//  MARK:-  打开微信
+
+   class func openWechat() -> UIAlertController {
+
+    let alertvc = UIAlertController(title: "提示", message: "请您关注官方微信公众号（京西拾零采撷门头沟）选购", preferredStyle: .Alert);
+
+    if (UIApplication.sharedApplication().canOpenURL(NSURL.init(string: "wechat://")!)) {
+//安装了微信
+        let sure = UIAlertAction(title: "确定", style: .Default) { (alert) in
+                UIApplication.sharedApplication().openURL(NSURL.init(string: "wechat://")!)
+        }
+         alertvc.addAction(sure);
+    }else{
+//        没有安装微信
+        alertvc.message = "请安装微信关注公众号选购！";
+    }
+
+       let cancle = UIAlertAction(title: "取消", style: .Cancel) { (alert) in
+        print("取消咯");
+    }
+
+    alertvc.addAction(cancle);
+
+    return alertvc;
+
+    }
+
 }

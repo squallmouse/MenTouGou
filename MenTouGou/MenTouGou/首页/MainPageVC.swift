@@ -19,7 +19,7 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     var carVC:NewCarouselVC!;
     
     var adverlistArr:NSArray!;//焦点图
-    var headHight :CGFloat = 140;
+    var headHight :CGFloat = 220;
     
     
 //    MARK:- ----------------------
@@ -31,40 +31,41 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     override func viewWillAppear(animated: Bool) {
 
     }
-    func isUserFirstIn() -> Void {
-        let user =  NSUserDefaults();
-        let showVC = user.valueForKey("firstIn");
-        if showVC == nil {
-            let firstInVC = FirstInVC();
-            self.presentViewController(firstInVC, animated: false, completion: nil);
-        }
-        user.setObject("false", forKey: "firstIn");
-        user.synchronize();
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "首页";
 
-        self.isUserFirstIn();
+
         self.view.backgroundColor = UIColor.whiteColor();
         self.automaticallyAdjustsScrollViewInsets = false;
 
-//焦点图下方
+//焦点图 下方
        self.adverlistArr = NSArray();
         
-        let advertlistUrl = MTG + GETADVERTLIST;
+        let advertlistUrl =  MTG + GETBANNERLIST ;
 
-        YHAFManager.yhGet(urlStr: advertlistUrl, parameters: nil, success: { (res) in
-            
+        YHAlamofire.Get(urlStr: advertlistUrl, paramters: nil, success: { (res) in
+
             self.adverlistArr = res as! NSArray;
             print(self.adverlistArr)
-            
+
             self.mtableView.reloadData();
-            })
-        { (failedres) in
-                
-        };
+
+        }) { (failedres) in
+
+        }
+
+//        YHAFManager.yhGet(urlStr: advertlistUrl, parameters: nil, success: { (res) in
+//            
+//            self.adverlistArr = res as! NSArray;
+//            print(self.adverlistArr)
+//            
+//            self.mtableView.reloadData();
+//            })
+//        { (failedres) in
+//                
+//        };
 
 //        tableView
         self.mtableView.delegate = self;
@@ -73,9 +74,9 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         self.mtableView.separatorStyle = .None;
         self.mtableView.showsVerticalScrollIndicator = false;
 
-        self.headHight = s_width * CGFloat(140) / CGFloat(375);
+        self.headHight = s_width * self.headHight / CGFloat(375);
         self.carSc = UIView(frame: CGRectMake(0, 0, s_width, self.headHight));
-        self.carSc.backgroundColor = UIColor.redColor();
+
         self.mtableView.tableHeaderView = self.carSc;
         self.mtableView.tableHeaderView?.clipsToBounds = false;
         self.mtableView.clipsToBounds = false;
@@ -85,7 +86,7 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         
         
 //      轮播图http
-        let getBannerListURL = MTG + GETBANNERLIST ;
+        let getBannerListURL = MTG + GETADVERTLIST;
         YHAFManager.yhGet(urlStr: getBannerListURL, parameters: nil, success: { (res) in
             let tempArr = res as! NSArray;
             
@@ -109,7 +110,7 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
                     web.hidesBottomBarWhenPushed = true;
                     self!.navigationController?.pushViewController(web, animated: true);
                 }else{
-                    //                详情页
+                    //                资讯详情页
                     let webDetail = WebDetailVC.init(withProductID: url as String);
                     webDetail.hidesBottomBarWhenPushed = true;
                     self!.navigationController?.pushViewController(webDetail, animated: true);
@@ -139,10 +140,11 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
                 cell = tempArr.lastObject as? HeadCell;
                
             }
+            cell?.selectionStyle = .None;
             cell?.btnClickDown = {[weak self](tag)->Void in
                 print("btn.tag = \(tag)");
                 let vc = DetailVC();
-                vc.chop1 = NSString(format: "%d", (tag - 1700 + 1)) as String;
+                vc.chop1 = NSString(format: "%d", (tag - 1700 )) as String;
                 vc.hidesBottomBarWhenPushed = true;
                 self!.navigationController?.pushViewController(vc, animated: true);
             };
@@ -163,20 +165,26 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
+        tableView.deselectRowAtIndexPath(indexPath, animated: true);
+
         if (indexPath.section == 0) {
             return;
         }else{
             print("section did selected = \(indexPath.section)");
            let dic = self.adverlistArr[indexPath.section - 1] as! NSDictionary;
             let LinkUrl = dic["LinkUrl"] as! NSString;
+
             if LinkUrl.hasPrefix("http://") {
 //                网页
+
                 let web = WebViewVC.init(url: dic["LinkUrl"] as! String);
                 web.hidesBottomBarWhenPushed = true;
                 self.navigationController?.pushViewController(web, animated: true);
             }else{
 //                详情页
-                let webDetail = WebDetailVC.init(withProductID: dic["LinkUrl"] as! String);
+                let webDetail = InfoWebVC.init(withID: dic["LinkUrl"] as! String);
+//                    WebDetailVC.init(withProductID: dic["LinkUrl"] as! String);
                 webDetail.hidesBottomBarWhenPushed = true;
                 self.navigationController?.pushViewController(webDetail, animated: true);
             
@@ -188,9 +196,11 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.01
     }
+
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10;
     }
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1;
     }
@@ -198,11 +208,16 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.adverlistArr.count + 1;
     }
+
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        return 150;
+
+        if indexPath.section == 0 {
+            return 150;
+        }
         return (s_width * CGFloat(15) / CGFloat(32));
     }
-    
+
+
 //    MARK: - other
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

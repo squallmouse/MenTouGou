@@ -14,14 +14,48 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-512" translatesAutoresizingMaskIntoConstraints="NO" id="jnV-Ed-Vav">
+                                <rect key="frame" x="97" y="120" width="180" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="HXc-9k-nbf"/>
+                                    <constraint firstAttribute="width" constant="180" id="qyv-bm-5nn"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="京西拾零采撷门头沟" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFO-sX-aYr">
+                                <rect key="frame" x="0.0" y="573.5" width="375" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright @ nw.bjmtg.gov.cn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgZ-hF-5Hc">
+                                <rect key="frame" x="0.0" y="601" width="375" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.44478818516042773" green="0.44478818516042773" blue="0.44478818516042773" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qgZ-hF-5Hc" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="1mh-Ac-7Fw"/>
+                            <constraint firstAttribute="trailing" secondItem="qgZ-hF-5Hc" secondAttribute="trailing" id="A4X-iv-ccM"/>
+                            <constraint firstAttribute="trailing" secondItem="ZFO-sX-aYr" secondAttribute="trailing" id="R8c-mB-zCe"/>
+                            <constraint firstItem="ZFO-sX-aYr" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="h44-wo-aU5"/>
+                            <constraint firstItem="qgZ-hF-5Hc" firstAttribute="top" secondItem="ZFO-sX-aYr" secondAttribute="bottom" constant="8" id="ijI-XG-Ew1"/>
+                            <constraint firstItem="jnV-Ed-Vav" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jcX-iv-4hh"/>
+                            <constraint firstItem="jnV-Ed-Vav" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="100" id="un3-PA-Ek9"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="qgZ-hF-5Hc" secondAttribute="bottom" constant="50" id="zTO-xR-mwC"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icon-512" width="256" height="256"/>
+    </resources>
 </document>

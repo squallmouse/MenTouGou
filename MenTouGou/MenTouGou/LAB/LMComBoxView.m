@@ -43,12 +43,12 @@
     [btn addTarget:self action:@selector(tapAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:btn];
     
-    titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(2, 0, self.frame.size.width-imgW - 5 - 2, self.frame.size.height)];
-    titleLabel.font = [UIFont systemFontOfSize:11];
-    titleLabel.backgroundColor = [UIColor clearColor];
-    titleLabel.textAlignment = NSTextAlignmentLeft;
-    titleLabel.textColor = kTextColor;
-    [btn addSubview:titleLabel];
+    self.titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(2, 0, self.frame.size.width-imgW - 5 - 2, self.frame.size.height)];
+    self.titleLabel.font = [UIFont systemFontOfSize:11];
+    self.titleLabel.backgroundColor = [UIColor clearColor];
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.titleLabel.textColor = kTextColor;
+    [btn addSubview:self.titleLabel];
     
     _arrow = [[UIImageView alloc]initWithFrame:CGRectMake(btn.frame.size.width - imgW - 2, (self.frame.size.height-imgH)/2.0, imgW, imgH)];
     _arrow.image = [UIImage imageNamed:_arrowImgName];
@@ -65,14 +65,14 @@
     
     [_supView addSubview:_listTable];
     
-    titleLabel.text = [_titlesList objectAtIndex:_defaultIndex];
+//    self.titleLabel.text = [_titlesList objectAtIndex:_defaultIndex];
 }
 
 //刷新视图
 -(void)reloadData
 {
     [_listTable reloadData];
-    titleLabel.text = [_titlesList objectAtIndex:_defaultIndex];
+//    self.titleLabel.text = [_titlesList objectAtIndex:_defaultIndex];
 }
 
 //关闭父视图上面的其他combox
@@ -174,7 +174,7 @@
         cell.backgroundColor = [UIColor clearColor];
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(2, 0, self.frame.size.width-4, self.frame.size.height)];
         label.backgroundColor = [UIColor clearColor];
-        label.textAlignment = NSTextAlignmentLeft;
+        label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:11];
         label.textColor = kTextColor;
         label.tag = 1000;
@@ -192,7 +192,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    titleLabel.text = [_titlesList objectAtIndex:indexPath.row];
+//    titleLabel.text = [_titlesList objectAtIndex:indexPath.row];
     _isOpen = YES;
     [self tapAction];
     if([_delegate respondsToSelector:@selector(selectAtIndex:inCombox:)])

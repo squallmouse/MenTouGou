@@ -19,8 +19,8 @@ class YHAlamofire: NSObject {
              success:(AnyObject?) -> Void,
              OrFailure failed:(AnyObject?) -> Void) -> Void
     {
-
-        Alamofire.request(.GET, url, parameters: parameters).response { (request, response, data, error) in
+         let urlStr = Utils.urlStrConversion(urlStr: url);
+        Alamofire.request(.GET, urlStr, parameters: parameters).response { (request, response, data, error) in
             do{
 //                
                 let str = String(data: data!, encoding: NSUTF8StringEncoding);
@@ -42,8 +42,8 @@ class YHAlamofire: NSObject {
     
 //    
     class func Post(urlStr url:String!, paramters parameters:[String : AnyObject]?, success:(AnyObject?) -> Void, OrFailure failed:(AnyObject?) -> Void) -> Void{
-    
-        Alamofire.request(.POST, url, parameters: parameters).response { (request, response, data, error) in
+        let urlStr = Utils.urlStrConversion(urlStr: url);
+        Alamofire.request(.POST, urlStr, parameters: parameters).response { (request, response, data, error) in
             do{
                 let str = String(data: data!, encoding: NSUTF8StringEncoding);
                 let  data1 = str?.dataUsingEncoding(NSUTF8StringEncoding);

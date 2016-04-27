@@ -11,22 +11,24 @@ import UIKit
 typealias tapDownBlock = (tag:Int)-> Void ;
 
 class YHCoustomAnnotationView: BMKAnnotationView {
-
+    let fontSize:CGFloat = 13;
     let picName = "bg_place_prompt9"
     
     var tapBlcok:tapDownBlock?;
-    
+//  MARK:-  初始化方法
     init!(annotation: BMKAnnotation!, reuseIdentifier: String!,withTitle title:String?,Withtag annotag:Int) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier);
         self.image = UIImage(named: picName);
-        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 100, 25);
-        let lab = UILabel(frame: CGRectMake(5, 3, 90, 20));
+        let labWidth = self.labWidth(inStr: title);
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, labWidth + 10, 25);
+
+
+        let lab = UILabel(frame: CGRectMake(5, 2,labWidth, 20));
         lab.tag = annotag;
         lab.text = title;
+        lab.font = UIFont.systemFontOfSize(fontSize);
         lab.adjustsFontSizeToFitWidth = true;
-//        self.backgroundColor = UIColor.redColor();
-//        lab.backgroundColor = UIColor.orangeColor();
-        
+     
         self.userInteractionEnabled = true;
         lab.userInteractionEnabled = true;
         self.addTap(withView: lab);
@@ -35,7 +37,11 @@ class YHCoustomAnnotationView: BMKAnnotationView {
         self.addSubview(lab);
     }
     
-    
+    /***********************************
+     *function:添加点击事件
+     *parmters:需要被点击的view
+     *return  :nil
+     ************************************/
     func addTap(withView view:UIView) -> Void {
         let tap = UITapGestureRecognizer(target: self, action: #selector(YHCoustomAnnotationView.tapDown(_:)))
         tap.numberOfTapsRequired = 1
@@ -43,12 +49,23 @@ class YHCoustomAnnotationView: BMKAnnotationView {
         
         view.addGestureRecognizer(tap);
     }
-    
+    /***********************************
+     *function:点击事件
+     *parmters:手势
+     *return  :nil
+     ************************************/
     func tapDown(tap:UITapGestureRecognizer) -> Void {
-//        tap.view?.tag
         self.tapBlcok?(tag:(tap.view?.tag)!);
     }
-    
+//
+
+    func labWidth(inStr str:String!) -> CGFloat {
+        let attributeDic = [NSFontAttributeName:UIFont.systemFontOfSize(fontSize)];
+        let rect = (str as NSString).boundingRectWithSize(CGSizeMake(CGFloat(MAXFLOAT), 20), options: [NSStringDrawingOptions.UsesLineFragmentOrigin,.UsesFontLeading, .TruncatesLastVisibleLine], attributes: attributeDic, context: nil);
+        return rect.size.width;
+    }
+
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

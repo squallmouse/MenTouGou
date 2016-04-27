@@ -28,7 +28,7 @@ class InfoWebVC: UIViewController {
         super.viewDidLoad()
         
         self.automaticallyAdjustsScrollViewInsets = false;
-        
+        self.title = "资讯详情";
         let url = "http://mtg.ritontech.com/Detail/" + self.proID;
         
         self.web.loadRequest(NSURLRequest(URL: NSURL.init(string: url)!));

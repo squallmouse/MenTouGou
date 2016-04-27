@@ -82,6 +82,9 @@ class RegisterVC: UIViewController {
                 let user = NSUserDefaults.standardUserDefaults();
                 user.setValue(dic["Id"], forKey: "userID");
                 user.setValue(dic["UserName"], forKey: "UserName");
+                if ((dic["Id"]as! String).characters.count > 0 ){
+                    user.setValue(self.eMailTextField.text!, forKey: dic["Id"]as! String);
+                }
                 user.synchronize();
                 
                 NSNotificationCenter.defaultCenter().postNotification(NSNotification.init(name: "refreshUser", object: nil));

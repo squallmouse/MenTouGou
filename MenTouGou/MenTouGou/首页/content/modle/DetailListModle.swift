@@ -29,12 +29,21 @@ class DetailListModle: NSObject {
     var Address:String?
     var CreatorTime:String?;
     
-    var distanct:String?;//时间转换后存起来
+    var distanct:String?;//距离转换后存起来
     
     
     init(dic:NSDictionary) {
         super.init();
+
         self.setValuesForKeysWithDictionary(dic as! [String : AnyObject]);
+        self.distanct = "99";
+        if self.Coordinate != nil {
+            self.distanct = Utils.distanceConversion(self.Coordinate);
+            if self.distanct?.characters.count == 0 {
+                self.distanct = "99";
+            }
+        }
+
     }
     
     

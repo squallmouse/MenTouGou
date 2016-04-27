@@ -18,9 +18,7 @@
 @property(nonatomic,strong)UIScrollView *sc;
 
 
-@property(nonatomic,strong)UIImageView *img1;
-@property(nonatomic,strong)UIImageView *img2;
-@property(nonatomic,strong)UIImageView *img3;
+
 @property(nonatomic,strong)UIPageControl *pagec;
 @property(nonatomic,assign)int page;
 
@@ -100,7 +98,7 @@
     [super viewDidLoad];
 //    self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 
-    self.view.backgroundColor = [UIColor greenColor];
+//    self.view.backgroundColor = [UIColor greenColor];
     self.automaticallyAdjustsScrollViewInsets = false;
     self.view.frame = self.rect;
     self.sc = [[UIScrollView alloc]initWithFrame:self.rect];
@@ -108,7 +106,7 @@
     self.sc.bounces = NO;
     
     self.sc.pagingEnabled = true;
-    self.sc.backgroundColor = [UIColor redColor];
+//    self.sc.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.sc];
     self.sc.delegate = self;
     
@@ -154,6 +152,7 @@
             break;
         case imageurl:
         {
+
             [_img2 sd_setImageWithURL:[NSURL URLWithString:self.arr[self.picNum]]placeholderImage:[UIImage imageNamed:@"img_product_default.jpg"]];
             if (self.picNum == self.arr.count-1) {
                 [_img3 sd_setImageWithURL:[NSURL URLWithString:self.arr[0]]placeholderImage:[UIImage imageNamed:@"img_product_default.jpg"]];
@@ -173,8 +172,8 @@
     
     
     [self.sc addSubview:_img1];
-    [self.sc addSubview:_img2];
     [self.sc addSubview:_img3];
+    [self.sc addSubview:_img2];
     self.sc.contentOffset = CGPointMake(self.sc.frame.size.width, 0);
     _page = self.picNum;
     self.sc.showsHorizontalScrollIndicator = NO;

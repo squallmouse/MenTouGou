@@ -18,6 +18,11 @@ typedef enum : NSUInteger {
 
 
 @interface NewCarouselVC : UIViewController
+
+@property(nonatomic,strong)UIImageView *img1;
+@property(nonatomic,strong)UIImageView *img2;
+@property(nonatomic,strong)UIImageView *img3;
+
 @property(nonatomic,strong)NSArray *arr;
 @property(nonatomic,assign)int picNum;
 @property(nonatomic,assign)CGRect rect;

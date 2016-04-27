@@ -57,30 +57,36 @@ class AroundVC: UIViewController,BMKMapViewDelegate {
         
 
 //       请求接口
+        var latitude:NSString!;
+        var longitude:NSString!;
         if (self.userLocation != nil) {
-            
         self.mapView.updateLocationData(self.userLocation);
-        let latitude = NSString(format: "%f", (self.userLocation?.location.coordinate.latitude)!);
 
-        let longitude = NSString(format: "%f", (self.userLocation?.location.coordinate.longitude)!);
-//            self.userLocation?.location.coordinate.longitude ;
-        
+         latitude = NSString(format: "%f", (self.userLocation?.location.coordinate.latitude)!);
+         longitude = NSString(format: "%f", (self.userLocation?.location.coordinate.longitude)!);
+
+        }else{
+
+            latitude = "39.988";
+            longitude = "116.113";
+
+            let hud = Utils.creatHUD();
+            hud.labelText = "未定位成功";
+            hud.hide(true, afterDelay: 1);
+        }
+
+
         let urlStr = MTG + NEARLEISURELIST + (latitude as String)  + "/" + (longitude as String)  + "?";
         let paramters = [
             "count" : "10"
         ];
-        
-            YHAlamofire.Get(urlStr: urlStr, paramters: paramters, success: { (res) in
-                let arr = res as! NSArray;
-                self.parserDataWithArr(arr);
-                print(arr);
-            }) { (Failedres) in
-                
-                }
-        }else{
-            let hud = Utils.creatHUD();
-            hud.labelText = "请打开定位功能";
-            hud.hide(true, afterDelay: 1);
+
+        YHAlamofire.Get(urlStr: urlStr, paramters: paramters, success: { (res) in
+            let arr = res as! NSArray;
+            self.parserDataWithArr(arr);
+            print(arr);
+        }) { (Failedres) in
+
         }
     }
 
@@ -170,7 +176,7 @@ class AroundVC: UIViewController,BMKMapViewDelegate {
         lati /= Double(self.dataArr.count);
         long /= Double(self.dataArr.count);
         
-        let region = BMKCoordinateRegion(center: CLLocationCoordinate2DMake(lati, long), span: BMKCoordinateSpan(latitudeDelta: 0.7, longitudeDelta: 0.7));
+        let region = BMKCoordinateRegion(center: CLLocationCoordinate2DMake(lati, long), span: BMKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25));
         
             self.mapView.setRegion(region, animated: true);
     }

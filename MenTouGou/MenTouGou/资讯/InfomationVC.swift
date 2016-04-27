@@ -40,8 +40,8 @@ class InfomationVC: BaseTableViewVC,LMComBoxViewDelegate {
             let strUrl = MTG + NEWLIST + self!.chop1 + "?" ;
             let paramaters = [
 
-                "timeOrder":"Desc",
-                "pvOrder":"Desc",
+                "timeOrder":self!.chop2,
+                "pvOrder":self!.chop3,
                 "pageIndex":String(self!.page),
                 "pageSize":PAGESIZE
                     ];
@@ -102,10 +102,11 @@ class InfomationVC: BaseTableViewVC,LMComBoxViewDelegate {
 //    MARK:- 下拉列表初始化 和 选择
     func setUpBGScrollView() -> Void {
         let keys = ["option1","option2","option3"];
+        let title = ["类型","时间","人气"];
         for i in 0 ..< keys.count {
             let comBox = LMComBoxView(frame: CGRectMake(s_width/3 * CGFloat(i),64,s_width/3,40));
 //            comBox.backgroundColor = UIColor.redColor();
-            comBox.arrowImgName = "down_dark0.png";
+            comBox.arrowImgName = "ic_indication_arrow";
             let temparr = self.chooseOptionDict[keys[i]] ;
             comBox.titlesList = temparr as! NSMutableArray;
             comBox.delegate = self;
@@ -113,6 +114,7 @@ class InfomationVC: BaseTableViewVC,LMComBoxViewDelegate {
             comBox.defaultSettings();
             comBox.tag = 1900 + i;
             self.view .addSubview(comBox);
+            comBox.titleLabel.text = title[i] as String;
         }
     }
     func selectAtIndex(index: Int32, inCombox _combox: LMComBoxView!) {

@@ -76,9 +76,13 @@ class ProductHeadView: UIView {
                         picArr.addObject(MTG + utfStr!);
                     }
                 }
-                self.carVC = NewCarouselVC(frame: CGRectMake(0, 0, s_width, 200), withPicArr: picArr as [AnyObject], andimageType: imageurl);
+                self.carVC = NewCarouselVC(frame: CGRectMake(0, 0, s_width, 240), withPicArr: picArr as [AnyObject], andimageType: imageurl);
 //                self.carView.addSubview(self.carVC.view);
+
                 self.addSubview(self.carVC.view);
+                self.carVC.img1.contentMode = .ScaleToFill;
+                self.carVC.img2.contentMode = .ScaleToFill;
+                self.carVC.img3.contentMode = .ScaleToFill;
             }
         }
         

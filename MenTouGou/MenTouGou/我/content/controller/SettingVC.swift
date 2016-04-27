@@ -29,7 +29,7 @@ class SettingVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         self.mtableView.delegate = self;
         self.mtableView.bounces = false;
         self.mtableView.rowHeight = 50;
-        self.mtableView.separatorStyle = .SingleLineEtched;
+//        self.mtableView.separatorStyle = .SingleLineEtched;
 // 缓存
         cacheLab = UILabel();
         cacheLab.textAlignment = .Right;
@@ -88,6 +88,11 @@ class SettingVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 //清理缓存  
             Utils.clearCache();
             self.cacheLab.text = "0.0M";
+        }else if indexPath.row == 1{
+//意见反馈
+            self.performSegueWithIdentifier("GoToFeedBackVC", sender: self);
+        }else if indexPath.row == 3{
+            self.performSegueWithIdentifier("GoToAboutUs", sender: self);
         }
     }
     

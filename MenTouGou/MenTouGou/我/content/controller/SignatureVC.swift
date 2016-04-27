@@ -45,6 +45,13 @@ class SignatureVC: UIViewController,UITextFieldDelegate {
 // 点击确定按钮
     @IBAction func confirmBtnClickDown(sender: AnyObject) {
 //        上传数据，完成后退出
+        if self.mtextField.text!.isEmpty {
+             let hud = Utils.creatHUD();
+                hud.labelText = "提交不能为空";
+            hud.hide(true, afterDelay: 1);
+            return;
+        }
+
 
         var content:[String:AnyObject]!;
         if self.title == "个性签名" {

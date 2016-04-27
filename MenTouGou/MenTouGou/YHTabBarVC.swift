@@ -10,11 +10,28 @@ import UIKit
 
 class YHTabBarVC: UITabBarController {
 
+
+    /***********************************
+     *function:是否加载启动页
+     *parmters:nil
+     *return  :nil
+     ************************************/
+    func isUserFirstIn() -> Void {
+        let user =  NSUserDefaults();
+        let showVC = user.valueForKey("firstIn_d");
+        if showVC == nil {
+            let firstInVC = FirstInVC();
+            self.presentViewController(firstInVC, animated: false, completion: nil);
+        }
+        //        user.setObject("false", forKey: "firstIn");
+        //        user.synchronize();
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 //        
         
-        
+        self.isUserFirstIn();
 //       init Five VC
         let SBNameArr = ["MainPage","Infomation","Product","Around","MyHomePage"];
         let SBIDArr = ["MainPageSBID","InfomationSBID","ProductSBID","AroundSBID","MyHomePageSBID"];

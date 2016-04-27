@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="126.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="MT0-eu-gtz">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MT0-eu-gtz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="126.5"/>
                     </imageView>
                 </subviews>
@@ -31,7 +31,4 @@
             <point key="canvasLocation" x="240" y="326.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="1.jpg" width="374" height="263"/>
-    </resources>
 </document>

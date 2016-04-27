@@ -48,7 +48,12 @@ class BaseTableViewVC: UIViewController,UITableViewDelegate,UITableViewDataSourc
     
     
     func httpData(page:Int ) -> Void {
+
         let urlTuple = self.getUrl!(page);
+
+        if self.page == 1{
+            self.mtableView.mj_footer.hidden = false;
+        }
         YHAlamofire.Get(urlStr: urlTuple.0, paramters: urlTuple.1, success: { (res) in
             
             self.stopRefresh();
@@ -59,10 +64,21 @@ class BaseTableViewVC: UIViewController,UITableViewDelegate,UITableViewDataSourc
             }
             
             self.parserResult(res);
-            if(res?.count == 0){
+            if(res?.count == 0 || res?.count < 10){
+
+
             self.mtableView.mj_footer.hidden = true;
             }
+
+            if res?.count == 0 && self.dataArr.count == 0{
+                let hud = Utils.creatHUD();
+                hud.labelText = "没有数据显示";
+                hud.hide(true, afterDelay: 1);
+            };
+
+
             self.mtableView.reloadData();
+
             }) { (failedRes) in
                 self.stopRefresh();
                 print("请求失败 = \(failedRes)");

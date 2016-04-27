@@ -19,7 +19,7 @@ class FullImageCell: UITableViewCell {
 
     func setCell(imgUrl url:String) -> Void {
 //        print(url);
-        Img.sd_setImageWithURL(NSURL.init(string: url), placeholderImage: nil)
+        Img.sd_setImageWithURL(NSURL.init(string: url), placeholderImage: UIImage(named: DEFAULTPIC));
         
     }
     

@@ -27,17 +27,30 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIQ-Ie-l6W">
-                        <rect key="frame" x="100" y="59.5" width="42" height="21"/>
+                        <rect key="frame" x="100" y="59" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.62352941176470589" green="0.2627450980392157" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUV-7R-uep">
+                        <rect key="frame" x="270" y="49.5" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="5NG-Ys-Y0W"/>
+                            <constraint firstAttribute="height" constant="50" id="YXY-WM-wOh"/>
+                        </constraints>
+                        <state key="normal" image="ic_add_shopping_cart_white"/>
+                        <connections>
+                            <action selector="shopCarBtnClickDown:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="611-RF-ddI"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" red="0.94901960784313721" green="0.95686274509803926" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="93A-RJ-SzJ" secondAttribute="bottom" constant="10" id="IUU-ut-oHq"/>
+                    <constraint firstAttribute="bottom" secondItem="tUV-7R-uep" secondAttribute="bottom" id="IyL-gd-uNk"/>
                     <constraint firstItem="Hs2-78-URQ" firstAttribute="top" secondItem="93A-RJ-SzJ" secondAttribute="top" constant="3" id="NS2-Qb-m3y"/>
                     <constraint firstItem="IIQ-Ie-l6W" firstAttribute="leading" secondItem="Hs2-78-URQ" secondAttribute="leading" id="Tgc-gA-6OY"/>
+                    <constraint firstAttribute="trailing" secondItem="tUV-7R-uep" secondAttribute="trailing" id="XuK-Oh-8uP"/>
                     <constraint firstItem="IIQ-Ie-l6W" firstAttribute="centerY" secondItem="93A-RJ-SzJ" secondAttribute="centerY" constant="20" id="cDq-Jx-Cv3"/>
                     <constraint firstAttribute="trailing" secondItem="Hs2-78-URQ" secondAttribute="trailing" constant="10" id="dZE-4c-egg"/>
                     <constraint firstItem="Hs2-78-URQ" firstAttribute="leading" secondItem="93A-RJ-SzJ" secondAttribute="trailing" constant="10" id="itL-pk-Hs4"/>
@@ -48,9 +61,13 @@
             <connections>
                 <outlet property="img" destination="93A-RJ-SzJ" id="cQ4-v1-kqx"/>
                 <outlet property="priceLab" destination="IIQ-Ie-l6W" id="xcl-hD-ai8"/>
+                <outlet property="shopCarBtn" destination="tUV-7R-uep" id="usx-ke-6oY"/>
                 <outlet property="titleLab" destination="Hs2-78-URQ" id="EIF-io-P4b"/>
             </connections>
             <point key="canvasLocation" x="182" y="216"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="ic_add_shopping_cart_white" width="36" height="36"/>
+    </resources>
 </document>

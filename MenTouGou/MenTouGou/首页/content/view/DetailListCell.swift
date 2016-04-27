@@ -29,14 +29,9 @@ class DetailListCell: UITableViewCell {
         self.titleLab.text = mo.Title;
         self.contentLab.text = mo.Address;
         self.contantLab.text = "联系方式:" + mo.Tel!   + "   " + "联系人:" + mo.Creator! ;
-        
-        if mo.Coordinate != nil {
-            
-            self.dictanceLab.text = Utils.distanceConversion(mo.Coordinate);
-        
-        }else{
-             self.dictanceLab.text = "";
-        }
+
+        self.dictanceLab.text = mo.distanct! + "KM";
+
         
 
     }

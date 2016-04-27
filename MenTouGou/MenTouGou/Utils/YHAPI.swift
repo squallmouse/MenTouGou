@@ -8,7 +8,7 @@
 
 import Foundation
 
-let DEFAULTPIC      = ""//默认图
+let DEFAULTPIC      = "img_product_default.jpg"//默认图
 let PAGESIZE        = "10"
 
 
@@ -29,7 +29,7 @@ let FORGETPASSWORD  = "/api/Account/ForgetPassword"//找回密码 POST
 let REGIEST         = "/api/Account/Register"//注册 POST
 let LOGIN           = "/api/Account/Login/"//登录 GET
 let USERINFO        = "/api/Account/UserInfo/"//获取用户信息 GET
-
+let CHANGEPASSWORD =  "/api/Account/ChangePassword/" //修改image GET
 
 
 //资讯
@@ -45,3 +45,4 @@ let NEARLEISURELIST = "/api/Leisure/NearLeisureList/"//获取周边
 //农产品
 let PRODUCTLIST     = "/api/Leisure/ProductList"//获取农产品列表
 let PRODUCT         = "/api/Leisure/Product/"
+let SEARCH_PRODUCT =  "/api/Leisure/ProductList/"

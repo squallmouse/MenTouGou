@@ -9,21 +9,37 @@
 import UIKit
 import WebKit
 
-class WebViewVC: UIViewController {
+class WebViewVC: UIViewController,WKNavigationDelegate {
 
     var web:WKWebView!;
     var urlstr:String!;
-    
+    var hud:MBProgressHUD!;
+
+    override func viewWillDisappear(animated: Bool) {
+            self.hud.hide(true);
+    }
+
 
     init(url:String){
         super.init(nibName: nil, bundle: nil);
         self.urlstr = url;
         self.web = WKWebView(frame: CGRectMake(0, 64, s_width, s_height - 64));
+        self.web.navigationDelegate = self;
         self.view.addSubview(self.web);
     }
 
-    
-    
+    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+        print("wkwebview 加载成功!");
+        self.title = webView.title;
+        self.hud.hide(true);
+    }
+    func webView(webView: WKWebView, didFailNavigation navigation: WKNavigation!, withError error: NSError) {
+        print("wkwebview 加载失败!");
+        self.hud.labelText = "当前网络不好";
+        self.hud.hide(true, afterDelay: 1);
+    }
+
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -33,7 +49,8 @@ class WebViewVC: UIViewController {
         self.automaticallyAdjustsScrollViewInsets = false;
         
         self.web.loadRequest(NSURLRequest(URL: NSURL.init(string: self.urlstr)!));
-        
+        self.hud = Utils.creatHUD();
+        self.hud.labelText = "网页加载中";
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,14 +59,6 @@ class WebViewVC: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+ 
 
 }

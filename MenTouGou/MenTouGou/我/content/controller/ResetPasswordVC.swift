@@ -69,13 +69,31 @@ class ResetPasswordVC: UIViewController {
         
         YHAlamofire.PostJson(urlStr: MTG + FORGETPASSWORD, paramters: paramters, success: { (res) in
             print("密码找回成功 = \(res)");
-            
+            var str:String?;
+            if res is String {
+
+                str = res as? String;
+            }
+
             let hud:MBProgressHUD = Utils.creatHUD();
-            hud.labelText = "密码找回成功";
+            if str != nil{
+
+                if str!.rangeOfString("成功") != nil{
+                    let message = str!.substringWithRange(str!.startIndex.advancedBy(3) ... str!.endIndex.advancedBy(-2));
+
+                    hud.labelText = message;
+                    self.navigationController?.popViewControllerAnimated(true);
+                }else{
+                    let message = str!.substringWithRange(str!.startIndex.advancedBy(3) ... str!.endIndex.advancedBy(-2));
+                    hud.labelText = message;
+                }
+
+            }
+
             hud.hide(true, afterDelay: 1);
-            self.navigationController?.popViewControllerAnimated(true);
+
             }) { (error) in
-              self.navigationController?.popViewControllerAnimated(true);
+//              self.navigationController?.popViewControllerAnimated(true);
         }
         
         
