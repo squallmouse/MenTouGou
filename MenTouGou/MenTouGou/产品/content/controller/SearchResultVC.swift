@@ -31,15 +31,15 @@ class SearchResultVC: BaseTableViewVC {
 
         self.getUrl = {[weak self](page) in
             let tempUrl = MTG + SEARCH_PRODUCT + (self?.keyWord)! ;
-            let strUrl = Utils.urlStrConversion(urlStr: tempUrl);
-            print(strUrl);
+//            let strUrl = Utils.urlStrConversion(urlStr: tempUrl);
+            print(tempUrl);
             let paramaters = [
 
                 "pageIndex":String(self!.page),
                 "pageSize":PAGESIZE
             ];
 
-            return (strUrl,paramaters);
+            return (tempUrl,paramaters);
         }
 
         self.httpData(self.page);
