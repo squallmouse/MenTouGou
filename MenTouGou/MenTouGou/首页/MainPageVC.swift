@@ -87,9 +87,10 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         
 //      轮播图http
         let getBannerListURL = MTG + GETADVERTLIST;
-        YHAFManager.yhGet(urlStr: getBannerListURL, parameters: nil, success: { (res) in
+
+        YHAlamofire.Get(urlStr: getBannerListURL, paramters: nil, success: { (res) in
             let tempArr = res as! NSArray;
-            
+
             let urlArr = NSMutableArray(capacity: 0);
             let imgArr = NSMutableArray(capacity: 0);
             for i in 0 ..< tempArr.count
@@ -98,11 +99,11 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
                 imgArr.addObject((tempArr[i] as! NSDictionary)["ImageUrl"] as! String );
             }
             self.carVC = NewCarouselVC.init(frame: CGRectMake(-5, 0, s_width + 10, self.headHight), withPicArr: imgArr as [AnyObject], withUrlArr: urlArr as [AnyObject]);
-    
+
             self.carVC.type = imageurl;
             self.carVC.picClickDown = {[weak self](url)->Void in
                 print(url);
-                
+
                 let LinkUrl = url as NSString;
                 if LinkUrl.hasPrefix("http://") {
                     //                网页
@@ -114,18 +115,56 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
                     let webDetail = WebDetailVC.init(withProductID: url as String);
                     webDetail.hidesBottomBarWhenPushed = true;
                     self!.navigationController?.pushViewController(webDetail, animated: true);
-                    
+
                 }
             };
             self.addChildViewController(self.carVC);
 
             self.carSc.addSubview(self.carVC.view);
             self.carVC.setTimeWithSecond(4);
-            })
-        { (failedRes) in
-            
+            }) { (failedRes) in
+
         }
-        
+
+//        YHAFManager.yhGet(urlStr: getBannerListURL, parameters: nil, success: { (res) in
+//            let tempArr = res as! NSArray;
+//            
+//            let urlArr = NSMutableArray(capacity: 0);
+//            let imgArr = NSMutableArray(capacity: 0);
+//            for i in 0 ..< tempArr.count
+//            {
+//                urlArr.addObject((tempArr[i] as! NSDictionary)["LinkUrl"] as! String );
+//                imgArr.addObject((tempArr[i] as! NSDictionary)["ImageUrl"] as! String );
+//            }
+//            self.carVC = NewCarouselVC.init(frame: CGRectMake(-5, 0, s_width + 10, self.headHight), withPicArr: imgArr as [AnyObject], withUrlArr: urlArr as [AnyObject]);
+//    
+//            self.carVC.type = imageurl;
+//            self.carVC.picClickDown = {[weak self](url)->Void in
+//                print(url);
+//                
+//                let LinkUrl = url as NSString;
+//                if LinkUrl.hasPrefix("http://") {
+//                    //                网页
+//                    let web = WebViewVC.init(url: url as String);
+//                    web.hidesBottomBarWhenPushed = true;
+//                    self!.navigationController?.pushViewController(web, animated: true);
+//                }else{
+//                    //                资讯详情页
+//                    let webDetail = WebDetailVC.init(withProductID: url as String);
+//                    webDetail.hidesBottomBarWhenPushed = true;
+//                    self!.navigationController?.pushViewController(webDetail, animated: true);
+//                    
+//                }
+//            };
+//            self.addChildViewController(self.carVC);
+//
+//            self.carSc.addSubview(self.carVC.view);
+//            self.carVC.setTimeWithSecond(4);
+//            })
+//        { (failedRes) in
+//            
+//        }
+
     }
 
 //   MARK:- tableview代理

@@ -3,7 +3,7 @@
 //MenTouGou-Bridging-Header
 
 #import "NewCarouselVC.h"
-#import "AFNetworking.h"
+//#import "AFNetworking.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MBProgressHUD.h"
 #import "MJRefresh.h"
