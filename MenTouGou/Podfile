@@ -8,8 +8,8 @@ pod 'MBProgressHUD'
 pod 'MJRefresh'
 
 pod 'GRMustache'
-
+pod 'BaiduMapKit'
 
 use_frameworks!
 pod 'Alamofire'
-pod 'BaiduMapKit'
+

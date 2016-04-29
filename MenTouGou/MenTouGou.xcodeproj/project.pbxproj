@@ -22,6 +22,7 @@
 		EF188D841CC47BC900E69CFC /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF188D811CC47BC900E69CFC /* libMobClickLibrary.a */; };
 		EF188D861CC47F2000E69CFC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EF188D851CC47F2000E69CFC /* libz.tbd */; };
 		EF188D871CC48F1100E69CFC /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5DE411CB3B8EB00EAA108 /* Utils.swift */; };
+		EF3298421CD1D79300279D6F /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EF3298411CD1D79300279D6F /* mapapi.bundle */; };
 		EF63093B1CC4D3E200D57532 /* YHCoustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF63093A1CC4D3E200D57532 /* YHCoustomAnnotationView.swift */; };
 		EF63093D1CC50D6100D57532 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF63093C1CC50D6100D57532 /* Assets.xcassets */; };
 		EF63093F1CC5100800D57532 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF63093E1CC5100800D57532 /* DetailVC.swift */; };
@@ -121,6 +122,7 @@
 		EF188D821CC47BC900E69CFC /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		EF188D831CC47BC900E69CFC /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		EF188D851CC47F2000E69CFC /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		EF3298411CD1D79300279D6F /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
 		EF63093A1CC4D3E200D57532 /* YHCoustomAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YHCoustomAnnotationView.swift; sourceTree = "<group>"; };
 		EF63093C1CC50D6100D57532 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF63093E1CC5100800D57532 /* DetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailVC.swift; path = ../../DetailVC.swift; sourceTree = "<group>"; };
@@ -309,6 +311,14 @@
 				EF188D831CC47BC900E69CFC /* MobClickSocialAnalytics.h */,
 			);
 			path = UMAnalytics_Sdk_3.6.7;
+			sourceTree = "<group>";
+		};
+		EF3298401CD1D79300279D6F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EF3298411CD1D79300279D6F /* mapapi.bundle */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		EF63094C1CC5E0D400D57532 /* content */ = {
@@ -631,6 +641,7 @@
 		EFF5DE381CB3B3F600EAA108 /* LAB */ = {
 			isa = PBXGroup;
 			children = (
+				EF3298401CD1D79300279D6F /* Resources */,
 				EFA255691CC1425E00CDD182 /* MenTouGou-Bridging-Header.h */,
 				EFD72A091CCA376B00EB20AD /* 年龄选择器 */,
 				EFD72A081CCA375400EB20AD /* 百度地图 */,
@@ -758,6 +769,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF3298421CD1D79300279D6F /* mapapi.bundle in Resources */,
 				EFF5DE251CB396BD00EAA108 /* Infomation.storyboard in Resources */,
 				EFC3CE6D1CBB812500716FFA /* InfoCell.xib in Resources */,
 				EFF5DDE71CB35AC300EAA108 /* LaunchScreen.storyboard in Resources */,
