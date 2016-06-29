@@ -10,7 +10,7 @@ import UIKit
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate,BMKLocationServiceDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate, BMKLocationServiceDelegate {
 
 //    坐标
     var userLocation : BMKUserLocation?;
@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate,BMKLoc
     var locservice:BMKLocationService!;
 
 
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         
@@ -30,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate,BMKLoc
         UIApplication.sharedApplication().statusBarStyle = .LightContent;
         
         UINavigationBar.appearance().tintColor = UIColor.whiteColor();
+        
 //        百度地图
         _mapManager = BMKMapManager()
         let ret = _mapManager?.start("UPf08I1n60jaiZhmmKZUeFzAvV5WA5Nl", generalDelegate: self);
@@ -47,6 +49,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate,BMKLoc
 //        let version =  dic!["CFBundleShortVersionString"];
 //        print("version = \(version)");
         MobClick.startWithAppkey("56976da967e58e6412001760", reportPolicy: BATCH, channelId: "");
+
+//      微社区
+        UMCommunity.setAppKey("56976da967e58e6412001760", withAppSecret: "a0d99e8c045774ea3db19ff060e1b2e3");
+
 
 //  Umeng 消息推送
         UMessage.startWithAppkey("56976da967e58e6412001760", launchOptions: launchOptions);
@@ -118,6 +124,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate,BMKLoc
 //        self.userLocation = BMKUserLocation();
 //        self.userLocation?.location.coordinate.latitude = 39.00;
     }
+
+
+    
 
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         print("deviceToken = \(deviceToken)");

@@ -10,9 +10,12 @@
 #import "LMComBoxView.h"
 #import "YHStartMarkView.h"
 #import "HTML.h"
+
+
 //Umeng
 #import "UMessage.h"
 #import "MobClick.h"
+#import "UMCommunity.h"
 //baidu
 //#import "BMKMapView.h"
 #import <BaiduMapAPI_Base/BMKBaseComponent.h>//引入base相关所有的头文件

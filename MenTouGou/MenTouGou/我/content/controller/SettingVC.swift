@@ -104,6 +104,9 @@ class SettingVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         let user = NSUserDefaults.standardUserDefaults();
         user.setValue("0", forKey: "userID");
         user.synchronize();
+
+
+        UMComLoginManager.userLogout();
 //        刷新首页
         NSNotificationCenter.defaultCenter().postNotification(NSNotification.init(name: "refreshUser", object: nil));
 //        

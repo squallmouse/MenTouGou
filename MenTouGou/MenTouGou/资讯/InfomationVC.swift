@@ -13,7 +13,9 @@ class InfomationVC: BaseTableViewVC,LMComBoxViewDelegate {
     let option1:NSMutableArray = ["全部","产品资讯","旅游资讯","企业资讯"];
     let option2:NSMutableArray = ["升序","降序"];
     let option3:NSMutableArray = ["升序","降序"];
-    
+//    var typeValue = "0";
+    var hud:MBProgressHUD!;
+
     var chooseOptionDict : NSMutableDictionary!;
     
     var chop1:String!;//类型
@@ -21,13 +23,24 @@ class InfomationVC: BaseTableViewVC,LMComBoxViewDelegate {
     var chop3:String!;//人气
 
 //    var url : (String! , [String : AnyObject]?)!;
+    override func viewWillDisappear(animated: Bool) {
+        self.hud.hide(true);
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false;
         self.view.backgroundColor = UIColor.whiteColor();
         self.chooseOptionDict = NSMutableDictionary.init(objects: [option1,option2,option3], forKeys: ["option1","option2","option3"]);
+        
         print(self.chooseOptionDict);
-        chop1 = "0";
+
+        if self.navigationController?.viewControllers[0] === self{
+            chop1 = "0";
+
+        }else{
+            self.mtableView.frame =  CGRectMake(0, 64 + 40 , s_width, s_height - 64 - 40 );
+        }
         chop2 = "Desc";
         chop3 = "Desc";
         self.setUpBGScrollView();
@@ -50,7 +63,10 @@ class InfomationVC: BaseTableViewVC,LMComBoxViewDelegate {
             print((strUrl,paramaters ))
             return (strUrl,paramaters );
         };
+
+        self.hud = Utils.creatHUD();
         
+
         self.httpData(self.page);
         
     }
@@ -58,7 +74,7 @@ class InfomationVC: BaseTableViewVC,LMComBoxViewDelegate {
 //解析数据
     
     override func parserResult(res: AnyObject?) {
-        
+        self.hud.hide(true, afterDelay: 1);
         let arr = res as! NSArray;
         print("111 = \(arr)");
         for i in 0 ..< arr.count {

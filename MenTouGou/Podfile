@@ -1,7 +1,8 @@
 platform:ios, '8.0'
 
 
-
+target 'MenTouGou' do
+    
 pod 'SDWebImage'
 
 pod 'MBProgressHUD'
@@ -13,3 +14,4 @@ pod 'BaiduMapKit'
 use_frameworks!
 pod 'Alamofire'
 
+end

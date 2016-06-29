@@ -23,7 +23,11 @@ class DetailVC: BaseTableViewVC,LMComBoxViewDelegate {
     var chop4:String!;//人气
 
     var contentArr : NSMutableArray!;
-    
+    var hud:MBProgressHUD!;
+
+    override func viewWillDisappear(animated: Bool) {
+        self.hud.hide(true);
+    }
     override func viewDidLoad() {
         super.viewDidLoad();
         self.resArr = NSMutableArray(capacity: 0);
@@ -55,8 +59,9 @@ class DetailVC: BaseTableViewVC,LMComBoxViewDelegate {
             print((strUrl,paramaters ))
             return (strUrl,paramaters );
         };
-        
+
         self.httpData(self.page);
+        self.hud = Utils.creatHUD();
         self.title = option1[Int(chop1)!] as? String;
         
        
@@ -64,7 +69,7 @@ class DetailVC: BaseTableViewVC,LMComBoxViewDelegate {
     
     
     override func parserResult(res: AnyObject?) {
-        
+        self.hud.hide(true, afterDelay: 1);
         let arr = res as! NSArray;
         print("111 = \(arr)");
         self.resArr.addObjectsFromArray(arr as [AnyObject]);

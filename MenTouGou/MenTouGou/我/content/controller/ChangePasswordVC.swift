@@ -56,19 +56,21 @@ class ChangePasswordVC: UIViewController {
         let strurl = MTG + CHANGEPASSWORD + Utils.getOwnID() + "/" + self.pass1.text! + "/" + self.pass3.text!;
 
         YHAlamofire.Get(urlStr: strurl, paramters: nil, success: { (res) in
-            let result = res as! String;
-            if result == "false"{
-                let hud = Utils.creatHUD();
-                hud.labelText = "密码修改不成功";
-                hud.hide( true, afterDelay: 1);
-            }else{
 
-            self.navigationController?.popViewControllerAnimated(true);
-            }
 
 
             }) { (failedRes) in
-
+                let result = failedRes as! String;
+                if result == "false"{
+                    let hud = Utils.creatHUD();
+                    hud.labelText = "密码修改不成功";
+                    hud.hide( true, afterDelay: 1);
+                }else if (result == "true"){
+                    let hud = Utils.creatHUD();
+                    hud.labelText = "密码修改成功";
+                    hud.hide( true, afterDelay: 1);
+                    self.navigationController?.popViewControllerAnimated(true);
+                }
         }
 
 

@@ -31,7 +31,8 @@ class YHAlamofire: NSObject {
                 if data != nil{
                 let errorStr = String.init(data: data!, encoding: NSUTF8StringEncoding);
                     print("||  failed error  ||===== \(errorStr) ||||||  end");
-                    success(errorStr);
+                    failed(errorStr);
+                    return;
                 }
                 print("error =||||\n \(error) \n|||")
                 failed(error as? AnyObject);
@@ -71,7 +72,8 @@ class YHAlamofire: NSObject {
                 if data != nil{
                     let errorStr = String.init(data: data!, encoding: NSUTF8StringEncoding);
                     print("||  failed error  ||===== \(errorStr) ||||||  end");
-                    success(errorStr);
+                    failed(errorStr);
+                    return;
                 }
                 print("error =||||\n \(error) \n|||")
                 failed(error as? AnyObject);

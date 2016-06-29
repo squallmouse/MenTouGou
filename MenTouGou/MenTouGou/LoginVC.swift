@@ -15,6 +15,10 @@ class LoginVC: UIViewController {
     @IBOutlet weak var passwordTextfield: UITextField!
     
     @IBOutlet weak var loginBtn: UIButton!
+
+    @IBOutlet weak var leftBackBtn: UIButton!
+
+    var vcType:String?;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +26,28 @@ class LoginVC: UIViewController {
         self.loginBtn.layer.masksToBounds = true;
         self.loginBtn.layer.cornerRadius = 5;
         self.passwordTextfield.secureTextEntry = true;
+
+        if self.vcType == nil {
+            self.leftBackBtn.hidden = true;
+        }else{
+            self.leftBackBtn.hidden = false;
+            self.leftBackBtn.addTarget(self, action: #selector(LoginVC.backBtnClickDown), forControlEvents: .TouchUpInside);
+        }
+
+
         
     }
+
+
+
+    func backBtnClickDown()  {
+        self.dismissViewControllerAnimated(true, completion: nil);
+    }
+
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true);
     }
-    
+
 //  MARK:-  按钮们
 //    登录按钮
     @IBAction func loginBtClickDown(sender: AnyObject) {
@@ -70,10 +90,31 @@ class LoginVC: UIViewController {
                 user.setValue(dic["Id"], forKey: "userID");
                 user.setValue(dic["UserName"], forKey: "UserName");
                 user.synchronize();
-            
+//微社区登陆
+                let userAccount = UMComUserAccount.init();
+                userAccount.usid = dic["Id"] as? String;
+                userAccount.name = dic["UserName"] as? String;
+                UMComPushRequest.loginWithCustomAccountForUser(userAccount, completion: { (ponseObject, error) in
+                    if(error == nil){
+//                        登陆成功
+                        print(ponseObject);
+                        if (self.vcType != nil) {
+//                            self.navigationController?.popViewControllerAnimated(true);
+                            self.dismissViewControllerAnimated(true, completion: nil);
+                        }
+
+
+                    }else{
+//                        登陆失败
+                        print("微社区登陆失败");
+                    }
+                });
+//            
             NSNotificationCenter.defaultCenter().postNotification(NSNotification.init(name: "refreshUser", object: nil));
                 hud.hide(true);
-            self.navigationController?.popToRootViewControllerAnimated(true);
+                if self.vcType == nil{
+                    self.navigationController?.popToRootViewControllerAnimated(true);
+                }
                 
             }else{
                 

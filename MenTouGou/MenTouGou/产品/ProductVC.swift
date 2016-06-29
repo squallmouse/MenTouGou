@@ -11,14 +11,26 @@ import UIKit
 class ProductVC: BaseTableViewVC,UISearchBarDelegate {
 
     var msearch:UISearchBar!;
+    var typeValue = "";
+    var hud:MBProgressHUD!;
+
 
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated);
         self.msearch.resignFirstResponder();
+
+            self.hud.hide(true);
+
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if self.title == "特产超市" {
+            self.mtableView.frame = CGRectMake(0, 64, s_width, s_height - 64);
+        }else{
+            self.mtableView.frame = CGRectMake(0, 64, s_width, s_height - 64 - 49);
+        }
+
         self.title = "农产品";
         self.msearch = UISearchBar();
         self.msearch.frame = CGRectMake(100, 20, s_width-200, 44);
@@ -28,10 +40,10 @@ class ProductVC: BaseTableViewVC,UISearchBarDelegate {
         self.msearch.placeholder = "搜索农产品";
         self.automaticallyAdjustsScrollViewInsets = false;
         self.view.backgroundColor = UIColor.whiteColor();
-        self.mtableView.frame = CGRectMake(0, 64, s_width, s_height - 64 - 49);
-//        self.mtableView.delegate = sel
+
+
         self.getUrl = {[weak self](page) in
-            let strUrl = MTG + PRODUCTLIST ;
+            let strUrl = MTG + PRODUCTLIST + self!.typeValue;
             
             let paramaters = [
                 
@@ -43,6 +55,7 @@ class ProductVC: BaseTableViewVC,UISearchBarDelegate {
         }
         
         self.httpData(self.page);
+        self.hud = Utils.creatHUD();
     }
 
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -58,12 +71,11 @@ class ProductVC: BaseTableViewVC,UISearchBarDelegate {
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         self.msearch.resignFirstResponder();
     }
-//    func scrollViewDidScroll(scrollView: UIScrollView) {
-//
-//    }
+
 
 //  MARK:-  数据解析
     override func parserResult(res: AnyObject?) {
+        self.hud.hide(true, afterDelay: 1);
         let arr = res as! NSArray
         for i in 0 ..< arr.count {
             let mo = ProductModle.init(withDic: arr[i]as! NSDictionary);
