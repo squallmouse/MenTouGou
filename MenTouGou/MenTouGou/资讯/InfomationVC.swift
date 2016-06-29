@@ -10,7 +10,7 @@
 import UIKit
 
 class InfomationVC: BaseTableViewVC,LMComBoxViewDelegate {
-    let option1:NSMutableArray = ["全部","产品资讯","旅游资讯","企业资讯"];
+    let option1:NSMutableArray = ["全部资讯","产品资讯","旅游资讯","企业资讯","京西动态","媒体聚焦","微相册","聚焦三农","京西拾趣"];
     let option2:NSMutableArray = ["升序","降序"];
     let option3:NSMutableArray = ["升序","降序"];
 //    var typeValue = "0";
@@ -138,6 +138,7 @@ class InfomationVC: BaseTableViewVC,LMComBoxViewDelegate {
         switch tag {
         case 1900:
             chop1 = String(index);
+            self.title = (option1[Int(index)] as! String);
         case 1901:
             if index == 0 {
                  chop2 = "Asc";
