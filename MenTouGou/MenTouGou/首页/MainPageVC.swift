@@ -347,7 +347,7 @@ class MainPageVC: UIViewController,UITableViewDelegate,UITableViewDataSource,col
 //            京西拾取
             let  vc =  InfomationVC();
             vc.chop1 = "8";
-            vc.title = "京西拾取";
+            vc.title = "京西拾趣";
             vc.hidesBottomBarWhenPushed = true;
             self.navigationController?.pushViewController(vc, animated: true);
         case 2006:
